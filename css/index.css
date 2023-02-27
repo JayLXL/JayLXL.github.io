@@ -1458,7 +1458,7 @@ table td {
   vertical-align: middle;
 }
 *::selection {
-  background: #ffbdae;
+  background: #ffc1b2;
   color: #f7f7f7;
 }
 button {
@@ -1654,7 +1654,7 @@ figure.highlight pre .javascript .function {
 #article-container code {
   padding: 2px 4px;
   background: rgba(27,31,35,0.05);
-  color: #f47466;
+  color: #ff8c7f;
 }
 #article-container pre {
   padding: 10px 20px;
@@ -2780,7 +2780,7 @@ h1.page-title + .tag-cloud-list {
   color: #ffb020;
 }
 #aside-content #card-toc .toc-content .toc-link.active {
-  background: #ff6161;
+  background: #ffb2b2;
   color: #fff;
 }
 #aside-content .sticky_layout:only-child > :first-child {
