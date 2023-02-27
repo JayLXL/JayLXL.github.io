@@ -1,3 +1,2 @@
-http://example.com/2023/02/27/test-passage/
-http://example.com/2023/02/27/hello-world/
+http://example.com/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/
 http://example.com/
