@@ -3159,13 +3159,13 @@ h1.page-title + .tag-cloud-list {
   background-size: cover;
 }
 #footer-wrap {
-  position: relative;
-  padding: 40px 20px;
-  color: var(--light-grey);
+  position: top;
+  padding: 20px 20px;
+  color: #ffb2b2;
   text-align: center;
 }
 #footer-wrap a {
-  color: var(--light-grey);
+  color: #fc6e70;
 }
 #footer-wrap a:hover {
   text-decoration: underline;
