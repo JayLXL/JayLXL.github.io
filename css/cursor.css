@@ -1,9 +1,9 @@
 body {
-    cursor: url(/pics/uparrow.cur),
+    cursor: url(/pics/normal.cur),
         default;
 }
 a,
 img {
-    cursor: url(/pics/uparrow.cur),
+    cursor: url(/pics/normal.cur),
         default;
 }
