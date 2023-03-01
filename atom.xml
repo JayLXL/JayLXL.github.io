@@ -3,11 +3,11 @@
   <title>Jay and Erine&#39;s Blog</title>
   
   
-  <link href="https://github.com/JayLXL/BlogDevelopment/atom.xml" rel="self"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
   
-  <link href="https://github.com/JayLXL/BlogDevelopment/"/>
-  <updated>2023-03-01T14:28:45.708Z</updated>
-  <id>https://github.com/JayLXL/BlogDevelopment/</id>
+  <link href="http://example.com/"/>
+  <updated>2023-03-01T14:34:44.823Z</updated>
+  <id>http://example.com/</id>
   
   <author>
     <name>Jay and Erine</name>
@@ -18,30 +18,30 @@
   
   <entry>
     <title>计算机网络</title>
-    <link href="https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    <id>https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</id>
+    <link href="http://example.com/2023/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://example.com/2023/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</id>
     <published>2023-03-01T14:03:34.031Z</published>
-    <updated>2023-03-01T14:28:45.708Z</updated>
+    <updated>2023-03-01T14:34:44.823Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><p><font color=#ffb020>Computer network（计算机网络）</font>：一组互联的计算机，通过同一种技术自主交换信息</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><p><font color=#ffb020>Computer network（计算机网络）：</font></p><ul><li>一组互联的计算机，通过同一种技术自主交换信息</li><li>可看见实际的计算机情况，即<font color=#FFB2B2>Computer network（计算机网络）：</font></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;第一章-引言&quot;&gt;&lt;a href=&quot;#第一章-引言&quot; class=&quot;headerlink&quot; title=&quot;第一章 引言&quot;&gt;&lt;/a&gt;第一章 引言&lt;/h1&gt;&lt;p&gt;&lt;font color=#ffb020&gt;Computer network（计算机网络）&lt;/font&gt;：一组互</summary>
+    <summary type="html">&lt;h1 id=&quot;第一章-引言&quot;&gt;&lt;a href=&quot;#第一章-引言&quot; class=&quot;headerlink&quot; title=&quot;第一章 引言&quot;&gt;&lt;/a&gt;第一章 引言&lt;/h1&gt;&lt;p&gt;&lt;font color=#ffb020&gt;Computer network（计算机网络）：&lt;/font&gt;&lt;/p</summary>
       
     
     
     
-    <category term="笔记" scheme="https://github.com/JayLXL/BlogDevelopment/categories/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>鲲鹏软件迁移</title>
-    <link href="https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/"/>
-    <id>https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/</id>
+    <link href="http://example.com/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/"/>
+    <id>http://example.com/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/</id>
     <published>2023-03-01T04:18:15.929Z</published>
     <updated>2023-03-01T08:10:29.003Z</updated>
     
@@ -55,15 +55,15 @@
     
     
     
-    <category term="笔记" scheme="https://github.com/JayLXL/BlogDevelopment/categories/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>2022年3月</title>
-    <link href="https://github.com/JayLXL/BlogDevelopment/2023/03/01/2022%E5%B9%B43%E6%9C%88/"/>
-    <id>https://github.com/JayLXL/BlogDevelopment/2023/03/01/2022%E5%B9%B43%E6%9C%88/</id>
+    <link href="http://example.com/2023/03/01/2022%E5%B9%B43%E6%9C%88/"/>
+    <id>http://example.com/2023/03/01/2022%E5%B9%B43%E6%9C%88/</id>
     <published>2023-03-01T04:18:15.928Z</published>
     <updated>2023-03-01T13:39:09.337Z</updated>
     
@@ -79,15 +79,15 @@
     
     
     
-    <category term="随笔" scheme="https://github.com/JayLXL/BlogDevelopment/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>博客搭建</title>
-    <link href="https://github.com/JayLXL/BlogDevelopment/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    <id>https://github.com/JayLXL/BlogDevelopment/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</id>
+    <link href="http://example.com/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>http://example.com/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</id>
     <published>2023-02-27T14:20:47.927Z</published>
     <updated>2023-03-01T14:24:14.309Z</updated>
     
@@ -101,12 +101,12 @@
     
     
     
-    <category term="随笔" scheme="https://github.com/JayLXL/BlogDevelopment/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="日记" scheme="https://github.com/JayLXL/BlogDevelopment/tags/%E6%97%A5%E8%AE%B0/"/>
+    <category term="日记" scheme="http://example.com/tags/%E6%97%A5%E8%AE%B0/"/>
     
-    <category term="blog搭建" scheme="https://github.com/JayLXL/BlogDevelopment/tags/blog%E6%90%AD%E5%BB%BA/"/>
+    <category term="blog搭建" scheme="http://example.com/tags/blog%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
