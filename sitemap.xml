@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2023-03-01</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/2023/02/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2023-03-01</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2023/03/01/2022%E5%B9%B43%E6%9C%88/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/2023/03/01/2022%E5%B9%B43%E6%9C%88/</loc>
     
     <lastmod>2023-03-01</lastmod>
     
@@ -29,7 +29,16 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/2023/03/01/%E9%B2%B2%E9%B9%8F%E8%BD%AF%E4%BB%B6%E8%BF%81%E7%A7%BB/</loc>
+    
+    <lastmod>2023-03-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://github.com/JayLXL/BlogDevelopment/tags/index.html</loc>
     
     <lastmod>2023-02-28</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/categories/index.html</loc>
     
     <lastmod>2023-02-28</lastmod>
     
@@ -48,24 +57,38 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment</loc>
     <lastmod>2023-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
-
-  
   <url>
-    <loc>http://example.com/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://github.com/JayLXL/BlogDevelopment/tags/blog%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2023-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://github.com/JayLXL/BlogDevelopment/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2023-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://github.com/JayLXL/BlogDevelopment/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
