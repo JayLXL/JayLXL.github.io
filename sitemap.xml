@@ -184,20 +184,6 @@
   </url>
   
   <url>
-    <loc>https://jayerine.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-03-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jayerine.top/tags/ACM/</loc>
-    <lastmod>2023-03-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jayerine.top/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-03-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -206,6 +192,20 @@
   
   <url>
     <loc>https://jayerine.top/tags/blog%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2023-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jayerine.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jayerine.top/tags/ACM/</loc>
     <lastmod>2023-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
