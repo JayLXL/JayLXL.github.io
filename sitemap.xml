@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jayerine.top/2021/10/25/87691f71aa6f/</loc>
+    <loc>https://jayerine.top/2023/03/01/871e04cac5f2/</loc>
     
     <lastmod>2023-03-03</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://jayerine.top/2023/03/01/871e04cac5f2/</loc>
+    <loc>https://jayerine.top/2021/10/25/87691f71aa6f/</loc>
     
     <lastmod>2023-03-03</lastmod>
     
@@ -156,20 +156,6 @@
   </url>
   
   <url>
-    <loc>https://jayerine.top/tags/android/</loc>
-    <lastmod>2023-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jayerine.top/tags/csdn/</loc>
-    <lastmod>2023-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jayerine.top/tags/%E5%8D%8E%E4%B8%BA/</loc>
     <lastmod>2023-03-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -192,6 +178,20 @@
   
   <url>
     <loc>https://jayerine.top/tags/blog%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2023-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jayerine.top/tags/android/</loc>
+    <lastmod>2023-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jayerine.top/tags/csdn/</loc>
     <lastmod>2023-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
