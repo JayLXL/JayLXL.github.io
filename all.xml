@@ -151,9 +151,9 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> csdn </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -178,9 +178,9 @@
       
         <tags>
             
-            <tag> csdn </tag>
-            
             <tag> android </tag>
+            
+            <tag> csdn </tag>
             
         </tags>
       
@@ -193,7 +193,7 @@
       <link href="/2023/03/03/3291d1a20502/"/>
       <url>/2023/03/03/3291d1a20502/</url>
       
-        <content type="html"><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h3 id="集合与关系"><a href="#集合与关系" class="headerlink" title="集合与关系"></a>集合与关系</h3><p><img src="https://s1.ax1x.com/2023/03/03/ppAl7tA.jpg" alt="集合与关系"></p><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><p><img src="https://s1.ax1x.com/2023/03/04/ppEkujA.jpg" alt="图"><br><img src="https://s1.ax1x.com/2023/03/04/ppEk6CF.jpg" alt="图"></p><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>形式语言——字符串</li><li>自动机——字符串的识别系统<br>外部激励输入+状态转移</li></ul><div class="table-container"><table><thead><tr><th style="text-align:left">语言</th><th style="text-align:left">自动机</th></tr></thead><tbody><tr><td style="text-align:left">非限定语言</td><td style="text-align:left">图灵机</td></tr><tr><td style="text-align:left">上下文有关语言</td><td style="text-align:left">线性有界自动机</td></tr><tr><td style="text-align:left">上下文无关语言</td><td style="text-align:left">下推式存贮自动机</td></tr><tr><td style="text-align:left">正则语言</td><td style="text-align:left">有限自动机</td></tr></tbody></table></div><p>一定类型的自动机和某种类型的语言有等价性</p><h3 id="字母表"><a href="#字母表" class="headerlink" title="字母表"></a>字母表</h3><p>常用T，用$\Sigma$表示。</p><p>字符串的逆，表示为$ $。</p><h4 id="幂运算和闭包运算"><a href="#幂运算和闭包运算" class="headerlink" title="幂运算和闭包运算"></a>幂运算和闭包运算</h4><p>$T^*$:字母表上所有字符串和空串的集合。</p><p>$T^+$:不包含空串。</p><h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>任何集合$L \in T^*$，L为一个语言。</p><p>对于集合的运算可以运用在语言上。</p><p>语言的积，类似于集合中的笛卡尔积。</p><h3 id="元语言"><a href="#元语言" class="headerlink" title="元语言"></a>元语言</h3><p>描述语言的语言，例如各种各样的程序设计语言。当需要讨论该语言本身时，被讨论的语言叫对象语言。</p><h4 id="BNF（巴斯克范式）"><a href="#BNF（巴斯克范式）" class="headerlink" title="BNF（巴斯克范式）"></a>BNF（巴斯克范式）</h4><p>对各种语言，相当于一个元语言，常用来讨论各种程序设计语言。</p><h4 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h4><p>产生语言的语言。</p><h5 id="Chomsky文法体系"><a href="#Chomsky文法体系" class="headerlink" title="Chomsky文法体系"></a>Chomsky文法体系</h5><ul><li>非终结符集合N</li><li>终结符集合T</li><li>起始符号S</li><li>生成式集合P</li></ul><p>文法的生成式集合例子：</p><ul><li>I-&gt;L</li><li>I-&gt;IL</li><li>I-&gt;ID</li><li>L-&gt;a|b|……|z</li><li>D-&gt;0|1|……|9</li></ul><p>文法G是一个四元组，G=(N,T,P,S)。</p><h3 id="推导与句型"><a href="#推导与句型" class="headerlink" title="推导与句型"></a>推导与句型</h3><p>直接推导的序列为推导序列。<br>推导每一步都产生字符串，称为句型。</p><h4 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h4><p>句型包含句子。句子由终结符构成。<br>由文法G产生的语言几位L(G)</p><h3 id="文法体系分类"><a href="#文法体系分类" class="headerlink" title="文法体系分类"></a>文法体系分类</h3><ul><li><p>0型</p><p>没有任何限制。</p></li><li><p>1型</p><p>上下文有关文法，线性有限自动机</p></li><li><p>2型</p><p>上下文无关文法，下推自动机。</p></li><li><p>3型</p><p>正则文法，左右线性文法。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h3 id="集合与关系"><a href="#集合与关系" class="headerlink" title="集合与关系"></a>集合与关系</h3><p><img src="https://s1.ax1x.com/2023/03/03/ppAl7tA.jpg" alt="集合与关系"></p><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><p><img src="https://s1.ax1x.com/2023/03/04/ppEkujA.jpg" alt="图"><br><img src="https://s1.ax1x.com/2023/03/04/ppEk6CF.jpg" alt="图"></p><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>形式语言——字符串</li><li>自动机——字符串的识别系统<br>外部激励输入+状态转移</li></ul><div class="table-container"><table><thead><tr><th style="text-align:left">语言</th><th style="text-align:left">自动机</th></tr></thead><tbody><tr><td style="text-align:left">非限定语言</td><td style="text-align:left">图灵机</td></tr><tr><td style="text-align:left">上下文有关语言</td><td style="text-align:left">线性有界自动机</td></tr><tr><td style="text-align:left">上下文无关语言</td><td style="text-align:left">下推式存贮自动机</td></tr><tr><td style="text-align:left">正则语言</td><td style="text-align:left">有限自动机</td></tr></tbody></table></div><p>一定类型的自动机和某种类型的语言有等价性</p><h3 id="字母表"><a href="#字母表" class="headerlink" title="字母表"></a>字母表</h3><p>常用T，用$\Sigma$表示。</p><p>字符串的逆，表示为$ $。</p><h4 id="幂运算和闭包运算"><a href="#幂运算和闭包运算" class="headerlink" title="幂运算和闭包运算"></a>幂运算和闭包运算</h4><p>$T^*$:字母表上所有字符串和空串的集合。</p><p>$T^+$:不包含空串。</p><h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>任何集合$L \in T^*$，L为一个语言。</p><p>对于集合的运算可以运用在语言上。</p><p>语言的积，类似于集合中的笛卡尔积。</p><h3 id="元语言"><a href="#元语言" class="headerlink" title="元语言"></a>元语言</h3><p>描述语言的语言，例如各种各样的程序设计语言。当需要讨论该语言本身时，被讨论的语言叫对象语言。</p><h4 id="BNF（巴斯克范式）"><a href="#BNF（巴斯克范式）" class="headerlink" title="BNF（巴斯克范式）"></a>BNF（巴斯克范式）</h4><p>对各种语言，相当于一个元语言，常用来讨论各种程序设计语言。</p><h4 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h4><p>产生语言的语言。</p><h5 id="Chomsky文法体系"><a href="#Chomsky文法体系" class="headerlink" title="Chomsky文法体系"></a>Chomsky文法体系</h5><ul><li>非终结符集合N</li><li>终结符集合T</li><li>起始符号S</li><li>生成式集合P</li></ul><p>文法的生成式集合例子：</p><ul><li>I-&gt;L</li><li>I-&gt;IL</li><li>I-&gt;ID</li><li>L-&gt;a|b|……|z</li><li>D-&gt;0|1|……|9</li></ul><p>文法G是一个四元组，G=(N,T,P,S)。</p><h3 id="推导与句型"><a href="#推导与句型" class="headerlink" title="推导与句型"></a>推导与句型</h3><p>直接推导的序列为推导序列。<br>推导每一步都产生字符串，称为句型。</p><h4 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h4><p>句型包含句子。句子由终结符构成。<br>由文法G产生的语言几位L(G)</p><h3 id="文法体系分类"><a href="#文法体系分类" class="headerlink" title="文法体系分类"></a>文法体系分类</h3><ul><li><p>0型</p><p>没有任何限制。</p></li><li><p>1型</p><p>上下文有关文法，线性有限自动机</p></li><li><p>2型</p><p>上下文无关文法，下推自动机。</p></li><li><p>3型</p><p>正则文法，左右线性文法。</p></li></ul><p>……未完待续♬</p>]]></content>
       
       
       <categories>
@@ -330,9 +330,9 @@
       
         <tags>
             
-            <tag> blog搭建 </tag>
-            
             <tag> 日记 </tag>
+            
+            <tag> blog搭建 </tag>
             
         </tags>
       
