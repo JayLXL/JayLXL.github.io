@@ -6,7 +6,7 @@
   <link href="https://jayerine.top/atom.xml" rel="self"/>
   
   <link href="https://jayerine.top/"/>
-  <updated>2023-03-04T10:29:53.171Z</updated>
+  <updated>2023-03-04T11:15:17.668Z</updated>
   <id>https://jayerine.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://jayerine.top/2023/03/04/d52bc35b46e6/"/>
     <id>https://jayerine.top/2023/03/04/d52bc35b46e6/</id>
     <published>2023-03-04T02:07:30.674Z</published>
-    <updated>2023-03-04T10:29:53.171Z</updated>
+    <updated>2023-03-04T11:15:17.668Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h1><h2 id="数据通信理论基础"><a href="#数据通信理论基础" class="headerlink" title="数据通信理论基础"></a>数据通信理论基础</h2><p><strong><font color=#fea401>傅里叶分析：</font></strong></p><ul><li><p>任何有周期T的函数，都可以拆分成若干个正弦波和余弦波的叠加</p></li><li><p>所有的传输设施在传输过程中都要损失一些能量</p></li><li><p>所有的传输设施对于不同傅里叶分量的衰减程度并不相同</p><ul><li>对于不同的正弦波，衰减因子不一样</li></ul></li></ul><p><strong><font color=#fea401>带宽有限的信号：</font></strong></p><ul><li><p><strong><font color=#ff8b61>带宽（传输介质的带宽）：</font></strong> 没有被强(衰减因子为<font color=#FF6347>0.5</font>)衰减的传输频率范围</p><ul><li><p>带宽是传输介质的一种物理特性，通常取决于介质的构成、粗细和电线或者光纤的长度</p><p>  <img src="https://s1.ax1x.com/2023/03/04/ppARZzq.jpg" alt="带宽"></p><ul><li><p>语音级信道带宽为3000Hz</p></li><li><p>T=8/Bps</p></li><li><p>基准谐波：f=Bps/8</p></li><li><p>Harmonics Sent=3000/f=24000/Bps</p></li></ul></li></ul></li></ul><p><strong><font color=#fea401>信道的最大数据速率：</font></strong></p><ul><li><p><strong><font color=#ff8b61>Nyquist’s Theorem：</font></strong> 如果一个信号经过一个带宽为H的低通滤波器（没有高频成分了），信号可以通过每秒2H次采样来完全重构（超过2H的信息已经没有任何价值）</p><p>  <img src="https://s1.ax1x.com/2023/03/04/ppA7mlQ.jpg" alt="采样"></p><ul><li><p><strong><font color=#ff8aaf>最大数据速率：</font></strong> $C=2H\log_{2}{V}$ (b/s)</p><ul><li><p>采样的频率不能超过2H</p></li><li><p>V是符号可能的电平级数（V和噪音有关），因此所携带的信息量是$\log_{2}{V}$(bit)，每秒有2H次次采样，因此有速率为$2H\log_{2}{V}$(b/s)</p></li></ul></li></ul></li><li><p><strong><font color=#ff8b61>Shannon’s Theorem：</font></strong></p><ul><li><p><strong><font color=#ff8aaf>最大数据速率：</font></strong> $C=H\log_{2}{(1+S/N)}$</p><ul><li>S是信号，N是噪音</li></ul></li><li><p>分贝换算： $(S/N)_{dB}=10×\log_{10}{(S/N)}$</p></li></ul></li></ul><h2 id="引导性传输介质"><a href="#引导性传输介质" class="headerlink" title="引导性传输介质"></a>引导性传输介质</h2><p><strong><font color=#fea401>磁介质：</font></strong></p><ul><li><p>带宽：一盘磁带可以容纳800GB，一个盒子可以容纳1000个磁带:800TB；带宽=800Tx8bits/86400s秒=70Gbps </p></li><li><p>成本：磁带成本4000美元每盒每次使用；运输1000美元，运输1GB低于0.5美分</p></li></ul><p><strong><font color=#fea401>双绞线：</font></strong></p><p><img src="https://pic4.zhimg.com/v2-2640cfd4bb07d1f1ec97cceec3db2edb_r.jpg" alt="双绞线"></p><ul><li><p>无屏蔽双绞线UTP，屏蔽双绞线STP</p><ul><li><p>Category 3 UTP: 16MHz</p></li><li><p>Category 5 UTP: 100MHz</p></li><li><p>Category 6 UTP: 250MHz</p></li><li><p>Category 7 UTP: 600MHz</p></li></ul></li><li><font color=#FF6347>电流大小相等，方向相反</font></li><li><p><strong><font color=#ff8b61>差分传输：</font></strong> 减弱环境噪音对自身信号的影响</p></li><li><p><strong><font color=#ff8b61>减少串扰：</font></strong> 两根导线产生的相反方向的磁场，减少自身信号对环境的干扰</p></li></ul><p><strong><font color=#fea401>同轴电缆：</font></strong></p><p><img src="https://pic4.zhimg.com/v2-c029107f99f5b47aeee5d6cfc55691df_r.jpg" alt="同轴电缆"></p><ul><li><p>以高速在长距离中传输</p></li><li><p>高带宽：超过GHz</p></li><li><p>卓越的抗干扰性能</p></li></ul><p><strong><font color=#fea401>电力线：</font></strong></p><ul><li><p>在家庭内部作为局域网，在家庭外部用于宽带互联网接入</p></li><li><p>设计用于分配电源信号</p></li></ul><p><strong><font color=#fea401>光纤：</font></strong></p><p><img src="https://www.vfe.ac.cn/Storage/uploads/201509/20150927154309_9165.jpg" alt="光纤"></p><h2 id="无线传输"><a href="#无线传输" class="headerlink" title="无线传输"></a>无线传输</h2><p><strong><font color=#fea401>电磁频谱：</font></strong></p><ul><li><p>频率越低，穿透力越强，越接近于无线电</p></li><li><p>频率越高，穿透力越弱，越接近于可见光</p></li></ul><p><img src="https://s1.ax1x.com/2023/03/04/ppAXbcT.png" alt="电磁频谱"></p><p><strong><font color=#fea401>无线电传输(VLF,LF,MF,HF)：</font></strong></p><ul><li><p><strong><font color=#ff8b61>无线电传输中带宽的两种使用方式：</font></strong></p><ul><li><p><strong><font color=#ff8aaf>使用窄带（电视，收音机）： </font></strong> 大多数传输使用较窄的频带来获得最好的接收</p></li><li><p><strong><font color=#ff8aaf>扩展频谱（蓝牙，无线局域网）：</font></strong></p><ul><li><p><font color=#DA70D6>FHSS跳频扩频：</font> 发送方和接收方使用一个伪随机数序列，随机同步地跳到其他频率</p></li><li><p><font color=#DA70D6>DSSS直接序列扩频： </font>将一个比特进行扩展</p></li><li><p><font color=#DA70D6>UWB超宽带通信： </font>发送一系列快速脉冲，这些脉冲随着通信信息而不断变化自己的位置，这种位置的快速变换导致信号被稀疏分布在一个很宽的频带上</p></li></ul></li></ul></li><li><p>在VLF、LF和MF波段，无线电波沿地球曲率（1000公里）移动</p></li><li><p>在HF波段，它们在100~500公里高度的电离层上反弹</p></li></ul><p><strong><font color=#fea401>微波通信：</font></strong></p><ul><li><p>微波传输几乎是一条直线，发射和接收天线必须精确对准</p></li><li><p>中继器每隔80km要接力一次（地球的曲率阻隔）</p></li><li><p>多径衰落通常是一个严重的问题（取决于天气和频率）</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h1><h2 id="数据通信理论基础"><a href="#数据通信理论基础" class="headerlink" title="数据通信理论基础"></a>数据通信理论基础</h2><p><strong><font color=#fea401>傅里叶分析：</font></strong></p><ul><li><p>任何有周期T的函数，都可以拆分成若干个正弦波和余弦波的叠加</p></li><li><p>所有的传输设施在传输过程中都要损失一些能量</p></li><li><p>所有的传输设施对于不同傅里叶分量的衰减程度并不相同</p><ul><li>对于不同的正弦波，衰减因子不一样</li></ul></li></ul><p><strong><font color=#fea401>带宽有限的信号：</font></strong></p><ul><li><p><strong><font color=#ff8b61>带宽（传输介质的带宽）：</font></strong> 没有被强(衰减因子为<font color=#FF6347>0.5</font>)衰减的传输频率范围</p><ul><li><p>带宽是传输介质的一种物理特性，通常取决于介质的构成、粗细和电线或者光纤的长度</p><p>  <img src="https://s1.ax1x.com/2023/03/04/ppARZzq.jpg" alt="带宽"></p><ul><li><p>语音级信道带宽为3000Hz</p></li><li><p>T=8/Bps</p></li><li><p>基准谐波：f=Bps/8</p></li><li><p>Harmonics Sent=3000/f=24000/Bps</p></li></ul></li></ul></li></ul><p><strong><font color=#fea401>信道的最大数据速率：</font></strong></p><ul><li><p><strong><font color=#ff8b61>Nyquist’s Theorem：</font></strong> 如果一个信号经过一个带宽为H的低通滤波器（没有高频成分了），信号可以通过每秒2H次采样来完全重构（超过2H的信息已经没有任何价值）</p><p>  <img src="https://s1.ax1x.com/2023/03/04/ppA7mlQ.jpg" alt="采样"></p><ul><li><p><strong><font color=#ff8aaf>最大数据速率：</font></strong> $C=2H\log_{2}{V}$ (b/s)</p><ul><li><p>采样的频率不能超过2H</p></li><li><p>V是符号可能的电平级数（V和噪音有关），因此所携带的信息量是$\log_{2}{V}$(bit)，每秒有2H次次采样，因此有速率为$2H\log_{2}{V}$(b/s)</p></li></ul></li></ul></li><li><p><strong><font color=#ff8b61>Shannon’s Theorem：</font></strong></p><ul><li><p><strong><font color=#ff8aaf>最大数据速率：</font></strong> $C=H\log_{2}{(1+S/N)}$</p><ul><li>S是信号，N是噪音</li></ul></li><li><p>分贝换算： $(S/N)_{dB}=10×\log_{10}{(S/N)}$</p></li></ul></li></ul><h2 id="引导性传输介质"><a href="#引导性传输介质" class="headerlink" title="引导性传输介质"></a>引导性传输介质</h2><p><strong><font color=#fea401>磁介质：</font></strong></p><ul><li><p>带宽：一盘磁带可以容纳800GB，一个盒子可以容纳1000个磁带:800TB；带宽=800Tx8bits/86400s秒=70Gbps </p></li><li><p>成本：磁带成本4000美元每盒每次使用；运输1000美元，运输1GB低于0.5美分</p></li></ul><p><strong><font color=#fea401>双绞线：</font></strong></p><p><img src="https://pic4.zhimg.com/v2-2640cfd4bb07d1f1ec97cceec3db2edb_r.jpg" alt="双绞线"></p><ul><li><p>无屏蔽双绞线UTP，屏蔽双绞线STP</p><ul><li><p>Category 3 UTP: 16MHz</p></li><li><p>Category 5 UTP: 100MHz</p></li><li><p>Category 6 UTP: 250MHz</p></li><li><p>Category 7 UTP: 600MHz</p></li></ul></li><li><font color=#FF6347>电流大小相等，方向相反</font></li><li><p><strong><font color=#ff8b61>差分传输：</font></strong> 减弱环境噪音对自身信号的影响</p></li><li><p><strong><font color=#ff8b61>减少串扰：</font></strong> 两根导线产生的相反方向的磁场，减少自身信号对环境的干扰</p></li></ul><p><strong><font color=#fea401>同轴电缆：</font></strong></p><p><img src="https://pic4.zhimg.com/v2-c029107f99f5b47aeee5d6cfc55691df_r.jpg" alt="同轴电缆"></p><ul><li><p>以高速在长距离中传输</p></li><li><p>高带宽：超过GHz</p></li><li><p>卓越的抗干扰性能</p></li></ul><p><strong><font color=#fea401>电力线：</font></strong></p><ul><li><p>在家庭内部作为局域网，在家庭外部用于宽带互联网接入</p></li><li><p>设计用于分配电源信号</p></li></ul><p><strong><font color=#fea401>光纤：</font></strong></p><p><img src="https://www.vfe.ac.cn/Storage/uploads/201509/20150927154309_9165.jpg" alt="光纤"></p><h2 id="无线传输"><a href="#无线传输" class="headerlink" title="无线传输"></a>无线传输</h2><p><strong><font color=#fea401>电磁频谱：</font></strong></p><ul><li><p>频率越低，穿透力越强，越接近于无线电</p></li><li><p>频率越高，穿透力越弱，越接近于可见光</p></li></ul><p><img src="https://s1.ax1x.com/2023/03/04/ppAXbcT.png" alt="电磁频谱"></p><p><strong><font color=#fea401>无线电传输(VLF,LF,MF,HF)：</font></strong></p><ul><li><p><strong><font color=#ff8b61>无线电传输中带宽的两种使用方式：</font></strong></p><ul><li><p><strong><font color=#ff8aaf>使用窄带（电视，收音机）： </font></strong> 大多数传输使用较窄的频带来获得最好的接收</p></li><li><p><strong><font color=#ff8aaf>扩展频谱（蓝牙，无线局域网）：</font></strong></p><ul><li><p><font color=#DA70D6>FHSS跳频扩频：</font> 发送方和接收方使用一个伪随机数序列，随机同步地跳到其他频率</p></li><li><p><font color=#DA70D6>DSSS直接序列扩频： </font>将一个比特进行扩展</p></li><li><p><font color=#DA70D6>UWB超宽带通信： </font>发送一系列快速脉冲，这些脉冲随着通信信息而不断变化自己的位置，这种位置的快速变换导致信号被稀疏分布在一个很宽的频带上</p></li></ul></li></ul></li><li><p>在VLF、LF和MF波段，无线电波沿地球曲率（1000公里）移动</p></li><li><p>在HF波段，它们在100~500公里高度的电离层上反弹</p></li></ul><p><strong><font color=#fea401>微波通信：</font></strong></p><ul><li><p>微波传输几乎是一条直线，发射和接收天线必须精确对准</p></li><li><p>中继器每隔80km要接力一次（地球的曲率阻隔）</p></li><li><p>多径衰落通常是一个严重的问题（取决于天气和频率）</p></li></ul><p>……未完待续♬</p>]]></content>
     
     
       
@@ -224,6 +224,31 @@
   </entry>
   
   <entry>
+    <title>毛概</title>
+    <link href="https://jayerine.top/2023/03/02/5308371099e3/"/>
+    <id>https://jayerine.top/2023/03/02/5308371099e3/</id>
+    <published>2023-03-02T02:06:36.675Z</published>
+    <updated>2023-03-02T02:06:36.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>2022.3.2<br>毛泽东思想形成和发展的过程<br><img src="/pics/毛泽东思想的发展.jpg" alt="发展过程"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2022.3.2&lt;br&gt;毛泽东思想形成和发展的过程&lt;br&gt;&lt;img src=&quot;/pics/毛泽东思想的发展.jpg&quot; alt=&quot;发展过程&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="课程" scheme="https://jayerine.top/tags/%E8%AF%BE%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2022年3月</title>
     <link href="https://jayerine.top/2023/03/02/1eb9c1a8be99/"/>
     <id>https://jayerine.top/2023/03/02/1eb9c1a8be99/</id>
@@ -246,31 +271,6 @@
     
     
     <category term="日记" scheme="https://jayerine.top/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>毛概</title>
-    <link href="https://jayerine.top/2023/03/02/5308371099e3/"/>
-    <id>https://jayerine.top/2023/03/02/5308371099e3/</id>
-    <published>2023-03-02T02:06:36.675Z</published>
-    <updated>2023-03-02T02:06:36.675Z</updated>
-    
-    <content type="html"><![CDATA[<p>2022.3.2<br>毛泽东思想形成和发展的过程<br><img src="/pics/毛泽东思想的发展.jpg" alt="发展过程"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;2022.3.2&lt;br&gt;毛泽东思想形成和发展的过程&lt;br&gt;&lt;img src=&quot;/pics/毛泽东思想的发展.jpg&quot; alt=&quot;发展过程&quot;&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="课程" scheme="https://jayerine.top/tags/%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
@@ -336,9 +336,9 @@
     <category term="网站日志" scheme="https://jayerine.top/categories/%E7%BD%91%E7%AB%99%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="日记" scheme="https://jayerine.top/tags/%E6%97%A5%E8%AE%B0/"/>
-    
     <category term="blog搭建" scheme="https://jayerine.top/tags/blog%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="日记" scheme="https://jayerine.top/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
