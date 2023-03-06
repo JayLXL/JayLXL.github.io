@@ -213,9 +213,9 @@
     <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="csdn" scheme="https://jayerine.top/tags/csdn/"/>
-    
     <category term="机器学习" scheme="https://jayerine.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="csdn" scheme="https://jayerine.top/tags/csdn/"/>
     
   </entry>
   
@@ -241,9 +241,9 @@
     <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="android" scheme="https://jayerine.top/tags/android/"/>
-    
     <category term="csdn" scheme="https://jayerine.top/tags/csdn/"/>
+    
+    <category term="android" scheme="https://jayerine.top/tags/android/"/>
     
   </entry>
   
@@ -260,31 +260,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h1&gt;&lt;h2 id=&quot;集合与关系&quot;&gt;&lt;a href=&quot;#集合与关系&quot; class=&quot;headerlink&quot; title=&quot;集合与关系&quot;&gt;&lt;/a&gt;</summary>
-      
-    
-    
-    
-    <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="课程" scheme="https://jayerine.top/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>毛概</title>
-    <link href="https://jayerine.top/2023/03/02/5308371099e3/"/>
-    <id>https://jayerine.top/2023/03/02/5308371099e3/</id>
-    <published>2023-03-02T02:06:36.675Z</published>
-    <updated>2023-03-02T02:06:36.675Z</updated>
-    
-    <content type="html"><![CDATA[<p>2022.3.2<br>毛泽东思想形成和发展的过程<br><img src="/pics/毛泽东思想的发展.jpg" alt="发展过程"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;2022.3.2&lt;br&gt;毛泽东思想形成和发展的过程&lt;br&gt;&lt;img src=&quot;/pics/毛泽东思想的发展.jpg&quot; alt=&quot;发展过程&quot;&gt;&lt;/p&gt;
-</summary>
       
     
     
@@ -319,6 +294,31 @@
     
     
     <category term="日记" scheme="https://jayerine.top/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毛概</title>
+    <link href="https://jayerine.top/2023/03/02/5308371099e3/"/>
+    <id>https://jayerine.top/2023/03/02/5308371099e3/</id>
+    <published>2023-03-02T02:06:36.675Z</published>
+    <updated>2023-03-02T02:06:36.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>2022.3.2<br>毛泽东思想形成和发展的过程<br><img src="/pics/毛泽东思想的发展.jpg" alt="发展过程"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2022.3.2&lt;br&gt;毛泽东思想形成和发展的过程&lt;br&gt;&lt;img src=&quot;/pics/毛泽东思想的发展.jpg&quot; alt=&quot;发展过程&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="课程" scheme="https://jayerine.top/tags/%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
