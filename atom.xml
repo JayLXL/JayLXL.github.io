@@ -6,7 +6,7 @@
   <link href="https://jayerine.top/atom.xml" rel="self"/>
   
   <link href="https://jayerine.top/"/>
-  <updated>2023-03-13T06:32:47.124Z</updated>
+  <updated>2023-03-14T07:53:21.987Z</updated>
   <id>https://jayerine.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习</title>
+    <link href="https://jayerine.top/2023/03/14/3c8ca93fe4d8/"/>
+    <id>https://jayerine.top/2023/03/14/3c8ca93fe4d8/</id>
+    <published>2023-03-14T07:53:21.986Z</published>
+    <updated>2023-03-14T07:53:21.987Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a><a href="https://zhuanlan.zhihu.com/p/184686598">K-Means</a></h2><figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">方以类聚，物以群分。</span><br><span class="line">                    ——《易经》</span><br></pre></td></tr></table></figure><p>聚类算法KMeans是无监督学习的杰出代表之一，K-Means可以做为其他聚类算法的基础。</p><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>通过迭代寻找K个簇（Cluster）的一种划分方案，使得聚类结果对应的损失函数最小。其中，损失函数可以定义为各个样本距离所属簇中心点的误差平方和：</p><script type="math/tex; mode=display">J(c, \mu)=\sum_{i=1}^{M}{||x_{i}-\mu_{c_{i}}||^{2}}</script><p>其中 $x_{i}$ 代表第 $i$ 个样本， $c_{i}$ 是 $x_{i}$ 所属的簇， $\mu_{c_{i}}$ 代表簇对应的中心点， $M$ 是样本总数。</p><h3 id="主要过程"><a href="#主要过程" class="headerlink" title="主要过程"></a>主要过程</h3><ol><li>选定初始簇中心</li><li>更新簇中心位置</li><li>更新分类归属</li><li>重复2、3步到簇中心不在变化</li></ol><h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><p>KMeans的核心目标是将给定的数据集划分成K个簇（K是超参），并给出每个样本数据对应的中心点。具体步骤非常简单，可以分为4步：</p><p>（1）数据预处理。主要是标准化、异常点过滤。</p><p>（2）随机选取K个中心，记为 $\mu_{1}^{(0)},\mu_{2}^{(0)},…,\mu_{k}^{(0)}$</p><p>（3）定义损失函数： $J(c, \mu)=min\sum_{i=1}^{M}{||x_{i}-\mu_{c_{i}}||^{2}}$</p><p>（4）令$t=0,1,2,…$ 为迭代步数，重复如下过程直到 J 收敛：</p><ul><li>对于每一个样本 $x_{i}$ ，将其分配到距离最近的中心</li></ul><script type="math/tex; mode=display">c_{i}^{t} <—argmin_{k}{||x_{i}-\mu_{k}^{t}||^{2}}</script><ul><li>对于每一个类中心k，重新计算该类的中心</li></ul><script type="math/tex; mode=display">\mu_{k}^{(t+1)} <—argmin_{\mu}\sum_{i:c_{i}^{t}=k}^{b}{||x_{i}-\mu||^{2}}</script><p>KMeans最核心的部分就是先固定中心点，调整每个样本所属的类别来减少 J ；再固定每个样本的类别，调整中心点继续减小J 。两个过程交替循环， J 单调递减直到最（极）小值，中心点和样本划分的类别同时收敛。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>KMenas的优点：</p><ul><li>高效可伸缩，计算复杂度 为O(NKt)接近于线性（N是数据量，K是聚类总数，t是迭代轮数）。</li><li>收敛速度快，原理相对通俗易懂，可解释性强。</li></ul><p>KMeans也有一些明显的缺点：</p><ul><li>受初始值和异常点影响，聚类结果可能不是全局最优而是局部最优。</li><li>K是超参数，一般需要按经验选择。</li><li>样本点只能划分到单一的类中。</li><li>不适合圆形数据集的分类（非凸数据集）。<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3>图像压缩：图像矢量量化。<blockquote><p>对颜色进行聚类，若原图256*256，每个像素用24个比特的RGB表示。若经过聚类颜色之后剩下64种颜色，只用6比特表示颜色，压缩率为$\frac{6}{24}\times 100\%$。</p><h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3></blockquote></li></ul><ol><li><p>数据预处理：归一化和异常点过滤</p><p> KMeans本质上是一种基于欧式距离度量的数据划分方法，均值和方差大的维度将对数据的聚类结果产生决定性影响。所以在聚类前对数据（具体的说是每一个维度的特征）做归一化和单位统一至关重要。此外，异常值会对均值计算产生较大影响，导致中心偏移，这些噪声点最好能提前过滤。</p></li><li><p>合理选择K值</p><p> K值的选择一般基于实验和多次实验结果。例如采用手肘法，尝试不同K值并将对应的损失函数画成折线。手肘法认为图上的拐点就是K的最佳值。</p><p> 为了将找寻最佳K值的过程自动化，研究人员提出了Gap Statistic方法。它的有点是我们不再需要肉眼判断，只需要找到最大的Gap Statistic对应的K即可。</p><p> 沿用第一节中损失函数记为 $D_{k}$ ，当分为K类时，Gap Statistic定义为： $Gap(k)=E(logD_{k})-logD_{k}$ 。 $E(logD_{k})$ 是 $logD_{k}$ 的期望，一般由蒙特卡洛模拟产生。我们在样本所在的区域内按照均匀分布随机地产生和原始样本数一样多的随机样本，并对这个随机样本做KMeans，得到一个 $D_{k}$ ，重复多次就可以计算出 $E(logD_{k})$ 的近似值。</p><p> $Gap(K)$ 的物理含义是随机样本的损失与实际样本的损失之差。$Gap$越大说明聚类的效果越好。一种极端情况是，随着K的变化 $Gap(K)$ 几乎维持一条直线保持不变。说明这些样本间没有明显的类别关系，数据分布几乎和均匀分布一致，近似随机。此时做聚类没有意义。</p></li><li><p>改进初始值的选择</p><p> 之前我们采取随机选择K个中心的做法，可能导致不同的中心点距离很近，就需要更多的迭代次数才能收敛。如果在选择初始中心点时能让不同的中心尽可能远离，效果往往更好。这类算法中，以K-Means++算法最具影响力。</p></li><li><p>采用核函数</p><p> 主要思想是通过一个非线性映射，将输入空间中的数据点映射到高位的特征空间中，并在新的空间进行聚类。非线性映射增加了数据点线性可分的概率（与SVM中使用核函数思想类似）对于非凸的数据分布可以达到更为准确的聚类结果。</p></li></ol><h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a><a href="https://zhuanlan.zhihu.com/p/31886934">SVM</a></h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>支持向量机（support vector machines, SVM）是一种二分类模型，它的基本模型是定义在特征空间上的间隔最大的线性分类器，间隔最大使它有别于感知机；SVM还包括核技巧，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。属于有监督学习。</p><p>研究对线性二分类问题的凸优化问题的表示，以及支持向量机的求解。</p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示， $\boldsymbol{w}\cdot x+b=0$ 即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/支持向量机.jpg" alt="二分类划分"></p><script type="math/tex; mode=display">w=[w1,w2]\quad x=[x,y]^T</script><p>点到超平面的距离是</p><script type="math/tex; mode=display">d=\frac{|xX_0+b|}{||w||}</script><p>若$X_0$为支持向量，</p><script type="math/tex; mode=display">d=\frac{1}{||w||}</script><p>用a缩放w和b，$(w,b)\rightarrow(aw,ab)$</p><p>当$|wx_0+b|=1$，$x_0$是支持向量。</p><p>当$|wx_0+b|&gt;1$，$x_0$非支持向量。</p><h3 id="支持向量机的求解"><a href="#支持向量机的求解" class="headerlink" title="支持向量机的求解"></a>支持向量机的求解</h3><p>支持向量机求解是一个凸问题，存在唯一一个全局极值。</p><p>凸问题总能找到高效快速的算法来解决。</p><ul><li>拉格朗日乘子法求解</li><li>用现成数学包求解<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a><a href="https://zhuanlan.zhihu.com/p/30059442">决策树</a></h2>决策树是一种十分常用的分类方法，需要监管学习。<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3>熵：表示信息的不确定性，即混乱程度。<script type="math/tex; mode=display">H(D)=-\sum_{i=1}^N p_ilog_2p_i</script>$p_i$表示取到某个信息元素D的概率。</li></ul><p>信息增益：表示得知特征A的信息而使得类X得信息不确定性减少得程度。<br>若用g(D,A)表示特征A对训练数据集D得信息增益，则有：</p><script type="math/tex; mode=display">g(D,A)=H(D)-H(D|A)</script><p>D|A表示加入A特征之后的训练集D。</p><p>条件熵：假设在特征A上有m个分支节点，其中$D_i$表示特征A得第i个分支得节点的数据，则</p><script type="math/tex; mode=display">H(D|A)=\sum_{i=1}^m\frac{|D_i|}{|D|}H(D_i)</script><p>即，特征A的分支节点的熵的加权和。</p><h3 id="训练期望"><a href="#训练期望" class="headerlink" title="训练期望"></a>训练期望</h3><ul><li>希望随着树深度的增加，节点的熵迅速的降低。</li><li>得到一个高度最矮的决策树。</li><li>到叶子节点的熵值为0，此时叶子节点为纯节点，即每个叶子节点中的实例都属于同一类。<h3 id="决策树的构造"><a href="#决策树的构造" class="headerlink" title="决策树的构造"></a>决策树的构造</h3>计算所有属性的信息增益，选择当前信息增益最大的特征进行划分。<h3 id="改进算法"><a href="#改进算法" class="headerlink" title="改进算法"></a>改进算法</h3>CART算法。<h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2>卷积神经网络（Convolutional Neural Networks）是一种深度学习模型或类似于人工神经网络的多层感知器，常用来分析视觉图像。</li></ul><p>全连神经网络数量太庞大，不适合处理图像，因此需要通过CNN局部感知。<br>CNN特点：</p><ul><li>局部感知</li><li>参数共享</li><li>多卷积核</li><li><p>池化处理</p><p>最大池化、平均池化</p></li><li><p>多层结构</p><p>层数越多，学到的特征越全局化</p></li></ul><p>卷积计算，使用哈达玛积。</p><p>步长：滑动的长度</p><p>窄卷积和宽卷积：对图像边缘的处理，是否扩充图片边缘。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;K-Means&quot;&gt;&lt;a href=&quot;#K-Means&quot; class=&quot;headerlink&quot; title=&quot;K-Means&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/184686598&quot;&gt;K-Means&lt;/a&gt;&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="机器学习" scheme="https://jayerine.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络 第三章 数据链路层</title>
@@ -285,9 +309,9 @@
     <category term="笔记" scheme="https://jayerine.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="csdn" scheme="https://jayerine.top/tags/csdn/"/>
-    
     <category term="机器学习" scheme="https://jayerine.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="csdn" scheme="https://jayerine.top/tags/csdn/"/>
     
   </entry>
   
@@ -482,30 +506,6 @@
     
     
     <category term="课程" scheme="https://jayerine.top/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《月亮与六便士》读后感</title>
-    <link href="https://jayerine.top/2021/10/25/87691f71aa6f/"/>
-    <id>https://jayerine.top/2021/10/25/87691f71aa6f/</id>
-    <published>2021-10-24T16:00:00.000Z</published>
-    <updated>2023-03-03T14:13:29.382Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Erine"><a href="#Erine" class="headerlink" title="Erine:"></a>Erine:</h2><p>昨天，我读完了《月亮与六便士》，他是以一种毛姆式的幽默讽刺的方式来结尾的，不同于《美丽新世界》中以野蛮人自缢身亡时双脚的每一次如沉重鼓点般摆动的结尾那样令我感到大为震撼。</p><p>回顾全书，就好像是作者将一位天才画家的事迹娓娓道来。我只能说他也许是我无比向往的一个真正自由的人，他将灵魂献祭给艺术，他不被世俗情感所牵绊，不在乎金钱和地位。大概就是他这种原始的，野蛮的，自由的，痛苦的灵魂才吸引了这么多的包括我在内的人吧，虽说在现实中我应该不会和这样的人交往，但正如作者所说制造神话是人类的天性。对那些出类拔萃的人物，如果他们生活中有什么令人感到诧异或者迷惑不解的事件，人们就会如饥似渴地抓住不放，编造出种种神话，而且深信不疑，近乎狂热。这可以说是浪漫主义对平凡暗淡的生活的一种抗议。对于这样一个有着奇行怪癖的人，你也不得不承认他有一种独特的如同磁石的魅力，让你不断想去了解他，喜欢他。</p><p>想到斯特里克兰德太太，施特略夫，勃朗什，再到艾塔，包括作者自己，这一众人化作了一个留影，那可能只是隽永的灵魂下的轻描淡写的一笔涂抹罢了，但极其敏感的情绪让人在出众的嘲弄之中余留稍显愚蠢的回望。我现在真真切切的感受到了一种戏弄嘲讽，一种鄙薄羞耻，我无法摆脱它，我一辈子也要和它作伴，它已经变成了墨守陈规的机械的齿轮转动，变成了藏掖欲望的狼狈不堪，变成了撬开笑颜的野蛮的世俗道义。</p><p>我妄图撕下虚伪的外衣暴露出真实而丑陋的内心独白，然而千丝万缕织成的网总是会铺成一条既定的路线，让你去遵循，去迎合，去被迫扭曲成不情愿的样子，最终让不情愿也扭曲了自我成为情愿的忠诚的奴仆。</p><p>我的苦痛在世人众多纷繁的苦痛之中早已是微不足道且矫揉造作的，我尚且还可以向生活颔首，自顾自地逞强。我的不竭的激情仅仅源自于对内心的不甘和无力的填补。虽然我的肉体总是充沛饱满的，但这样一种由内而外的沉重感压抑着内心，那是失去一丝残存自由的苟延残喘。我多么羡慕和向往斯特里克兰德的自由，我多么想真正成为庄子所说的无用之木，但是我知道这是我无法企及的高度。斯特里克兰德是个自由的混蛋和天才，有时候就是这样，自由和good会发生激烈的冲突，鱼与熊掌不可兼得，我站在周遭草木葳蕤的分岔路口，在一种该死的良心的趋势下，我选择了尽量成为一个好的人，但是我更希望我可以是自由的成为一个好的人。</p><p>回到《月亮与六便士》，这真的算是一本可以与我的心灵对接契合的书，无论如何，我会是一个世俗的人，一个为了六便士的四处奔波的人，我也只能在书里向往着月亮，聊以自慰。</p><p>我也没有什么好不好的时候，就像一湾平静的湖水，偶尔会出现一些细小的縠纹。也许语言和艺术真的是有巧言令色的成分在的，说实话我很喜欢这种文字暧昧不清的意味，尽管我知道这可能只是巧言令色，在深沉的情感中故作姿态，而我不也成为了它的一员吗？</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Erine&quot;&gt;&lt;a href=&quot;#Erine&quot; class=&quot;headerlink&quot; title=&quot;Erine:&quot;&gt;&lt;/a&gt;Erine:&lt;/h2&gt;&lt;p&gt;昨天，我读完了《月亮与六便士》，他是以一种毛姆式的幽默讽刺的方式来结尾的，不同于《美丽新世界》中以野蛮人自缢身亡</summary>
-      
-    
-    
-    
-    <category term="随笔" scheme="https://jayerine.top/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="文学" scheme="https://jayerine.top/tags/%E6%96%87%E5%AD%A6/"/>
     
   </entry>
   
