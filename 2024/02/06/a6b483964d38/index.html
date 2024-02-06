@@ -1,0 +1,689 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络 第三章 数据链路层 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="第三章 数据链路层物理层给数据链路层提供的服务是传送数字信号，这个信号有可能是恒定的比特流或字节流   数据链路层在两个邻接的计算机之间提供可靠的，高效率的通信（点到点）    邻接：两个计算机之间用一个通信信道（有线或无线）连接在一起，也叫点到点。  通信信道在概念上就像一条线路（比如同轴电缆、电话线或者无线信道）。信道像一条线路的本质特性使得信道上传递的比特顺序与发送顺序完全相同。 数据链路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络 第三章 数据链路层">
+<meta property="og:url" content="https://jayerine.top/2024/02/06/a6b483964d38/index.html">
+<meta property="og:site_name" content="Jay and Erine&#39;s Blog">
+<meta property="og:description" content="第三章 数据链路层物理层给数据链路层提供的服务是传送数字信号，这个信号有可能是恒定的比特流或字节流   数据链路层在两个邻接的计算机之间提供可靠的，高效率的通信（点到点）    邻接：两个计算机之间用一个通信信道（有线或无线）连接在一起，也叫点到点。  通信信道在概念上就像一条线路（比如同轴电缆、电话线或者无线信道）。信道像一条线路的本质特性使得信道上传递的比特顺序与发送顺序完全相同。 数据链路">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg">
+<meta property="article:published_time" content="2024-02-06T04:00:21.561Z">
+<meta property="article:modified_time" content="2024-02-06T04:00:21.561Z">
+<meta property="article:author" content="Jay and Erine">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/03/01/ppieNl9.png"><link rel="canonical" href="https://jayerine.top/2024/02/06/a6b483964d38/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/all","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络 第三章 数据链路层',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-06 12:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">计算机网络 第三章 数据链路层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.561Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.561Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">专业课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络 第三章 数据链路层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%B8%89%E7%AB%A0.webp"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%B8%89%E7%AB%A0.jpg"></p>
+<h1 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h1><p>物理层给数据链路层提供的服务是传送数字信号，这个信号有可能是恒定的比特流或字节流  </p>
+<p>数据链路层在两个<font color=#FF6347>邻接</font>的计算机之间提供<font color=#FF6347>可靠的</font>，高效率的通信（点到点）  </p>
+<ul>
+<li>邻接：两个计算机之间用一个通信信道（有线或无线）连接在一起，也叫点到点。</li>
+</ul>
+<p>通信信道在概念上就像一条线路（比如同轴电缆、电话线或者无线信道）。信道像一条线路的本质特性使得信道上<font color=#FF6347>传递的比特顺序与发送顺序完全相同</font>。</p>
+<h2 id="数据链路层的设计问题"><a href="#数据链路层的设计问题" class="headerlink" title="数据链路层的设计问题"></a>数据链路层的设计问题</h2><p>数据链路层使用物理层提供的服务在通信信道上发送和接收比特。它要完成一些功能，包括：<br>（1） 向网络层提供一个定义良好的服务接口。<br>（2） 把比特流或字节流封装成帧。<br>（3） 处理传输错误，尾部用于差错控制。<br>（4） 调节数据流，确保慢速的接收方不会被快速的发送方淹没。  </p>
+<p><strong><font color=#fea401>数据链路层的功能:</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8b61>为网络层提供业务接口</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8aaf>数据链路层通常会提供以下3种可能的服务：</font></strong>  </p>
+<ul>
+<li><p><font color=#b59bfd>无确认的无连接服务：</font>源机器向目标机器发送独立的帧，目标机器并不对这些帧进行确认  </p>
+<ul>
+<li><p>想发就发，不管数据有没有差错或者丢失  </p>
+</li>
+<li><p>例如以太网</p>
+</li>
+<li><p>差错率非常低，如果出错需要最高层去解决，但是越高层解决，代价就越大 </p>
+</li>
+<li><p>语音传输</p>
+</li>
+</ul>
+</li>
+<li><p><font color=#b59bfd>有确认的无连接服务：</font>数据链路层仍然没有使用逻辑连接，但其发送的每一帧都需要单独确认</p>
+<ul>
+<li><p>WiFi  </p>
+</li>
+<li><p>发送方需要知道这一帧是正确到达了还是丢失了。若在特定的时间间隔内没有到达，则再发一遍</p>
+</li>
+</ul>
+</li>
+<li><p><font color=#b59bfd>有确认的有连接服务：</font>在数据链路层提供确认只是一种优化手段，永远不应该成为一种需求</p>
+<ul>
+<li><p>可靠性较差的长链路  </p>
+</li>
+<li><p>如果在计时器超时之前，该数据包的确认还没有到来，那么发送方只要再次发送整个报文即可。这一策略的麻烦在于它可能导致传输的低效率。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8b61>处理传输错误</font></strong></p>
+</li>
+<li><p><strong><font color=#ff8b61>调节数据流</font></strong></p>
+</li>
+</ul>
+<p><strong><font color=#fea401>成帧：</font></strong> </p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/1.jpg" alt="成帧"></p>
+<p>一个比特流（或是字节流）通过点到点链路从节点A发送到节点B。节点B必须准确地识别构成帧的比特集，也就是说，它必须确定帧的开始和结束位置，哪几个比特是一伙的</p>
+<p><strong><font color=#ff8b61>拆分比特流的4种方法：</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8aaf>字节计数法：</font></strong></p>
+<p>  <img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/2.png" alt="字节计数法"></p>
+<ul>
+<li><p>面临的物理层提供的服务是字节流 </p>
+</li>
+<li><p>这个算法的问题在于计数值有可能因为一个传输错误而被弄混</p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8aaf>字符填充法：</font></strong> </p>
+<p>  <img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/3.png" alt="字符填充法"></p>
+<ul>
+<li><p>每个帧用一些特殊的字节作为开始和结束。这些特殊字节通常都相同，称为标志字节，作为帧的起始和结束分界符</p>
+</li>
+<li><p>浪费了带宽</p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8aaf>比特填充法：</font></strong></p>
+<ul>
+<li><p>每个帧的开始和结束由一个特殊的比特模式，01111110标记，同时在数据当中每出现5个1，后面就插入1个0 </p>
+</li>
+<li><p>接收方读取到连续5个1后的0，会直接丢弃</p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8aaf>物理层编码违禁法：</font></strong></p>
+<ul>
+<li><p>比特编码成信号通常包括一些冗余比特，这种冗余意味着这种冗余不会出现在常规数据中。可以利用这些保留的信号来指示帧的开始和结束。</p>
+</li>
+<li><p><font color=#b59bfd>例如Manchester编码：</font>一个周期内电压由低到高表示为0，由高到低表示为1。<strong>则当电压恒为高或恒为低时，不表示数据，可用做定界符</strong>。</p>
+</li>
+<li><p><font color=#b59bfd>例如4B&#x2F;5B编码：</font>11111表示空闲，11000表示一帧的开始</p>
+</li>
+<li><p><font color=#b59bfd>缺点：</font>但只适用于存在冗余编码的环境。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><font color=#fea401>差错控制：</font></strong></p>
+<p>数据链路层要确保所有的帧最终都被传递给目标机器的网络层，并且保持正确的顺序</p>
+<p>对于无确认的无连接服务，不管发出去的帧是否正确抵达目标机器</p>
+<p>但是对于可靠的、面向连接的服务，这样做肯定还远远不够</p>
+<ul>
+<li><p>确保可靠传递的常用方法是向发送方提供一些有关线路另一端状况的反馈信息</p>
+</li>
+<li><p>有时候由于硬件的问题，一个帧被完全丢失了</p>
+<ul>
+<li><p>有可能数据帧丢失接收方是否收到，也有可能接收方已经收到数据也做出了应答，但是ACK丢失了 </p>
+</li>
+<li><p>这种可能性可以通过在数据链路层中引入<font color=#FF6347>计时器</font>来解决：当发送方发出一帧时，通常要启动一个计时器，如果帧或者确认被丢失，则计时器将被触发，帧将会重新发送</p>
+</li>
+<li><p>同时为了避免接收方将两次或者多次接收到同一帧，要给每一帧<font color=#FF6347>分配序号</font>，这样接收方可以<strong>根据帧的序号来有效区分原始帧和重传帧</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><font color=#fea401>流量控制：</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8b61>基于反馈的流量控制：</font></strong> 接收方给发送方返回信息，允许它发送更多的数据，或者至少告诉发送方自己的情况怎么样。发送数据必须得到接收方的同意</p>
+</li>
+<li><p><strong><font color=#ff8b61>基于速率的流量控制：</font></strong> 限制发送方传输数据的速率，无须利用接收方的反馈信息</p>
+</li>
+</ul>
+<h2 id="差错检测和纠正"><a href="#差错检测和纠正" class="headerlink" title="差错检测和纠正"></a>差错检测和纠正</h2><p><strong><font color=#fea401>纠错码(ECC)：</font></strong></p>
+<p>错误模型:</p>
+<ul>
+<li><p>单比特错误：只有一个比特发生改变</p>
+</li>
+<li><p>突发错误：2个或多个比特发生改变</p>
+</li>
+</ul>
+<p>  <img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/1678799367193.jpg" alt="突发错误"><br>  等价于在原始的数据基础上叠加了这么长的一个噪音</p>
+<ul>
+<li><p><strong><font color=#ff8b61>海明码：</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8aaf>码字：</font></strong> 一个包含了<strong>数据位和校验位</strong>的n位单元</p>
+</li>
+<li><p><strong><font color=#ff8aaf>海明距离：</font></strong> 两个码字中不相同的位的个数</p>
+<ul>
+<li><p>为了可靠地检测d个错误，需要一个距离为<font color=#FF6347>d+1</font>的编码方案（编码：把有效数据变成若干个码字，任意两个合法的码字之间的距离至少为n+1） </p>
+</li>
+<li><p>为了纠正d个错误，需要一个距离为<font color=#FF6347>2d+1</font>的编码方案</p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8aaf>纠正单个错误所需的校验位数：</font></strong> </p>
+<ul>
+<li><p>m个消息位，r个校验位，n&#x3D;m+r个码字</p>
+</li>
+<li><p>有$2^m$个合法的消息</p>
+</li>
+<li><p>则需要满足：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/a34447959860e8ec4cfeca23731f77e.jpg" alt="m和r的关系"></p>
+<ul>
+<li><p><strong><font color=#ff8aaf>海明码：</font></strong> </p>
+<p>在海明码中，码字的位被连续编号，从最左端的位开始，紧跟在右边的那位是2，依次从左到右编号。2的幕次方的位（1,2,4,8,16等）是校验位，其余位用来填充m个数据位</p>
+<p>每一个校验位强制进行模2加，或对某些位的集合，包括其本身进行偶（或奇）校验</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/cc4c8b595d36e82239c020e2e5e8a2a.jpg" alt="海明码"></p>
+<p><font color=#b59bfd>海明码纠正突发错误：</font><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/78f910a1650e66d63961c0bc899a89d.jpg" alt="海明码纠正突发错误"></p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8b61>二进制卷积码</font></strong></p>
+</li>
+<li><p><strong><font color=#ff8b61>里德所罗门码</font></strong></p>
+</li>
+<li><p><strong><font color=#ff8b61>低密度奇偶校验码</font></strong></p>
+</li>
+</ul>
+<p><strong><font color=#fea401>检错码：</font></strong></p>
+<p>光纤或高品质铜线的错误率要低得多，因此对于偶尔出现的错误采用差错检测和重传的处理方式通常更加有效</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/6046da809151c13eefb101a713644ca.jpg" alt="开销对比"></p>
+<p>海明码检测出错之后<font color=#FF6347>不用重传，可以自行纠错（翻转出错的比特）</font></p>
+<ul>
+<li><p><strong><font color=#ff8b61>奇偶校验：</font></strong> </p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/c158f43a7bafed78b18af98207b7a60.jpg" alt="奇偶校验"></p>
+<ul>
+<li><p>可以检测突发错误小于等于r的</p>
+</li>
+<li><p>可能可以检测出偶数个比特的翻转，<font color=#FF6347>一定可以检测出奇数个比特的翻转</font></p>
+</li>
+<li><p>若突发错误的长度<strong>大于r且有偶数个比特的翻转</strong>，则被接受的概率为<font color=#FF6347>${(\frac{1}{2})^{r}}$</font></p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8b61>多项式编码(CRC,Cyclic Redundancy Check)：</font></strong></p>
+<ul>
+<li><p>将位串看成是系数为0或1的多项式M(x)，作为被除数。一个k位帧看作是一个k-1次多项式的系数列表，该多项式共有k项，从$x^{k-1}$到$x^0$</p>
+</li>
+<li><p>生成多项式G(x)作为除数，发送方和接收方约定好G(x)</p>
+</li>
+<li><p><font color=#ff8aaf>多项式的模2算术：</font>加法和减法等同于异或</p>
+</li>
+<li><p>M(x)&#x2F;G(x)，进行模2运算，得到余数即为帧校验序列</p>
+</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%9B%BE%E7%89%87/98d199807906993dbd21ca457ee5582.png" alt="CRC"></p>
+<ul>
+<li><p>如果传输过程中出现了错误，则接收方收到的数据可以看作正确数据和差错的叠加，即T(x)+E(x)。由于接受方收到的正确数据T(x)一定有：T(x)&#x2F;G(x)的余数一定为0，那么结果为E(x)&#x2F;G(x)</p>
+<ul>
+<li><p>若E(x)&#x2F;G(x)余数恰好为0，则差错会被忽略</p>
+</li>
+<li><p>除此之外，其他情况都可以检测出来</p>
+<ul>
+<li><p><font color=#DA70D6>突发错误的长度小于等于r：</font>此时E(x)&#x2F;G(x)一定有余数</p>
+</li>
+<li><p><font color=#DA70D6>两个独立的单比特错误：</font>则$E(x)&#x3D;x^{i}+x^{j}$,这里i&gt;j。换一种写法，E(x)可以写成$E(x)&#x3D;x^{j}(x^{i-j}+1)$。因此对于任何小于等于i-j最大值(即小于等于最大帧长)的k值，$G(x)$都不能除尽$x^k+1$</p>
+</li>
+<li><p><font color=#DA70D6>奇数个比特的翻转：</font>在模2系统中，没有一个奇数项多项式包含x+1因子，因此可令$G(x)$含有因子$(x+1)$</p>
+</li>
+<li><p><font color=#DA70D6>突发错误的长度超过r：</font>错误的帧被接收的概率为<font color=#FF6347>${(\frac{1}{2})^{r}}$</font></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><font color=#ff8aaf>CRC放在帧尾的原因：</font><br>如果把CRC放在帧头，那么在发送前要把整个帧扫描一遍来计算CRC，然后再从帧头开始发送，这样每一位都要处理两次，比较浪费时间<br>把CRC放在帧尾，边发送边计算校验位，数据比特发送完紧跟着把硬件寄存器里生成的校验比特发出去，可以一次完成，效率较高</p>
+<p>  <img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/6.jpg" alt="生成多项式"></p>
+<p>  <img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/7.jpg" alt="生成多项式的软硬件实现"></p>
+<h2 id="初级数据链路层协议"><a href="#初级数据链路层协议" class="headerlink" title="初级数据链路层协议"></a>初级数据链路层协议</h2><p>wait_for_event(&amp;event)：标示数据链路层正在等待事情发生，只有当确实发生了什么事情（比如到达了一个帧），该过程才返回</p>
+<p>to_network_layer&#x2F;from_network_layer：和网络层之间的接口</p>
+<p>to_physical_layer&#x2F;from_physical_layer：和物理层之间的接口</p>
+<p>timer operations：定时器操作</p>
+<p>enable_network_layer&#x2F;disable_network_layer：流量控制，控制网络层是否可以发送数据</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/8.jpg" alt="函数"></p>
+<p>协议定义：<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/9.jpg" alt="协议定义"></p>
+<p><strong><font color=#fea401>一个乌托邦式的单工协议</font></strong></p>
+<p><strong>不需要考虑任何出错</strong>的情况，数据只能<strong>单向</strong>传输</p>
+<p>发送方和接收方的网络层总是处于准备就绪状态，数据处理的时间忽略不计</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/10.jpg" alt="一个乌托邦式的单工协议"></p>
+<p><strong><font color=#fea401>无错信道上的单工停-等式协议</font></strong></p>
+<p>仍然假设通信信道<strong>不会出错</strong>，并且数据流量还是<strong>单工</strong>的</p>
+<p>接收方只有有限的缓冲区容量和处理速度，因此协议必须有显式的应答，防止发送方以超过处理速度的数据淹没接收方</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/11.jpg" alt="无错信道上的单工停-等式协议"></p>
+<p><strong><font color=#fea401>有错信道上的单工停-等式协议</font></strong></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/12.jpg" alt="有错信道上的单工停-等式协议"></p>
+<p>区分第一次看到的帧和重传的帧,需要在每帧的头部放一个序列号，则 <strong><font color=#ff8b61>序列号的最小位数为：</font></strong></p>
+<ul>
+<li><p><strong><font color=#ff8aaf>链路层：</font></strong> 1比特，编号空间大小为2</p>
+</li>
+<li><p><strong><font color=#ff8aaf>传输层：</font></strong> 1比特编号空间太小，需要较大的编号空间，如：TFTP（16比特）</p>
+</li>
+</ul>
+<p><strong><font color=#ff8b61>发送方：</font></strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">seq_nr=<span class="number">0</span> <span class="comment">//用于记录buffer的序号</span></span><br><span class="line">从网络层获取一个分组放入buffer</span><br><span class="line">label1:</span><br><span class="line">发送buffer中的数据（带上序号seq_nr），新启动定时器</span><br><span class="line">wait_for_event()</span><br><span class="line"><span class="keyword">switch</span> (event) &#123;</span><br><span class="line">  <span class="keyword">case</span> 收到了坏帧(校验和错):</span><br><span class="line">     <span class="comment">//重发缓冲（在收到ACK之前，一直存在缓冲区中）在buffer里的数据，重新启动定时器</span></span><br><span class="line">  <span class="keyword">case</span> 定时器超时:</span><br><span class="line">     <span class="comment">//重发缓冲在buffer里的数据，新启动定时器</span></span><br><span class="line">  <span class="keyword">case</span> 收到校验和正确的帧:</span><br><span class="line">    <span class="keyword">if</span>（ack序号正确） &#123;</span><br><span class="line">      关闭旧定时器</span><br><span class="line">      inc(seq_nr)</span><br><span class="line">      从网络层获取下一个分组放入buffer</span><br><span class="line">      <span class="comment">//发送buffer中的数据，新启动定时器</span></span><br><span class="line">    &#125;<span class="keyword">else</span> </span><br><span class="line">      <span class="comment">//重发缓冲在buffer里的数据，重新启动定时器</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">goto</span> label1</span><br><span class="line">从网络层获取一个分组放入buffer</span><br><span class="line">next_frame_to_send = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">  发送buffer中的数据，启动定时器</span><br><span class="line">  帧序号填写为next_frame_to_send</span><br><span class="line">  <span class="title function_">wait_for_event</span><span class="params">()</span></span><br><span class="line">  <span class="title function_">if</span> <span class="params">(收到校验和正确的帧)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ack序号正确)&#123;</span><br><span class="line">      关闭旧定时器</span><br><span class="line">      从网络层获取下一个分组放入buffer</span><br><span class="line">      <span class="title function_">inc</span><span class="params">(next_frame_to_send)</span></span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/13.jpg" alt="发送方"></p>
+<p><strong><font color=#ff8b61>接收方：</font></strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">frame_expected=<span class="number">0</span> <span class="comment">//希望收到几号帧</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  wait_for_event()</span><br><span class="line">  <span class="keyword">switch</span>(event) &#123;</span><br><span class="line">  <span class="keyword">case</span> 坏帧:</span><br><span class="line">     do_nothing</span><br><span class="line">  <span class="keyword">case</span> 收到校验和正确的数据帧:</span><br><span class="line">    <span class="keyword">if</span>(序号==frame_expected)&#123;</span><br><span class="line">      向网络层上交分组</span><br><span class="line">      回ACK(序号为frame_expected)</span><br><span class="line">      inc(frame_expected)</span><br><span class="line">    &#125;</span><br><span class="line">      回ACK(序号为frame_expected<span class="number">-1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/14.png" alt="发送方"></p>
+<p><strong><font color=#ff8b61>计时器：</font></strong> 如果计时器设置的时间隔太短，发送端会发送不必要的帧，虽然这些额外的帧不会影响协议的正确性，但会影响性能</p>
+<h2 id="滑动窗口协议"><a href="#滑动窗口协议" class="headerlink" title="滑动窗口协议"></a>滑动窗口协议</h2><p>对于全双工的通信：</p>
+<ul>
+<li><p>使用两个单独的信道，分别用在两个不同的方向进行单工数据传输</p>
+</li>
+<li><p>使用相同的电路进行两个方向的数据传输</p>
+</li>
+</ul>
+<p><strong>捎带确认：</strong></p>
+<ul>
+<li><p>当到达一个数据帧时，并不是立即发送一个单独的控制帧（回答ACK），而是抑制自己并开始等待，直到网络层传递给它下一个要发送的数据包。然后，确认信息被附加在往外发送的数据帧上（使用帧头的ACK字段）</p>
+<ul>
+<li>简单来说，就是我方发数据过去，对方也会发数据过来，对方给我回数据的帧里，顺便捎带ACK，可以优化性能节省资源</li>
+</ul>
+</li>
+<li><p>若网络层没有数据帧传输，则需要设置定时器，当定时器超时后，则专门传输一个空帧表示数据已经到达</p>
+</li>
+</ul>
+<p><strong>发送窗口：</strong></p>
+<ul>
+<li><p>用于控制悬而未决的帧的编号<br>发送方的数据一共分三种情况：</p>
+<ul>
+<li><p>完全结束：数据已经发给接收方，并且得到接收方的ACK</p>
+</li>
+<li><p>悬而未决：发过去的数据没有收到任何确认，这种情况下要保留发送窗口，记住编号同时缓存数据，便于无应答时重传</p>
+</li>
+<li><p>还没有发送</p>
+</li>
+</ul>
+</li>
+<li><p>在任何时候，发送方把已经发送过的帧的序号，包括重传的内容，构成了发送窗口。如果有某一帧落在滑动窗口内，表示这一帧已经发送过了，但还没收到ACK</p>
+</li>
+<li><p>发送窗口的大小越小越好</p>
+</li>
+</ul>
+<p><strong>接收窗口：</strong></p>
+<ul>
+<li>接收方也维持着一个接收窗口，对应于一组允许它接受的帧</li>
+</ul>
+<p>数据链路层中，发送窗口和接收窗口的大小是固定的</p>
+<p><strong><font color=#fea401>1位滑动窗口协议</font></strong> </p>
+<p>等效于停等协议</p>
+<p>滑动窗口的大小等于1，允许悬而未决的帧只能有1个</p>
+<p>至少需要3个比特的序号，取值0~7</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/15.jpg" alt="1位滑动窗口协议"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/16.png" alt="1位滑动窗口协议"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/17.png" alt="1位滑动窗口协议"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/18.png" alt="1位滑动窗口协议"></p>
+<p>问题（链路利用率）：<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/19.png" alt="问题"></p>
+<p>一个50kbps的卫星信道，传播时延是270ms，发送的数据帧是1000比特</p>
+<ul>
+<li><p>t&#x3D;0:发送方开始发送 </p>
+</li>
+<li><p>t&#x3D;20 msec:帧已经完全发送 </p>
+</li>
+<li><p>t&#x3D;270 msec:帧完全到达接收方 </p>
+</li>
+<li><p>t&#x3D;520 msec: 在最好的情况下，ACK到达发送方(在接收方没有等待，只发送一个短的确认帧，几乎不占用时间)。</p>
+</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/20.jpg" alt="问题"></p>
+<p>假设信道的容量是B bit&#x2F;s（即带宽，一秒钟能传多少比特）</p>
+<p>每一帧的长度是l bit</p>
+<p>往返的时延是R s</p>
+<p>则链路利用率为：</p>
+<p>$(l&#x2F;B)&#x2F;(l&#x2F;B+2R)&#x3D;l&#x2F;(l+2BR)&#x3D;1&#x2F;(1+2BR&#x2F;l)$</p>
+<p>其中l&#x2F;B是传输速率；BR是往返时间</p>
+<p><strong><font color=#fea401>回退N协议</font></strong> </p>
+<p>流水线和差错恢复：</p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwCHPI.png" alt="流水线和差错恢复"></p>
+<p>(a)接收器的窗口大小为1，不需要缓存，一旦有错误后面的全部丢弃，直到超时后再重传</p>
+<p>(b)接收器的窗口大小较大，当发送的顺序不对时，先暂时存着，会占用更多的存储空间</p>
+<p>基于滑动窗口（接收器的窗口大小为1）：</p>
+<ul>
+<li><p>使用窗口控制悬而未决的帧的数量 </p>
+</li>
+<li><p>如果接收方检测到错误，丢弃该帧和所有未来帧，直到正确接收到之前出错的帧；如果接收方收到不想要的数据帧，保持沉默</p>
+</li>
+<li><p>发送方必须返回并重新发送该帧和所有后续帧</p>
+</li>
+</ul>
+<p>坏帧：</p>
+<ul>
+<li><p>如果数据帧被损坏：  </p>
+<ul>
+<li>接收器在帧i中检测到错误，则直接丢弃帧i和所有后续帧，超时后发送方将重传帧i和所有后续帧</li>
+</ul>
+</li>
+<li><p>如果ACK帧被损坏：</p>
+<ul>
+<li><p>约定收到ACK(i)则表明帧i及其以前所有的帧都已经收到了</p>
+</li>
+<li><p>如果发送超时，同样需要重传帧i和所有后续帧</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>发送窗口的最大值：</p>
+<p>3比特序号，则发送窗口的最大值是7</p>
+<p>原则：当发送方发送完发送窗口内所有帧，在未收到ACK之前，接收方正确接收到所有发送来的帧，接收窗口向前推移，此时，必须保证发送窗口与接收窗口在序号上<strong>不能重叠</strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwkpIH.jpg" alt="原则"></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwmdYD.png" alt="回退N协议"></p>
+<p>判断序号b是否落在窗口(a,c)内：</p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwm3l9.png" alt="判断序号b是否落在窗口(a,c)内"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/21.jpg"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/22.png"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/23.png"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/24.jpg"></p>
+<p>改进和效率:</p>
+<ul>
+<li><p>设置ACK定时器:</p>
+<ul>
+<li><p>发送数据并非一个源源不断的分组流，无法及时搭载ACK时，因此可以发送一个短的ACK帧（不含数据信息）</p>
+</li>
+<li><p>用于回送ACK的定时器start_ack_timer与stop_ack_timer，当许久没有数据发送时，定时器超时，此时就可以发送一个短的ACK帧</p>
+</li>
+<li><p>数据重传所用定时器start_timer是<strong>每个数据有一个</strong>，再次启动时要重新计时；用于回送ACK的定时器start_ack_timer<strong>只有一个</strong>，启动多个时都以最先启动的计时器开始计时，当有任何反向流量（包括数据，NAK，里面都有ACK序号）时，ACK定时器则被停止</p>
+</li>
+<li><p>ACK定时器时限的设计</p>
+</li>
+</ul>
+</li>
+<li><p>协议参数与线路利用率</p>
+<ul>
+<li><p>超时定时器时限的设计（考虑线路往返时间延迟，ACK定时器时限，对方物理层发送排队时延）</p>
+</li>
+<li><p>滑动窗口即MAX_SEQ大小（窗口太小可能导致无法流水线操作出现停等，效率低下）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><font color=#fea401>回退N协议选择重传协议</font></strong> </p>
+<ul>
+<li><p>发送方只重传被拒绝的帧，接收方会将后续的帧接收下来并缓存，因此可以实现最小化重传次数</p>
+</li>
+<li><p>但缺点是必须维持一个大的缓冲区，协议会变得更复杂</p>
+</li>
+</ul>
+<p><strong>选择重传的窗口大小：</strong></p>
+<p>由于发送窗口大小和接收窗口大小一样，且当接收方接收到发送方全部数据，但会送的ACK全部丢失，需要发送方重传时，窗口中的序号不能有重叠，因此：</p>
+<p><strong>选择重传窗口最大大小：$2^{n-1}$&#x3D;(MAX_SEQ+1)&#x2F;2</strong></p>
+<p><strong>回退N窗口最大大小：$2^{n}-1$&#x3D;MAX_SEQ</strong></p>
+<p>其中n为序号的个数</p>
+<p>$W_s$：发送窗口最大值，$W_r$：接收窗口大小，则</p>
+<p><font color=#FF6347>$W_s+W_r&lt;&#x3D;2^n$,$W_r&#x3D;W_s$</font></p>
+<p><strong>NAK：</strong></p>
+<p>当接收方有理由怀疑发生了错误，它将NAK帧发送回发送方，请求重新传输  </p>
+<p>有两种情况：</p>
+<ul>
+<li><p>收到一个坏帧 </p>
+</li>
+<li><p>收到一个不同于预期的帧</p>
+</li>
+</ul>
+<p>要避免对同一帧进行多个重传输请求，接收方应该跟踪是否已经为给指定帧发送了一个NAK帧</p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/29.png" alt="选择重传"></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/30.jpg"></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/31.png"></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/32.png"></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/33.png"></p>
+<ul>
+<li>停等协议——无差错<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/34.jpg" alt="停等协议——无差错"></li>
+<li>停等协议——有差错<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/35.jpg" alt="停等协议——有差错"></li>
+<li>滑动窗口——无差错<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%9B%BE%E7%89%87/36.png" alt="滑动窗口——无差错"> </li>
+<li>捎带传输：$U&#x3D;\frac{N}{2+2\alpha}$</li>
+</ul>
+<h2 id="数据链路协议实例"><a href="#数据链路协议实例" class="headerlink" title="数据链路协议实例"></a>数据链路协议实例</h2><p><strong><font color=#fea401>HDLC（High-level Data Link Control）：</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp63wUU.png" alt="HDLC"></p>
+<p>不平衡：一个主站，一个或多个从站</p>
+<p>平衡：两个混合站，全双工</p>
+<p><strong>HDLC帧格式：</strong></p>
+<p>使用比特填充法<br><img src="https://s1.ax1x.com/2023/03/28/pp68Ms1.png" alt="HDLC帧格式"></p>
+<p><strong>Control字段：</strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp68xw6.png" alt="HDLC帧Control字段"></p>
+<p>(a)I-frame(INFO)：数据帧<br>(b)S-frame：监督帧<br>(c)U-frame：没有编号的帧  </p>
+<ul>
+<li><p><strong><font color=#ff8b61>I-frame：</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp60Q9P.png" alt="I-frame"></p>
+</li>
+<li><p><strong><font color=#ff8b61>S-frame：</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6DDw4.png" alt="I-frame"></p>
+<p>Code:RR, RNR, REJ, SREJ  (3-bit N(R))<br>ACK帧：RR,RNR<br>NAK帧：REJ,SREJ  </p>
+<ul>
+<li><p><strong><font color=#ff8aaf>RR:</font></strong> 接收方准备好<br>表示期望的N(R)帧的ACK帧<br>只在没有反向流量可用于捎带时使用该帧<br>仍可以发送数据</p>
+</li>
+<li><p><strong><font color=#ff8aaf>RNR:</font></strong> 接收方没有准备好<br>它像RR一样，识别所有不包括N(R)的帧<br>但它告诉发送方停止发送(流量控制)</p>
+</li>
+<li><p><strong><font color=#ff8aaf>REJ:</font></strong> 拒绝<br>表示检测到传输错误<br>N(R)字段表示序列中第一个未正确接收的帧（即，要重传的帧）<br>发送端需要重传从N(R)开始的所有（悬而未决）帧</p>
+</li>
+<li><p><strong><font color=#ff8aaf>SREJ:</font></strong> 选择性拒绝<br>只调用N(R)指定的帧的重传<br>如果接收端希望缓冲无序帧以备将来使用，它可以使用SREJ强制重传任何特定帧</p>
+</li>
+</ul>
+</li>
+<li><p><strong><font color=#ff8b61>U-frame：</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6rJBD.png" alt="U-frame"></p>
+</li>
+</ul>
+<p><strong>P&#x2F;F：</strong></p>
+<p>非平衡方式：<br>Poll：邀请终端发送数据<br>Final：终端发送的所有帧，除最后一帧外，均将P&#x2F;F位设置为0，最后一个是1  </p>
+<p>平衡方式：<br>Command（P位）：P&#x3D;1以恳求(Poll)对方做出响应<br>Response（F位）：F&#x3D;1表示对请求命令的响应<br>强制另一台机器立即发送一个监督帧，而不是等待反向通信，以便在反向通信上捎带窗口信息</p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp62l3d.png" alt="平衡方式"></p>
+<p>HDLC操作实例：</p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6WwXn.png" alt="HDLC操作实例"></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6W6tU.png" alt="HDLC操作实例"></p>
+<p><strong><font color=#fea401>PPP（点到点协议）</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6HP6U.png" alt="PPP"></p>
+<p>PPP协议子层：</p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6HZkR.png" alt="PPP协议子层"></p>
+<p>特性:   </p>
+<ul>
+<li><p>Layer 1 </p>
+<ul>
+<li>同步线路(支持面向比特的编码)  </li>
+<li>异步电路(支持面向字节编码) </li>
+<li>PPPoE (支持以太网)</li>
+</ul>
+</li>
+<li><p>LCP(Link Control Protocol):链路控制协议</p>
+<ul>
+<li>错误检测(CRC) </li>
+<li>允许认证</li>
+</ul>
+</li>
+<li><p>允许在连接时协商IP地址  </p>
+</li>
+<li><p>多种协议:NCP(IP, IPX，…)</p>
+</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6HQXD.png" alt="多协议"></p>
+<p><strong><font color=#ff8b61>PPP帧格式：</font></strong></p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6biCt.png" alt="PPP帧格式"></p>
+<p>PPP状态转移图：</p>
+<p><img src="https://s1.ax1x.com/2023/03/28/pp6byrD.png" alt="PPP状态转移图"></p>
+<p><strong><font color=#ff8b61>LCP链路控制协议(Link Control Protocol)：</font></strong></p>
+<ul>
+<li><p>数据帧的最大有效负载大小</p>
+</li>
+<li><p>身份验证和选择要使用的协议</p>
+<ul>
+<li><p>PAP(Password Authentication Protocol)：密码认证协议（密码会被偷听）</p>
+</li>
+<li><p>CHAP(Challenge Handshake Authentication Protocol)：挑战握手认证协议<br><img src="https://s1.ax1x.com/2023/03/28/pp6XPeS.png" alt="CHAP"></p>
+</li>
+</ul>
+</li>
+<li><p>压缩：对头和数据进行压缩</p>
+</li>
+<li><p>异步方式，<font color=#FF6347>字节填充法</font>，链接建立时指定转义字符集ACCM (Async-Control-Character-Map, 32 bits，用bitmap指定需转义的ASCII 码的控制字符集合)</p>
+<ul>
+<li>FLAG为0x7E，ESC为0x7D<br>0x7E&#x3D;&#x3D;&gt;0x7D, 0x5E<br>0x7D&#x3D;&#x3D;&gt;0x7D, 0x5D<br>控制字符C &#x3D;&#x3D;&gt; 0x7D，C xor 0x20<br>判断方法 (C &lt; 0x20) &amp;&amp; ((1 &lt;&lt; C) &amp; ACCM)<br>反转义：<font color=#FF6347>看到0x7D，直接让后面的数与0x20异或</font></li>
+</ul>
+</li>
+</ul>
+<p><strong>PPP和HDLC的区别：</strong>  </p>
+<ul>
+<li>PPP是面向字节而不是面向比特的。特别是PPP使用<font color=#FF6347>字节填充技术</font>，所有帧的长度均是字节的整数倍<br>HDLC协议则使用<font color=#FF6347>比特填充技术</font>， 允许帧的长度不是字节的倍数</li>
+<li>HDLC协议提供了<font color=#FF6347>可靠的</font>数据传输，PPP是<font color=#FF6347>面向连接的不可靠的</font></li>
+</ul>
+<p>……未完待续♬</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/a6b483964d38/">https://jayerine.top/2024/02/06/a6b483964d38/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/c1da0ecf4a63/" title="计算机网络 第二章 物理层"><img class="cover" src="https://s1.ax1x.com/2023/03/04/ppA2gZF.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">计算机网络 第二章 物理层</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/387bccf4aba0/" title="计算机网络 第五章 网络层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">计算机网络 第五章 网络层</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/812f344402b9/" title="计算机网络 第一章 引言"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%80%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第一章 引言</div></div></a></div><div><a href="/2024/02/06/c1da0ecf4a63/" title="计算机网络 第二章 物理层"><img class="cover" src="https://s1.ax1x.com/2023/03/04/ppA2gZF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第二章 物理层</div></div></a></div><div><a href="/2024/02/06/387bccf4aba0/" title="计算机网络 第五章 网络层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第五章 网络层</div></div></a></div><div><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第六章 传输层</div></div></a></div><div><a href="/2024/02/06/a43c44b79301/" title="计算机网络 第四章 介质访问控制子层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第四章 介质访问控制子层</div></div></a></div><div><a href="/2024/02/06/a2d25aae016a/" title="计算机网络冷知识名词"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E5%90%8D%E8%AF%8D%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络冷知识名词</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.</span> <span class="toc-text">第三章 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路层的设计问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B%E5%92%8C%E7%BA%A0%E6%AD%A3"><span class="toc-number">1.2.</span> <span class="toc-text">差错检测和纠正</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%BA%A7%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.3.</span> <span class="toc-text">初级数据链路层协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.</span> <span class="toc-text">滑动窗口协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.5.</span> <span class="toc-text">数据链路协议实例</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://gcore.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script id="canvas_nest" defer="defer" color="255,240,245" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

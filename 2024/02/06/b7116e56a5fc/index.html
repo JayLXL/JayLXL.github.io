@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机组成原理 第一章 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="第一章：计算机系统概论1.1 计算机分类和发展简史分类计算机的定义：  计算机是一种以电子器件为基础的不需要人的干预，能对各种数字化信息进行算术和逻辑运算的快速工具。  电子计算机（按照输入输出信号的形式）分两种：   电子数字计算机：由逻辑电子器件构成，变量为离散量 电子模拟计算机：由模拟运算器件构成，变量为连续量   电子数字计算机与电子模拟计算机的主要区别：数字计算机进一步又可分为专用计算机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理 第一章">
+<meta property="og:url" content="https://jayerine.top/2024/02/06/b7116e56a5fc/index.html">
+<meta property="og:site_name" content="Jay and Erine&#39;s Blog">
+<meta property="og:description" content="第一章：计算机系统概论1.1 计算机分类和发展简史分类计算机的定义：  计算机是一种以电子器件为基础的不需要人的干预，能对各种数字化信息进行算术和逻辑运算的快速工具。  电子计算机（按照输入输出信号的形式）分两种：   电子数字计算机：由逻辑电子器件构成，变量为离散量 电子模拟计算机：由模拟运算器件构成，变量为连续量   电子数字计算机与电子模拟计算机的主要区别：数字计算机进一步又可分为专用计算机">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2023/03/05/ppE2Y0U.jpg">
+<meta property="article:published_time" content="2024-02-06T04:00:21.553Z">
+<meta property="article:modified_time" content="2024-02-06T04:00:21.553Z">
+<meta property="article:author" content="Jay and Erine">
+<meta property="article:tag" content="计组">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/03/05/ppE2Y0U.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/03/01/ppieNl9.png"><link rel="canonical" href="https://jayerine.top/2024/02/06/b7116e56a5fc/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/all","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机组成原理 第一章',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-06 12:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">计算机组成原理 第一章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.553Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.553Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">专业课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机组成原理 第一章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="第一章：计算机系统概论"><a href="#第一章：计算机系统概论" class="headerlink" title="第一章：计算机系统概论"></a>第一章：计算机系统概论</h1><h2 id="1-1-计算机分类和发展简史"><a href="#1-1-计算机分类和发展简史" class="headerlink" title="1.1 计算机分类和发展简史"></a>1.1 计算机分类和发展简史</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><strong>计算机的定义：</strong></p>
+<blockquote>
+<p>计算机是一种以<code>电子器件</code>为基础的<code>不需要人的干预</code>，能对各种<code>数字化信息</code>进行<code>算术和逻辑运算</code>的<code>快速</code>工具。</p>
+</blockquote>
+<p>电子计算机（按照输入输出信号的形式）分两种：</p>
+<blockquote>
+<ol>
+<li>电子数字计算机：由<code>逻辑电子器件</code>构成，变量为<code>离散量</code></li>
+<li>电子模拟计算机：由<code>模拟运算器件</code>构成，变量为<code>连续量</code></li>
+</ol>
+</blockquote>
+<p>电子数字计算机与电子模拟计算机的主要区别：<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%9B%BE%E7%89%87/aa0e34359a35416dbb1093341fbe9763.png" alt="两种计算机的区别"><br>数字计算机进一步又可分为<strong>专用计算机</strong>和<strong>通用计算机</strong></p>
+<p>专用计算机：<br>安装、固定和嵌入在交通工具、仪器仪表、控制系统、通信设备、家用电器等部件中的模块化数据处理机中。<br>以嵌入式系统的形式隐藏在各种设备、产品和系统中。</p>
+<p>通用计算机：<br>具有标准形式的计算机，通过装配不同的应用程序，配合软件，以相同的外观和应用于社会的各个方面。</p>
+<p>通用计算机可分为六类：</p>
+<blockquote>
+<ol>
+<li>超级计算机</li>
+<li>大型机</li>
+<li>服务器</li>
+<li>PC机</li>
+<li>单片机</li>
+<li>多核机</li>
+</ol>
+</blockquote>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%9B%BE%E7%89%87/d7a4349eec4d409daeb79d12a5263228.png" alt="在这里插入图片描述"></p>
+<h3 id="发展及硬件"><a href="#发展及硬件" class="headerlink" title="发展及硬件"></a>发展及硬件</h3><p>计算机发展趋势：</p>
+<p><strong>微型化、网络化、巨型化、智能化</strong></p>
+<p>计算机经历了五代变化：</p>
+<p>第一代：<br>1946~1957，<strong>电子管计算机</strong>。体积庞大，成本很高，可靠性较低。在此期间，形成了计算机的基本体系，确定了程序设计的基本方法，<strong>数据处理机</strong>开始得到应用。</p>
+<p>第二代：<br>1958~1964，<strong>晶体管计算机</strong>。可靠性提高，体积缩小，成本降低。在此期间，<strong>工业控制机</strong>开始得到应用。</p>
+<p>第三代：<br>1965~1971年，<strong>中小规模集成电路计算机</strong>。再次期间形成机种多样化，生产系列化，使用系统化，<strong>小型计算机</strong>开始使用。</p>
+<p>第四代：<br>1972~1990,<strong>大规模和超大规模集成电路计算机</strong>，由几片大规模集成电路组成的<strong>微型计算机</strong>开水出现。</p>
+<p>第五代：<br>1991年至今，<strong>巨大规模集成电路计算机</strong>出现，由一片巨大规模集成电路实现的<strong>单片计算机</strong>开始出现。</p>
+<p>指令集授权方式：</p>
+<blockquote>
+<ol>
+<li>IP内核授权</li>
+<li>指令集架构授权</li>
+<li>授权+ 自主研制指令集</li>
+</ol>
+</blockquote>
+<p>常见指令集：<br><strong>x86 ARM,RIS-V</strong></p>
+<h2 id="1-2-计算机性能指标"><a href="#1-2-计算机性能指标" class="headerlink" title="1.2 计算机性能指标"></a>1.2 计算机性能指标</h2><p><img src="https://s1.ax1x.com/2023/03/06/ppVfSUO.jpg" alt="计算机性能指标"><br>$n$:程序中指令类型的个数<br>$CPI_i$（cycles per instruction）:一条指令在执行第I类指令时所需的时钟周期数<br>$I_i$:第I类指令的个数<br>$I_n$:程序中指令总数<br>$CPI&#x3D;\Sigma$(程序中各种指令的CPI×程序中该类指令所占的比例)<br>指令周期数（Instruction Cycle，简称IC）<br>例题：<br><img src="https://s1.ax1x.com/2023/03/06/ppZKhVg.png" alt="例题"></p>
+<h2 id="1-3-计算机的硬件组成"><a href="#1-3-计算机的硬件组成" class="headerlink" title="1.3 计算机的硬件组成"></a>1.3 计算机的硬件组成</h2><p>冯·诺依曼机的特点  </p>
+<ul>
+<li>由运算器、存储器、控制器、输入设备和输出设备五个部分组成； </li>
+<li>存储器以二进制形式存储指令和数据；</li>
+<li>指令由操作码和地址码组成；</li>
+<li>存储程序并按地址顺序执行；<ul>
+<li>冯·诺依曼机的核心设计思想，机器自动化工作的关键；</li>
+</ul>
+</li>
+<li>以运算器为中心。</li>
+</ul>
+<h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><p>又称算术&#x2F;逻辑运算单元ALU (arithtical &#x2F; logical unit)。<br>信息处理组件，完成数据的算术和逻辑运算，以及移位操作等。<br>运算器的字长:运算符每次可完成多少位二进制运算。</p>
+<ul>
+<li>一般为8位、16位、32位或64位（比特bit，一般用小写字母b表示）。</li>
+<li>运算符的位数越多，精度越高，但对电子器件的消耗也越多、成本就越高。</li>
+</ul>
+<h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><p>存储控制计算机操作的命令信息(指令)和被处理(加工)的信息(数据)，还存储处理的中间结果和最终结果</p>
+<ul>
+<li>命令:可被计算机执行，指挥计算机系统工作，完成所要求的任务</li>
+<li>数据:是被处理的对象或者结果</li>
+</ul>
+<p>一个半导体触发器有0和1两个状态，可以记忆<strong>一位二进制代码</strong>。<br>这些半导体存储单元很少被单独读取或者编写，而是按照固定大小的组进行处理，这个组称为<strong>字</strong>。<br>每个字的位数称为<strong>字长</strong>，典型的字长范围是从16位到64位。<br>若按找16位计算机：<br>在存储器中把保存一个数的16个触发器称为一个<strong>存储单元</strong>。<br>每个存储单元都有编号，称为<strong>地址</strong>。<br>存储器所有存储单元的总数称为<strong>存储容量</strong>。</p>
+<p>所有的数据和指令都以二进制数的形式存储在内存中。<br>为了解决容量、成本和速度之间的矛盾:内存分为内存储器和外存储器。</p>
+<ul>
+<li>内存储器:由半导体存储器构成<ul>
+<li>主存+缓冲存储器(cache)</li>
+</ul>
+</li>
+<li>外部存储器:多由磁盘、磁带、光盘等组成<br>内存容量:内存可保存二进制信息的个数。</li>
+<li>存储单元数&#x2F;单元数，例如:1M 8bit &#x3D; 8Mb</li>
+<li>8位的二进制序列称为一个字节(Byte)</li>
+</ul>
+<blockquote>
+<p>摩尔定律：<br>每18个月，集成电路的性能就会提升一倍，价格将会降低一倍。</p>
+</blockquote>
+<h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>从存储器中取出指令进行分析，然后发送控制信号执行一定的操作。<br>每个指令都可以完成一次算术或逻辑操作，或是存取数据等操作。<br>程序：能完成某种功能的一串指令的序列<br>控制器根据程序指挥系统工作，以完成程序所规定的功能<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%9B%BE%E7%89%87/ecae6c1b16ba4acab35215af44c3a1ab.png" alt="计算机操作"></p>
+<p>指令有两部分：<br><strong>操作码</strong> | <strong>地址码</strong>  </p>
+<ul>
+<li><strong>操作码:</strong> 指示指令执行的操作类型，如加、减、乘、除、与、或、非、保存、取数、移位、转移等。</li>
+<li><strong>地址码:</strong> 表示数据应该被取到哪个内存中，或者结果应该存储在哪个内存中。一条指令可以有一个、两个、三个或没有地址代码。</li>
+<li>操作码和地址码均用二进制数表示</li>
+</ul>
+<p>控制器的基本任务：<br>按照指令顺序，首先从存储器中取出一条指令进入控制器<br>由<strong>指令译码器</strong>对指令的操作代码进行分析<br>根据指令性质，将相应的控制信号传给计算机各个部分，有序地控制各部件完成规定操作<br>从存储器中取出下一条指令，再执行，如此类推<br>每去除一条指令，控制器中的<strong>程序计数器</strong>就加1，为下一条指令做准备 </p>
+<p>我们把取指令的一段时间叫做<strong>取指周期</strong><br>执行指令的一段时间叫做<strong>执行周期</strong><br>一个位<code>bit</code>为最小计算单位<br>一个字节由<strong>8位</strong>构成<br>一个字由<strong>n</strong>个字构成，n为字长，常见的有8位、16位</p>
+<p>计算机中,字既可以表示指令，也可以表示数据：</p>
+<blockquote>
+<p>取值周期中从内存读出的信息流是<strong>指令流</strong>，它流向<strong>控制器</strong>。<br>执行周期中从内存中国读出或流入的数据为<strong>数据流</strong>，它流向<strong>存储器</strong>或者<strong>运算器</strong></p>
+</blockquote>
+<h3 id="输入输出设备"><a href="#输入输出设备" class="headerlink" title="输入输出设备"></a>输入输出设备</h3><p>输入&#x2F;输出设备(I&#x2F;O设备)，又称外围设备<br>作用:进行信息形式的转换，即将外界的语言、声音、机械动作等信息形式转换为计算机所识别的电信号表示的二进制数的形式，或进行相反方向的转换。<br>适配器(I&#x2F;O接口):  </p>
+<ul>
+<li>由于种类繁多和速度各异，外设不直接与高速工作的主机相连，而是通过适配器组件与主机相连  </li>
+<li>作用：相当于一个转换器，保证外设以计算机所需的形式发送或接收信息</li>
+</ul>
+<h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>计算机部件间信息传输的公共通路<br>各部件<strong>分时复用</strong>总线，用于保证数据、地址、指令和控制信息在各部件间的传输<br>基本总线:</p>
+<ul>
+<li>数据总线DB(Data Bus)</li>
+<li>地址总线AB(Address Bus)</li>
+<li>控制(命令)总线CB(Command&#x2F;Control总线)</li>
+</ul>
+<h2 id="1-4-电子计算机设计思想"><a href="#1-4-电子计算机设计思想" class="headerlink" title="1.4 电子计算机设计思想"></a>1.4 电子计算机设计思想</h2><p>存储程序+程序控制<br>冯诺依曼计算机：<br>存储程序并按地址执行  </p>
+<p>计算机由运算器、控制器、存储器、输入设备和输出设备五部分组成</p>
+<ul>
+<li>存储器(内存):不仅可以存储数据，还可以存储指令  </li>
+<li>控制器:可以自动执行指令  </li>
+<li>操作员:可以进行算术和逻辑运算和附加运算</li>
+<li>输入&#x2F;输出设备:保证人与计算机的通信</li>
+</ul>
+<p>冯诺依曼计算机基本思想： </p>
+<blockquote>
+<ol>
+<li>采用二进制形式表示数据和指令，指令由操作码和地址码组成。</li>
+<li>将程序和数据存放在存储器中，即“存储程序”和“程序控制”。</li>
+<li>指令的执行是顺序的。</li>
+<li>由存储器、运算器、控制器、输入和输出设备五大组件构成。</li>
+</ol>
+</blockquote>
+<p><strong>适配器</strong><br>I&#x2F;O设备通常称为<strong>外围设备</strong><br><strong>适配器（I&#x2F;O接口）：</strong> 相当于一个转换器，它可以保证外围设备用计算系统特性要求的形式发送或接收数据。</p>
+<p><strong>计算机 &#x3D; 硬件系统 + 软件系统</strong></p>
+<p>软件是指硬件上运动的程序和相关的数据及文档。</p>
+<h2 id="1-5-计算机系统的层次结构"><a href="#1-5-计算机系统的层次结构" class="headerlink" title="1.5 计算机系统的层次结构"></a>1.5 计算机系统的层次结构</h2><p><img src="https://s1.ax1x.com/2023/03/06/ppVzwKx.jpg" alt="计算机系统的层次结构"><br>Level 0 ~ 2:物理机(裸机)<br>Level 3:虚拟机</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%9B%BE%E7%89%87/2020100213474226.png" alt="层次结构"></p>
+<blockquote>
+<p>1.高级语言机器 M4<code>（软件）</code><br>  用编译程序翻译成汇编语言程序<br>2.汇编语言机器 M3<code>（软件）</code><br>  用汇编程序翻译成机器语言程序<br>3.操作系统机器 M2<code>（软件）</code><br>  向上提供“广义指令”（系统调用）<br>4.用机器语言的机器 M1<code>（硬件）</code><br>  执行二进制机器指令<br>5.微程序机器 M0<code>（硬件）</code><br>  由硬件直接执行微指令  </p>
+</blockquote>
+<h3 id="软件与硬件的逻辑等价性"><a href="#软件与硬件的逻辑等价性" class="headerlink" title="软件与硬件的逻辑等价性"></a>软件与硬件的逻辑等价性</h3><p>计算机系统和数字系统的区别:计算机系统理论上有软件<br>从理论上说，任何软件算法都可以通过硬件来实现，反之亦然<br>对于特定的功能，硬件方案还是软件方案，取决于设备的价格、速度、可靠性、变更周期等因素 </p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">成本</th>
+<th align="left">速度</th>
+<th align="left">变更周期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">硬件</td>
+<td align="left">高</td>
+<td align="left">快</td>
+<td align="left">长</td>
+</tr>
+<tr>
+<td align="left">软件</td>
+<td align="left">低</td>
+<td align="left">慢</td>
+<td align="left">短</td>
+</tr>
+</tbody></table>
+<h3 id="发展趋势"><a href="#发展趋势" class="headerlink" title="发展趋势"></a>发展趋势</h3><p>以前通常由软件实现功能，现在更多的是可以直接由硬件来实现<br>实体硬件机的功能范围不断扩大<br>固件(firmware, 韧件):形态类似于硬件，但功能类似于软件，可以编程和修改<br>软件：“固化”、“硬化”，将程序烧写到芯片上去，使软件设计最后转化成硬件来实现<br>计算机系统的软硬件界限已经变得模糊</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/b7116e56a5fc/">https://jayerine.top/2024/02/06/b7116e56a5fc/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">计组</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/03/05/ppE2Y0U.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/95c2e0321143/" title="形式语言与自动机"><img class="cover" src="https://s1.ax1x.com/2023/03/03/ppA3mKf.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">形式语言与自动机</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/bd5959ed5f70/" title="计算机组成原理 第三章"><img class="cover" src="https://s1.ax1x.com/2023/03/20/pptblcV.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">计算机组成原理 第三章</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/bd5959ed5f70/" title="计算机组成原理 第三章"><img class="cover" src="https://s1.ax1x.com/2023/03/20/pptblcV.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机组成原理 第三章</div></div></a></div><div><a href="/2024/02/06/b7e90535f5c5/" title="计算机组成原理 第二章"><img class="cover" src="https://s1.ax1x.com/2023/03/05/ppEhuD0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机组成原理 第二章</div></div></a></div><div><a href="/2024/02/06/0364e15ddae1/" title="计算机组成原理 第四章"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%A7%9F%E5%9B%9B%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机组成原理 第四章</div></div></a></div><div><a href="/2024/02/06/af75ba95c6e9/" title="计算机组成原理 第五章"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BB%84%E4%BA%94%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机组成原理 第五章</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章：计算机系统概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%88%86%E7%B1%BB%E5%92%8C%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 计算机分类和发展简史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E5%8F%8A%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">发展及硬件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 计算机性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 计算机的硬件组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.3.3.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="toc-number">1.3.4.</span> <span class="toc-text">输入输出设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF"><span class="toc-number">1.3.5.</span> <span class="toc-text">总线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%94%B5%E5%AD%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 电子计算机设计思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 计算机系统的层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%A1%AC%E4%BB%B6%E7%9A%84%E9%80%BB%E8%BE%91%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">软件与硬件的逻辑等价性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">1.5.2.</span> <span class="toc-text">发展趋势</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://gcore.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script id="canvas_nest" defer="defer" color="255,240,245" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

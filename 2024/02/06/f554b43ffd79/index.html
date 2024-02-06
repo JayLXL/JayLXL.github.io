@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="​csdn估计这学期都去不了学校了，家里蹲大学马上要线上期中考。。。在家呆久了无聊想学点机器视觉的东西，之前在学校双创课上做过python的机器视觉实验，想起来挺有意思的，但是还是比较喜欢C++，就找到了这个看上去还不错的C++开源项目 ，opencv。 首先是配置opencv环境。看了很多教程，下面这个是最详细的，最后是参照上面这篇博客 成功完成了配置，感谢大佬。之前出现过很多奇怪的问题，也学到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">
+<meta property="og:url" content="https://jayerine.top/2024/02/06/f554b43ffd79/index.html">
+<meta property="og:site_name" content="Jay and Erine&#39;s Blog">
+<meta property="og:description" content="​csdn估计这学期都去不了学校了，家里蹲大学马上要线上期中考。。。在家呆久了无聊想学点机器视觉的东西，之前在学校双创课上做过python的机器视觉实验，想起来挺有意思的，但是还是比较喜欢C++，就找到了这个看上去还不错的C++开源项目 ，opencv。 首先是配置opencv环境。看了很多教程，下面这个是最详细的，最后是参照上面这篇博客 成功完成了配置，感谢大佬。之前出现过很多奇怪的问题，也学到">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg">
+<meta property="article:published_time" content="2024-02-06T04:00:21.577Z">
+<meta property="article:modified_time" content="2024-02-06T04:00:21.577Z">
+<meta property="article:author" content="Jay and Erine">
+<meta property="article:tag" content="csdn">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/03/01/ppieNl9.png"><link rel="canonical" href="https://jayerine.top/2024/02/06/f554b43ffd79/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/all","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-02-06 12:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.577Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>​<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_61322309/article/details/124214186?spm=1001.2014.3001.5501">csdn</a><br>估计这学期都去不了学校了，家里蹲大学马上要线上期中考。。。在家呆久了无聊想学点机器视觉的东西，之前在学校双创课上做过python的机器视觉实验，想起来挺有意思的，但是还是比较喜欢C++，就找到了这个看上去还不错的C++开源项目 ，opencv。</p>
+<p>首先是配置opencv环境。看了很多教程，下面这个是最详细的，最后是参照上面这篇博客 成功完成了配置，感谢大佬。之前出现过很多奇怪的问题，也学到了一些经验，在这里记录一下。</p>
+<p>1.MinGW的版本问题：之前是在电脑里装了MinGW环境的，所以直接按照教程安装了Cmake，结果configure的时候一直报错“MinGW缺少mingw-make.exe”，查找MinGW目录，明明有这个文件。后来发现MinGW不是最新版的，而且有博客提起过，只有seh版的MinGW才能Cmake中成功的configure。于是删了MinGW，重新安装了一下MinGW。而且发现由于奇怪的网络问题，MinGW不能在线安装了，于是下载安装压缩包安装上了版本正确的MinGW。好像这种python库或c++库的安装都很有时效性，各软件版本正确是很关键的。</p>
+<p>2.Cmake的configure过程，要下载一些东西，有时候由于奇怪的问题下载不了，列表会变红，这时候可以通过科学上网，或者手动搜索下载无法下载的文件补上。新建一个文件夹作为“where to build the binaries”地址选项，不然后面会很乱。</p>
+<p>3.由于之前配置过了vscode的各种json文件，就直接在上面改了，开始我只在IncludePath下添加了新的opencv的相关头文件路径，结果是编辑器检测没报错，按住ctrl键也可以打开查看源文件，但是一编译就报错无法打开头文件，查了好多资料才知道，c_cpp_properties.josn中添加的路径只是告诉编辑器的，让编辑器不打红色波浪线，但是此时编译器还不知道这个引用，要在tasks.json中添加相关的路径才会正常编译。并且了解到了.dll(用于动态链接库导出函数，在运行期间链接）.lib(用于动态链接库导出函数，在编译期间）和.a（静态库文件）的区别。以及“-I”（小写L） “-I”（大写i）命令，相当于添加动态程序库链接，静态文件库链接之类的。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;tasks&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">        <span class="string">&quot;label&quot;</span>: <span class="string">&quot;opencv&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;D:/mingw64/bin/g++.exe&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$&#123;workspaceFolder&#125;\\Debugger\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">            <span class="string">&quot;D:/opencv/build/x64/mingw/bin/libopencv_world455.dll&quot;</span>,</span><br><span class="line">            <span class="string">&quot;-I&quot;</span>,</span><br><span class="line">            <span class="string">&quot;D:/opencv/build/x64/mingw/install/include&quot;</span>,<span class="comment">//需要添加的路径</span></span><br><span class="line">            <span class="string">&quot;-I&quot;</span>,</span><br><span class="line">            <span class="string">&quot;D:/opencv/build/x64/mingw/install/include/opencv2&quot;</span>,<span class="comment">//需要添加的路径</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;options&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;D:/mingw64/bin&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;group&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="string">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>4.发现搞清楚这个问题之后，face.cpp头文件还是会报错，结果是最新版的opencv把这个头文件暂时下架了，原因是不稳定，要重新开发，网上教程说要在另一个库里opencv_contrib自行下载。。。这个源文件。</p>
+<p>搞清楚了环境的安装配置之后，头文件终于不报错了，也可以正常编译了。马上按照网上的代码学习尝试了下opencv自带的人脸检测算法。在刚刚下载的opencv中，可以找到这些文件。</p>
+<p> 据说这些文件是github大佬们将模型训练之后得到的数据样本库，通过调用一个opencv里的函数就可以利用这些模型的数据做相关的一些实验了。里面有各种各样的模型，有的是检测人脸的，有的是检测上半身的，有的是检测眼睛部位的。总之感觉都很神奇。</p>
+<p>然后是学习代码时间，了解一下相关的工序，将图片灰度化，均衡化什么的，建立连级检测器，导入刚刚的分类器训练文件，熟悉下opencv的基本文件操作：</p>
+<p>1-遍历文件夹内的文件，通过glode函数实现，大概就是读取指定文件夹下的路径保存在一个vector中；</p>
+<p>2-imread()读取图片文件，namewindow()显示图片的窗体。imwrite()写入图片；</p>
+<p>之后我利用下面的代码尝试了下，在一个文件夹下挑选出含有人脸的jpg或png格式的图片，看看效果。<br>​</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;opencv2/objdetect.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;opencv2/highgui.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;opencv2/imgproc.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;filesystem&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line">CascadeClassifier face_cascade[<span class="number">4</span>];<span class="comment">//建立连级采样器</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">detect</span><span class="params">( Mat frame ,<span class="type">int</span> i,cv::String name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Mat frame_gray;</span><br><span class="line">	Mat converse;</span><br><span class="line">    <span class="built_in">cvtColor</span>( frame, frame_gray, COLOR_BGR2GRAY );<span class="comment">//颜色空间转换函数，将图像转化为灰度图像</span></span><br><span class="line">    <span class="built_in">equalizeHist</span>( frame_gray, frame_gray );<span class="comment">//直方图均衡化函数</span></span><br><span class="line">    std::vector&lt;Rect&gt; faces;<span class="comment">//RECT类用于描述矩形</span></span><br><span class="line">	<span class="comment">//flip(frame_gray,converse,1);//反转图片,可用于侧脸检测</span></span><br><span class="line">	<span class="type">bool</span> isfind=<span class="literal">false</span>;</span><br><span class="line">	face_cascade[<span class="number">1</span>].<span class="built_in">detectMultiScale</span>(frame_gray, faces);<span class="comment">//用于检测的函数</span></span><br><span class="line">	<span class="keyword">if</span>(faces.<span class="built_in">size</span>())&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;第&quot;</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">&quot;张图片中发现&quot;</span>&lt;&lt;faces.<span class="built_in">size</span>()&lt;&lt;<span class="string">&quot;张脸&quot;</span>&lt;&lt;endl;</span><br><span class="line">		string a;</span><br><span class="line">		<span class="type">char</span> s[<span class="number">100</span>];</span><br><span class="line">		<span class="built_in">itoa</span>(i+<span class="number">1</span>,s,<span class="number">10</span>);</span><br><span class="line">		a=s;</span><br><span class="line">		<span class="built_in">imwrite</span>(<span class="string">&quot;C:/Users/notbadhhhh/Desktop/4\\&quot;</span>+a+<span class="string">&quot;.jpg&quot;</span>,frame);</span><br><span class="line">		a=name;</span><br><span class="line">		<span class="type">int</span> resort=<span class="built_in">remove</span>(a.<span class="built_in">c_str</span>());</span><br><span class="line">		<span class="comment">//namedWindow(&quot;w&quot;);</span></span><br><span class="line">		<span class="comment">//imshow( &quot;w&quot;, frame );</span></span><br><span class="line">		<span class="comment">//waitKey(3000);</span></span><br><span class="line">		<span class="comment">//显示图片</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;第&quot;</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">&quot;张图片中未发现人脸&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">pre_check</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!face_cascade[<span class="number">1</span>].<span class="built_in">load</span>(<span class="string">&quot;C:/Users/notbadhhhh/Desktop/haarcascade_frontalface_default.xml&quot;</span>)) <span class="comment">//opencv自带的人脸识别,需要下载</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;--(!)Error loading face cascade\n&quot;</span>;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span>(!face_cascade[<span class="number">2</span>].<span class="built_in">load</span>(<span class="string">&quot;C:/Users/notbadhhhh/Desktop/haarcascade_profileface.xml&quot;</span>)) <span class="comment">//opencv自带的人脸识别,需要下载</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;--(!)Error loading face cascade\n&quot;</span>;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span>(!face_cascade[<span class="number">3</span>].<span class="built_in">load</span>(<span class="string">&quot;C:/Users/notbadhhhh/Desktop/haarcascade_eye_tree_eyeglasses.xml&quot;</span>)) <span class="comment">//opencv自带的人脸识别,需要下载</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;--(!)Error loading face cascade\n&quot;</span>;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span>(!face_cascade[<span class="number">4</span>].<span class="built_in">load</span>(<span class="string">&quot;C:/Users/notbadhhhh/Desktop/haarcascade_eye.xml&quot;</span>)) <span class="comment">//opencv自带的人脸识别,需要下载</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;--(!)Error loading face cascade\n&quot;</span>;</span><br><span class="line">		<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//可同时导入多个训练模型文件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>),<span class="built_in">system</span>(<span class="string">&quot;cls&quot;</span>);<span class="comment">//让编译器能输出中文</span></span><br><span class="line">	<span class="type">bool</span> is=<span class="built_in">pre_check</span>();</span><br><span class="line">    <span class="keyword">if</span>(!is)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	string origin_deposite=<span class="string">&quot;C:/Users/notbadhhhh/Desktop/python1.4&quot;</span>;<span class="comment">//目标文件夹</span></span><br><span class="line">	string pattern_jpg=origin_deposite+<span class="string">&quot;/*jpg&quot;</span>;</span><br><span class="line">	string pattern_png=origin_deposite+<span class="string">&quot;/*png&quot;</span>;</span><br><span class="line">	vector&lt;cv::String&gt; image_files_jpg,image_files_png;</span><br><span class="line">	<span class="built_in">glob</span>(pattern_jpg,image_files_jpg);</span><br><span class="line">	<span class="built_in">glob</span>(pattern_png,image_files_png);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;image_files_jpg.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		Mat pic=<span class="built_in">imread</span>(image_files_jpg[i]);</span><br><span class="line">		<span class="keyword">if</span> (pic.<span class="built_in">empty</span>())cout &lt;&lt; <span class="string">&quot; wrong&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="type">bool</span> b=<span class="built_in">detect</span>(pic,i,image_files_jpg[i]);</span><br><span class="line">			<span class="keyword">if</span>(b)sum++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//遍历文件夹下的jpg图片</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;image_files_png.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		Mat pic=<span class="built_in">imread</span>(image_files_png[i]);</span><br><span class="line">		<span class="keyword">if</span> (pic.<span class="built_in">empty</span>())cout &lt;&lt; <span class="string">&quot; wrong&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="type">bool</span> b=<span class="built_in">detect</span>(pic,i,image_files_png[i]);</span><br><span class="line">			<span class="keyword">if</span>(b)sum++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//遍历文件夹下的png图片</span></span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;一共筛选出了&quot;</span>&lt;&lt;sum&lt;&lt;<span class="string">&quot;张含有人脸的照片&quot;</span>&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>反复测试了多个训练器模型文件后，发现这些模型的识别准确率远低于我的预期，误检率和漏检率都非常的高。。。反复调试了detectMultiScale的七个参数，发现正确率始终不是很高。用三十张含有人脸的照片，最好的一次检出了二十一张含有人脸，也就是70%左右。不知道是我的参数没设置合适还是其他什么原因，正确率基本上不超过70%。检测人眼的，和检测上半身的正确率更离谱。。。上网也没查到什么资料（一查人脸检测的讨论，出来的都是人脸识别）。而且检测很耗时，基本上一张图片要几秒钟。</p>
+<p>虽然这不是最好的人脸检测算法，但是也不至于这么低吧，我以为至少有百分之九十以上准确率。结果比较失望。了解到还有一些其他的比较优秀的人脸检测算法，但是限于缺少获取途径和能力（好像他们不是开源的），无法再简单的实践体验了。</p>
+<p>想问问有大佬知道这个算法的最优正确率有多高吗？或者怎么改进提高检测正确率？</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/f554b43ffd79/">https://jayerine.top/2024/02/06/f554b43ffd79/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/csdn/">csdn</a><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">两棵树（可持久线段树+Hash+高精度数）</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">创新课程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/8311e7629f95/" title="android文本路径选择器"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFkiKx.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">android文本路径选择器</div></div></a></div><div><a href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">两棵树（可持久线段树+Hash+高精度数）</div></div></a></div><div><a href="/2024/02/06/602d3832692a/" title="机器学习"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">机器学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://gcore.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script id="canvas_nest" defer="defer" color="255,240,245" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

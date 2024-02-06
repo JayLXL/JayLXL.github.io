@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>两棵树（可持久线段树+Hash+高精度数） | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="​csdnProblem Description 给定两棵n个点的有根树，每棵 树的根节点都是1，点的编号为1到n。 定义d(x)为x在第一棵树上到1号点的最短路加上x在 第二棵树上到1号点的最短路，请将1到n按照d从小到 大排序。如果两个点的d相等，则编号小的排在前面。 Input 第一行一个正整数T(1 ≤ T ≤ 5)，表示测试数 据的数量。 每组数据第一行一个正整数n(2 ≤ n ≤ 10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两棵树（可持久线段树+Hash+高精度数）">
+<meta property="og:url" content="https://jayerine.top/2024/02/06/0e751f91670a/index.html">
+<meta property="og:site_name" content="Jay and Erine&#39;s Blog">
+<meta property="og:description" content="​csdnProblem Description 给定两棵n个点的有根树，每棵 树的根节点都是1，点的编号为1到n。 定义d(x)为x在第一棵树上到1号点的最短路加上x在 第二棵树上到1号点的最短路，请将1到n按照d从小到 大排序。如果两个点的d相等，则编号小的排在前面。 Input 第一行一个正整数T(1 ≤ T ≤ 5)，表示测试数 据的数量。 每组数据第一行一个正整数n(2 ≤ n ≤ 10">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg">
+<meta property="article:published_time" content="2024-02-06T04:00:21.577Z">
+<meta property="article:modified_time" content="2024-02-06T04:00:21.577Z">
+<meta property="article:author" content="Jay and Erine">
+<meta property="article:tag" content="csdn">
+<meta property="article:tag" content="ACM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/03/01/ppieNl9.png"><link rel="canonical" href="https://jayerine.top/2024/02/06/0e751f91670a/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/all","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '两棵树（可持久线段树+Hash+高精度数）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-02-06 12:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">两棵树（可持久线段树+Hash+高精度数）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.577Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="两棵树（可持久线段树+Hash+高精度数）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>​<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_61322309/article/details/123586007?spm=1001.2014.3001.5502">csdn</a><br>Problem Description</p>
+<p>给定两棵n个点的有根树，每棵 树的根节点都是1，点的编号为1到n。 定义d(x)为x在第一棵树上到1号点的最短路加上x在 第二棵树上到1号点的最短路，请将1到n按照d从小到 大排序。如果两个点的d相等，则编号小的排在前面。</p>
+<p>Input</p>
+<p>第一行一个正整数T(1 ≤ T ≤ 5)，表示测试数 据的数量。</p>
+<p>每组数据第一行一个正整数n(2 ≤ n ≤ 100000)。 接下来n − 1行，第i行4个正整数a, x, b, y(1 ≤ a, b ≤ i, 1 ≤ x, y ≤ n)，表示i + 1号点在第一棵树上的父亲 是a，它到它父亲的距离为100000000x，i+1号点在第二 棵树上的父亲是b，它到它父亲的距离为100000000y。</p>
+<p>Output</p>
+<p>每组数据输出n行，第i行输出排序结果中 第i小的点的编号。</p>
+<p>输入样例</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">5</span><br><span class="line">1 2 1 3</span><br><span class="line">2 1 1 5</span><br><span class="line">1 2 3 1</span><br><span class="line">4 2 2 4</span><br></pre></td></tr></table></figure>
+
+<p>输出样例</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>题意很简单，就是给定两棵有n个节点的树，以1作为树根，求某一个点在两棵树中到1号树根节点的距离之和，按照距离之和从小到大输出节点的编号。若不考虑数据范围，可以通过链式前向星建立两个有向图，从根节点两遍深度优先搜索记录每一个点到根节点的距离之和，然后利用sort函数排序输出。但是考虑到树的边权很大，都是100000000的x次方，无法用正常的变量存储距离的值。</p>
+<p>于是使用高精度数处理。将每条边的值看作100000000进制下的数，则长为100000000的x次方的边可表示为100*****00（1后面x个零）。在一棵树中，一个点到树根的距离等于其父亲节点到树根的距离，加上该节点到其父亲节点的距离。由于这个高精度数距离很大，所以不会发生进位（发生进位需要加100000000次1，而数据范围最多到十万），从父亲节点到该节点，只是在某一位加上了1，由此可联想到可持久线段树的单点修改。</p>
+<p>维护这样一个可持久线段树，线段树中的元素为高精度数的其中一位。每一个版本的线段树，表示一个n位的点到树根距离的高精度数。因为x,y范围小于十万，所以高精度数的位数不会超过十万，因此线段树中维护的元素不会超过十万。在网上查了下可持久线段树的内存，一般说开到三十二倍数据范围，但是这题其实开到lg100000&#x2F;lg2+1,差不多20倍就可以了，开到32倍100000kb都容易MLE。</p>
+<p>解决了单棵树的建图和存储，接下来的问题是比较两棵树节点距离之和的大小关系。直接去从高到低一位一位相加再比较大小的话，每比较两个数，复杂度都是n，加上sort的复杂度，n^2lgn很明显会超时。这时候想到用字符串hash实现。由于不太会字符串hash，开始写WA了好多次，在大佬的帮助下才找到正确的hash算法。</p>
+<p>在线段树二分结构和hash的帮助下，通过递归判断两棵树的子树hash值相加是否相等，可以在lgn的复杂度下判断高精度数的前n位是否相等，直到找到第n位不一样的位数值，判断大小即可。这个hash函数，首先要满足可加性，其次是冲突的概率要非常的小，以正确的去维护两棵树的和。最开始为了减小冲突，想到用普通的双hash，但是这样的话一来减小冲突的作用有限，二来要存两遍hash值很容易MLE。问大佬告诉使用字符串hash，先预处理生成一个用于取模的数的数组。这样能尽可能避免冲突。</p>
+<p>下面是AC代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span><span class="comment">//getline的头文件，与string.h不同</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> P1 233</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> P 1000000007</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 100005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> si maxn*20</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> l[si][<span class="number">2</span>],r[si][<span class="number">2</span>],root[maxn][<span class="number">2</span>],tot[<span class="number">2</span>];</span><br><span class="line">ll ha[maxn],val[si][<span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> head[maxn][<span class="number">2</span>],ne[maxn&lt;&lt;<span class="number">1</span>],len[maxn&lt;&lt;<span class="number">1</span>],to[maxn&lt;&lt;<span class="number">1</span>],cnt;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">hash1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ha[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;maxn;i++)&#123;</span><br><span class="line">        ha[i]=ha[i<span class="number">-1</span>]*<span class="number">10007</span>;</span><br><span class="line">        ha[i]%=P;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> lenth,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">    ne[cnt]=head[a][now];</span><br><span class="line">    len[cnt]=lenth;</span><br><span class="line">    to[cnt]=b;</span><br><span class="line">    head[a][now]=cnt;</span><br><span class="line">    cnt++;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">initia</span><span class="params">(<span class="type">int</span> left,<span class="type">int</span> right,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> y=tot[now]++;</span><br><span class="line">    <span class="keyword">if</span>(left==right)<span class="keyword">return</span> y;</span><br><span class="line">    <span class="type">int</span> m=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    l[y][now]=<span class="built_in">initia</span>(left,m,now);</span><br><span class="line">    r[y][now]=<span class="built_in">initia</span>(m+<span class="number">1</span>,right,now);</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Hash</span><span class="params">(<span class="type">int</span> y,<span class="type">int</span> L,<span class="type">int</span> R,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> num=R-(R+L)/<span class="number">2</span>;</span><br><span class="line">    val[y][now]=(val[l[y][now]][now]*ha[num]+val[r[y][now]][now])%P;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">build</span><span class="params">(<span class="type">int</span> od,<span class="type">int</span> num,<span class="type">int</span> lf,<span class="type">int</span> ri,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> y=tot[now]++;</span><br><span class="line">    <span class="keyword">if</span>(lf==ri)&#123;</span><br><span class="line">        val[y][now]=val[od][now]+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m=(lf+ri)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(num&lt;=m)&#123;</span><br><span class="line">        l[y][now]=<span class="built_in">build</span>(l[od][now],num,lf,m,now);</span><br><span class="line">        r[y][now]=r[od][now];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        l[y][now]=l[od][now];</span><br><span class="line">        r[y][now]=<span class="built_in">build</span>(r[od][now],num,m+<span class="number">1</span>,ri,now);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Hash</span>(y,lf,ri,now);</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> lf=<span class="number">1</span>,ri=n,x1=root[a][<span class="number">0</span>],x2=root[a][<span class="number">1</span>],y1=root[b][<span class="number">0</span>],y2=root[b][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span>(lf!=ri)&#123;</span><br><span class="line">        <span class="type">int</span> m=(lf+ri)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="type">bool</span> an=(val[r[x1][<span class="number">0</span>]][<span class="number">0</span>]+val[r[x2][<span class="number">1</span>]][<span class="number">1</span>])%P==(val[r[y1][<span class="number">0</span>]][<span class="number">0</span>]+val[r[y2][<span class="number">1</span>]][<span class="number">1</span>])%P;<span class="comment">//一定要将hash值相加后取余数再判断是否相等！！！</span></span><br><span class="line">        <span class="keyword">if</span>(an)&#123;</span><br><span class="line">            ri=m;</span><br><span class="line">            x1=l[x1][<span class="number">0</span>];</span><br><span class="line">            x2=l[x2][<span class="number">1</span>];</span><br><span class="line">            y1=l[y1][<span class="number">0</span>];</span><br><span class="line">            y2=l[y2][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            lf=m+<span class="number">1</span>;</span><br><span class="line">            x1=r[x1][<span class="number">0</span>];</span><br><span class="line">            x2=r[x2][<span class="number">1</span>];</span><br><span class="line">            y1=r[y1][<span class="number">0</span>];</span><br><span class="line">            y2=r[y2][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((val[x1][<span class="number">0</span>]+val[x2][<span class="number">1</span>])%P==(val[y1][<span class="number">0</span>]+val[y2][<span class="number">1</span>])%P)<span class="keyword">return</span> a&lt;b;</span><br><span class="line">    <span class="keyword">else</span>  <span class="keyword">return</span> val[x1][<span class="number">0</span>]+val[x2][<span class="number">1</span>]&lt;val[y1][<span class="number">0</span>]+val[y2][<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> node,<span class="type">int</span> fa,<span class="type">int</span> lenth,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">    root[node][now]=<span class="built_in">build</span>(root[fa][now],lenth,<span class="number">1</span>,n,now);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=head[node][now];~i;i=ne[i])<span class="built_in">dfs</span>(to[i],node,len[i],now);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> T,a,x,b,y;</span><br><span class="line">    <span class="built_in">hash1</span>();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">0</span>;t&lt;T;t++)&#123;</span><br><span class="line">        cnt=<span class="number">0</span>,tot[<span class="number">0</span>]=<span class="number">0</span>,tot[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(val,<span class="number">0</span>,<span class="built_in">sizeof</span>(val));</span><br><span class="line">        <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="built_in">sizeof</span>(head));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;a,&amp;x,&amp;b,&amp;y);</span><br><span class="line">            <span class="built_in">add</span>(a,i,x,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">add</span>(b,i,y,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        root[<span class="number">0</span>][<span class="number">0</span>]=<span class="built_in">initia</span>(<span class="number">1</span>,n,<span class="number">0</span>);</span><br><span class="line">        root[<span class="number">0</span>][<span class="number">1</span>]=<span class="built_in">initia</span>(<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> ans[maxn];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=n;i++)ans[i]=i;</span><br><span class="line">        <span class="built_in">sort</span>(ans+<span class="number">1</span>,ans+n+<span class="number">1</span>,cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//system(&quot;pause&quot;);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">第一步，输入，链式前向星分别对两棵树建立有向图</span></span><br><span class="line"><span class="comment">第二步，从一号节点开始，分别对两棵树进行深度搜索，并用可持久线段树记录相应节点到一号节点距离的高精度数</span></span><br><span class="line"><span class="comment">注意到对于树中的每个节点，其到一号点的距离等于他父亲节点的距离大小，在高精度进制下某一位加一，故可以用节点的编号作为可持久线段树的版本树根，对于每一个节点到一号点的距离，</span></span><br><span class="line"><span class="comment">可通过其父亲节点的对应版本的线段树进行单点修改</span></span><br><span class="line"><span class="comment">第三步，利用cmp函数排序，递归判断线段树左右子树的Hash值，若右子树的的hash相等，说明高位相等，递归搜索左子树，直到l==r，判断两树节点到一号点的距离和是否相等，</span></span><br><span class="line"><span class="comment">若相等，则按序号大小排序，否则按该位的大小排序</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/0e751f91670a/">https://jayerine.top/2024/02/06/0e751f91670a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/csdn/">csdn</a><a class="post-meta__tags" href="/tags/ACM/">ACM</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/bb4263303c4c/" title="git使用"><img class="cover" src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">git使用</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/8311e7629f95/" title="android文本路径选择器"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFkiKx.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">android文本路径选择器</div></div></a></div><div><a href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img class="cover" src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://gcore.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script id="canvas_nest" defer="defer" color="255,240,245" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

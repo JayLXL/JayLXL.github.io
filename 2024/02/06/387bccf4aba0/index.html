@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络 第五章 网络层 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="第五章 网络层网络层概述网络层在数据链路层提供的两个相邻端点之间的数据帧的传送功能上，进一步管理网络中的数据通信，将数据设法从源端经过若干个中间节点传送到目的端，从而向运输层提供最基本的端到端的数据传送服务。 网络层向传输层提供的服务数据报（无连接服务） 虚电路（面向连接服务） 数据报VS虚电路   问题 数据报网络 虚电路网络    电路建立 不需要 需要   寻址 每个包包含全部的源和目标地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络 第五章 网络层">
+<meta property="og:url" content="https://jayerine.top/2024/02/06/387bccf4aba0/index.html">
+<meta property="og:site_name" content="Jay and Erine&#39;s Blog">
+<meta property="og:description" content="第五章 网络层网络层概述网络层在数据链路层提供的两个相邻端点之间的数据帧的传送功能上，进一步管理网络中的数据通信，将数据设法从源端经过若干个中间节点传送到目的端，从而向运输层提供最基本的端到端的数据传送服务。 网络层向传输层提供的服务数据报（无连接服务） 虚电路（面向连接服务） 数据报VS虚电路   问题 数据报网络 虚电路网络    电路建立 不需要 需要   寻址 每个包包含全部的源和目标地址">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg">
+<meta property="article:published_time" content="2024-02-06T04:00:21.561Z">
+<meta property="article:modified_time" content="2024-02-06T04:00:21.561Z">
+<meta property="article:author" content="Jay and Erine">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/03/01/ppieNl9.png"><link rel="canonical" href="https://jayerine.top/2024/02/06/387bccf4aba0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/all","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络 第五章 网络层',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-06 12:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">计算机网络 第五章 网络层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.561Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.561Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">专业课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络 第五章 网络层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="第五章-网络层"><a href="#第五章-网络层" class="headerlink" title="第五章 网络层"></a>第五章 网络层</h1><h2 id="网络层概述"><a href="#网络层概述" class="headerlink" title="网络层概述"></a>网络层概述</h2><p>网络层在数据链路层提供的两个相邻端点之间的数据帧的传送功能上，进一步管理网络中的数据通信，将数据设法从源端经过若干个中间节点传送到目的端，从而向运输层提供最基本的端到端的数据传送服务。<br><img src="https://img-blog.csdnimg.cn/20210630202644469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MTAxODY5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="网络层向传输层提供的服务"><a href="#网络层向传输层提供的服务" class="headerlink" title="网络层向传输层提供的服务"></a>网络层向传输层提供的服务</h2><h3 id="数据报（无连接服务）"><a href="#数据报（无连接服务）" class="headerlink" title="数据报（无连接服务）"></a>数据报（无连接服务）</h3><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/1.jpg" alt="数据报"></p>
+<h3 id="虚电路（面向连接服务）"><a href="#虚电路（面向连接服务）" class="headerlink" title="虚电路（面向连接服务）"></a>虚电路（面向连接服务）</h3><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/2.jpg" alt="虚电路"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/3.jpg" alt="虚电路"></p>
+<h3 id="数据报VS虚电路"><a href="#数据报VS虚电路" class="headerlink" title="数据报VS虚电路"></a>数据报VS虚电路</h3><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>数据报网络</th>
+<th>虚电路网络</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电路建立</td>
+<td>不需要</td>
+<td>需要</td>
+</tr>
+<tr>
+<td>寻址</td>
+<td>每个包包含全部的源和目标地址</td>
+<td>每个包包含简短的VC号</td>
+</tr>
+<tr>
+<td>状态信息</td>
+<td>路由器不保留连接状态</td>
+<td>针对每个连接，每条VC都需要路由器保存其状态（要增加表项）</td>
+</tr>
+<tr>
+<td>路由方式</td>
+<td>每个数据包被单独路由（每个分组独立选路，导致路线不一样）</td>
+<td>建立VC时选择路由（之后就不用再选路了），所有包都遵循该</td>
+</tr>
+<tr>
+<td>路由路失效的影响</td>
+<td>没影响，除了那些路由器崩溃期间丢失的包</td>
+<td>穿过故障路由器的所有VC都将中断</td>
+</tr>
+<tr>
+<td>服务质量</td>
+<td>困难</td>
+<td>容易，如果在预先建立每条VC时有足够的资源可分配</td>
+</tr>
+<tr>
+<td>拥塞控制</td>
+<td>困难</td>
+<td>容易，如果在预先建立每条VC时有足够的资源可分配</td>
+</tr>
+</tbody></table>
+<h2 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h2><p>路由表：（地址，子网掩码，输出链路，下一跳）</p>
+<ul>
+<li>如果子网内部使用数据报，则必须为每个到达的数据包重新做出此决定，因为自上次以来最佳路由可能已经更改  </li>
+<li>如果子网内部使用虚拟电路，则只有在建立新的虚拟电路时才做出路由决定。此后，数据包只遵循先前建立的路由(会话路由)。</li>
+</ul>
+<h3 id="路由算法的分类"><a href="#路由算法的分类" class="headerlink" title="路由算法的分类"></a>路由算法的分类</h3><ul>
+<li>非自适应算法（静态路由）<ul>
+<li>不基于对当前流量和拓扑的测量或估计进行路由决策 </li>
+<li>路由的选择是预先计算的，离线的，并在网络启动时下载到路由器上，之后路由表就不会变了</li>
+</ul>
+</li>
+<li>自适应算法<ul>
+<li>主要根据拓扑的变化改变路由决策，通常也会反映流量的变化</li>
+</ul>
+</li>
+</ul>
+<h3 id="最优化原则——无环"><a href="#最优化原则——无环" class="headerlink" title="最优化原则——无环"></a>最优化原则——无环</h3><p>如果路由器J在从路由器I到路由器K的最优路径上，那么从J到K的最优路径也在同一条路径上</p>
+<ul>
+<li>如果从J到K存在比r2更好的路径rx，则可以将其与r1连接以改进从I到K的路径 </li>
+<li>与我们的r1-r2是最优的说法相矛盾<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/4.jpg" alt="最优化原则"></li>
+</ul>
+<h3 id="汇集树"><a href="#汇集树" class="headerlink" title="汇集树"></a>汇集树</h3><ul>
+<li>从所有源到目的地的最佳路由形成一个<strong>以目的地为根</strong>的树</li>
+<li>不包含任何循环，因此每个数据包将在有限的跳数内传递</li>
+<li>若有环存在，则路由器会对网络的拓扑有不一样的理解</li>
+</ul>
+<h3 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法"></a>最短路径算法</h3><p>建立子网的加权有向图 </p>
+<ul>
+<li>节点表示路由器</li>
+<li>圆弧表示通信线路</li>
+</ul>
+<p>权重</p>
+<ul>
+<li>跳数</li>
+<li>地理距离(以公里为单位)</li>
+<li>平均排队和传输延迟：按小时测试确定一些标准测试数据包</li>
+<li>距离、带宽、平均流量、通信成本、平均队列长度、测量延迟等因素的函数</li>
+</ul>
+<p>Dijkstra算法：查找给定一对路由器之间的最短路径<br>$O(n^{2})$，路由器不能太多，网络规模受到显示</p>
+<h3 id="泛洪算法"><a href="#泛洪算法" class="headerlink" title="泛洪算法"></a>泛洪算法</h3><ul>
+<li>不需要网络信息</li>
+<li>传入的数据包在每个链路上重新传输，除了传入链路 </li>
+<li>树状结构只会有一份到达，其他会有多份副本</li>
+</ul>
+<p>问题</p>
+<ul>
+<li>产生大量重复报文：如果不采取措施，重复报文的数量是无穷大的。</li>
+</ul>
+<p>措施</p>
+<ul>
+<li>每个报文的报头包含一个跳数计数器：<br>每跳一跳，计数器递减<br>当计数器为零时，丢弃该报文<br>发送方初始化跳数为从源到目的的路径长度或子网直径 </li>
+<li>源在每个数据包中放置一个序列号（序号与源地址有关）：<br>每个路由器记录每个源的最大序列，告诉哪些序列已经被看到。只flooding比当前序号更大的包，并更新记录</li>
+<li>选择性洪水：<br>每台路由器将接收到的数据项记录在数据中<br>每个数据项包含一个版本号<br>只有新的数据项会被淹没</li>
+</ul>
+<h3 id="距离矢量算法（自适应）"><a href="#距离矢量算法（自适应）" class="headerlink" title="距离矢量算法（自适应）"></a>距离矢量算法（自适应）</h3><p>每台路由器维护一个表（目的地，距离，接口，下一跳） </p>
+<ul>
+<li>到每个目的地的最短已知距离：距离可以是跳数，时延(毫秒)，… </li>
+<li>使用哪条线</li>
+</ul>
+<p>该表通过与邻居交换信息来更新</p>
+<ul>
+<li>发送路由信息矢量给所有邻居(目的地，距离) <ul>
+<li>周期(RIP路由信息协议:30秒) </li>
+<li>每当表发生变化时发送表格(触发更新)</li>
+<li>路由器只听邻居的信息</li>
+</ul>
+</li>
+<li>接收路由信息<ul>
+<li>收到更好的路由时更新本表 </li>
+<li>刷新已有路由</li>
+</ul>
+</li>
+<li>超时时删除路由表项(RIP 180秒)</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/5.jpg" alt="距离矢量算法"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/6.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/7.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/8.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/9.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/10.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/11.jpg"></p>
+<h4 id="计数到无穷大的问题"><a href="#计数到无穷大的问题" class="headerlink" title="计数到无穷大的问题"></a>计数到无穷大的问题</h4><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/12.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/13.jpg"></p>
+<h3 id="链路状态路由"><a href="#链路状态路由" class="headerlink" title="链路状态路由"></a>链路状态路由</h3><p>每台路由器必须完成以下步骤</p>
+<ol>
+<li>发现它的邻居，了解他们的网络地址  <ul>
+<li>HELLO数据包：<ul>
+<li>广播网：广播一个特殊的HELLO数据包</li>
+<li>多址访问网络：向邻居单播HELLO数据包</li>
+</ul>
+</li>
+<li>邻居返回一个回复，说明它是谁 <ul>
+<li>名称(路由id)必须是全局唯一的</li>
+</ul>
+</li>
+<li>假节点：广播LAN为连接到其上的任何一对路由器提供了彼此的连通性。然而，把LAN建模成许多个点到点链路会增大拓扑结构，从而导致浪费消息。模拟局域网的一个更好方法来是把它看作一个节点<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/14.jpg" alt="假节点"></li>
+</ul>
+</li>
+<li>为每个相邻节点设置距离或成本度量值(衡量每个相邻节点的延迟或成本) <ul>
+<li>到邻居的成本可自动设置或由网络运营商配置的度量</li>
+<li>一种常用的选择是使成本与链路带宽成反比</li>
+</ul>
+</li>
+<li>构造一个包含所有刚刚获知的链路信息包(LSP: Link-state packet链路状态数据包)<ul>
+<li>何时建立LSP<ul>
+<li>定期建立LSP</li>
+<li>在发生重大事件时建立LSP，如线路或邻居故障或恢复正常，或其属性发生明显变化等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将这个包<strong>可靠地</strong>发送给所有其他的路由器(不只是邻居)，并接收来自所有其他路由器的信息包<ul>
+<li>可靠性<ul>
+<li>可靠的，有确认的分发LSP（收不到就重发）</li>
+<li>避免不同路由器使用不同版本的拓扑，导致不一致、环路、机器不可达等问题</li>
+</ul>
+</li>
+<li>基本分发算法<ul>
+<li>采用泛洪方式分发LSP</li>
+<li>防止router-router线路上的错误，所有LSP都要被确认</li>
+</ul>
+</li>
+<li>关于LSP<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/15.jpg" alt="LSP"><br>发送标志表明该数据包必须在所指示的线路上发送<br>确认标志表明它必须在这条线路上得到确认<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/16.jpg" alt="LSP"><ul>
+<li>序列号<ul>
+<li>如果LSP是新的，则把它转发到除入境线路之外的所有其他线路上</li>
+<li>如果LSP是重复的，则将它丢弃(选择性洪泛)</li>
+<li>如果数据包的序号小于当前所看到过的来自该源路由器的最大序列号，则它将被当作过时数据包而拒绝接受，因为路由器已经有了更新的数据</li>
+<li>如果序号绕回，可能会产生混淆，的解决方案是使用一个32位的序号</li>
+<li>如果一个路由器崩溃了，那么它将丢失所有的序号记录表。如果它再从0开始， 那么，下一个数据包将被作为重复数据包而拒绝</li>
+<li>如果一个序号被破坏了，产生了差错，可能会被拒绝</li>
+</ul>
+</li>
+<li>年龄：在每个数据包的序号之后包含一个年龄（age）字段， 并且每秒钟将年龄减1。当年龄字段的值被减到0时，来自路由器的该信息将被丢弃<ul>
+<li>只有当一个路由器停机或路由器改变ID时，路由器信息才会超时</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算到其他路由器的最短路径<ul>
+<li>一旦路由器积累了一组完整的LSP，它就可以构建整个图<ul>
+<li>每条链路被表示了两次，每个方向各表示一次，不同方向的链路可能有不同的成本</li>
+</ul>
+</li>
+<li>在本地运行Dijkstra算法，以便构建出从本地出发到所有可能目标的最短路径</li>
+<li>该算法的结果可以安装在路由表中</li>
+</ul>
+</li>
+</ol>
+<p>相比距离矢量算法，链路状态路由算法需要更多的内存和计算。对于一个具有n个路由器的网络，每个路由器有k个邻居，那么，用于存储输入数据所要求的内存与kn成正比。<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/17.jpg"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/18.jpg"></p>
+<h3 id="层次路由"><a href="#层次路由" class="headerlink" title="层次路由"></a>层次路由</h3><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/19.jpg"></p>
+<p>考虑一个有720个路由器的子网：</p>
+<ul>
+<li>无层次结构时<ul>
+<li>720条路由表项</li>
+</ul>
+</li>
+<li>将子网划分为24个区域，每个区域包含30台路由器(总数为53) <ul>
+<li>30条本地路由表项 </li>
+<li>23条远端路由表项</li>
+</ul>
+</li>
+<li>如果选择三级层次结构，8个集群，每个集群包含9个区域，每个区域包含10台路由器(总数为25) <ul>
+<li>10条本地路由表项 </li>
+<li>8条到本集群内其他区域的路由表项 </li>
+<li>7条远端路由表项</li>
+</ul>
+</li>
+</ul>
+<h2 id="拥塞控制算法"><a href="#拥塞控制算法" class="headerlink" title="拥塞控制算法"></a>拥塞控制算法</h2><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/20.jpg"><br>拥塞控制（多点之间）：拥塞控制是一个全局问题<br>流量控制（两点之间）：流量控制是为了确保一个快速的发送方不能比接收方更快地持续传输数据</p>
+<p><strong>拥塞控制的方法：</strong><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/21.jpg" alt="拥塞控制的方法"></p>
+<ul>
+<li>Network Provisioning网络扩容</li>
+<li>Traffic-aware routing流量敏感路由</li>
+<li>Admission Control许可证控制</li>
+<li>Traffic throtting调节流量</li>
+<li>Load shedding负载脱落</li>
+</ul>
+<h3 id="流量敏感路由"><a href="#流量敏感路由" class="headerlink" title="流量敏感路由"></a>流量敏感路由</h3><p>一般的路由方案：</p>
+<ul>
+<li>采用固定的链路权值，可以适应拓扑的变化，但不能适应负载的变化</li>
+</ul>
+<p>流量敏感路由：</p>
+<ul>
+<li>将链路权值设置为链路带宽和传播延迟加上测量的负载或平均排队延迟的函数 </li>
+<li>危险：路由表可能会剧烈振荡，导致路由不稳定和许多潜在的问题</li>
+<li>如果忽略负载，只考虑带宽和传播延迟，则不会出现这种问题</li>
+<li>在Internet路由协议中，一般不会根据负载调整路由</li>
+</ul>
+<h3 id="许可证控制"><a href="#许可证控制" class="headerlink" title="许可证控制"></a>许可证控制</h3><p>广泛用于虚电路网络 </p>
+<ul>
+<li>除非网络能够承载新的流量且不会阻塞，否则不要建立新的虚拟电路</li>
+<li>流量描述:根据其速率和形状(漏桶或令牌桶)进行描述 </li>
+<li>也可以结合流量敏感路由，将绕过流量热点的路由作为设置过程的一部分<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%9B%BE%E7%89%87/22.jpg" alt="许可证控制"></li>
+</ul>
+<h3 id="负载脱落"><a href="#负载脱落" class="headerlink" title="负载脱落"></a>负载脱落</h3><p>当拥塞迫在眉睫时，网络必须告诉发送方放慢传输速度</p>
+<ul>
+<li>路由器必须确定拥塞何时接近，最好是在拥塞到来之前<ul>
+<li>输出链路的利用率 </li>
+<li>路由器内部排队数据包的缓冲 </li>
+<li>丢失的数据包数量 </li>
+<li>指数加权移动平均(EWMA)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Qos"><a href="#Qos" class="headerlink" title="Qos"></a>Qos</h2><p>影响网络质量的因素包括传输链路的带宽、报文传送时延和抖动、以及丢包率等，它们也就成为了QoS的度量指标。</p>
+<p><strong>带宽</strong><br>带宽也称为吞吐量，是指在一个固定的时间内（1秒），从网络一端传输到另一端的最大数据位数，也可以理解为网络的两个节点之间特定数据流的平均速率。带宽的单位是比特&#x2F;秒（bit&#x2F;s）。在网络中，有两个常见的与带宽有关的概念：上行速率和下行速率。上行速率是指用户向网络发送信息时的数据传输速率，下行速率是指网络向用户发送信息时的传输速率。</p>
+<p><strong>时延</strong><br>时延是指一个报文或分组从网络的发送端到接收端所需要的延迟时间，一般由传输延迟及处理延迟组成。</p>
+<p><strong>抖动</strong><br>抖动用来描述延迟变化的程度，也就是最大延迟与最小延迟的时间差。抖动对于实时性的传输是一个重要参数，特别是语音和视频等实时业务是极不容忍抖动的，抖动会造成话音或视频的断续。</p>
+<p><strong>丢包率</strong><br>丢包率是指在网络传输过程中丢失报文的数量占传输报文总数的百分比。少量的丢包对业务的影响并不大。使用TCP传送数据可以处理少量的丢包，因为TCP允许丢失的信息重发。但大量的丢包会影响传输效率。</p>
+<h3 id="流量整形"><a href="#流量整形" class="headerlink" title="流量整形"></a>流量整形</h3><p>流量整形是一种控制发送速率和数量的机制。通过流量整形能够调节数据传输速度减少拥塞。</p>
+<p>有两种类型的流量整形算法：</p>
+<ul>
+<li>漏桶算法</li>
+<li>令牌桶</li>
+</ul>
+<h4 id="漏桶算法"><a href="#漏桶算法" class="headerlink" title="漏桶算法"></a>漏桶算法</h4><p>假设我们有一个桶，我们希望以随机的速率向桶中倒水，并以恒定的速率从桶中取水。因此我们需要在桶底部打一个固定大小的洞，这样来保证水流处的速率是恒定的。由于桶的体积有限，因此倒满后就停止。</p>
+<p>水流入的速率可以改变，但输出的速率是恒定的。这种平滑输出流量的方法称为漏桶技术。突发进入的流量存储在桶中，并以稳定的速率输出。</p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/189087f89919104dfae68ad7c046365.png" alt="漏桶算法"><br>上图中，假设主机产生突发流量，速率是每秒12M，持续两秒。总共24M的数据。5秒后，又开始以每秒2M的速率发送数据，持续3秒，总共发了6M数据。最终经过了10秒，主机一共发了30M数据。通过漏桶最终可以平滑这些流量，以每秒3M的数据，持续10秒，平滑的输出这些数据。如果没有漏桶，最开始的突发流量可能会使系统因流量突增出现问题。</p>
+<h4 id="令牌桶算法"><a href="#令牌桶算法" class="headerlink" title="令牌桶算法"></a>令牌桶算法</h4><p>令牌桶算法的原理是系统会以一个恒定的速度往桶里放入令牌，而如果请求需要被处理，则需要先从桶里获取一个令牌，当桶里没有令牌可取时，则拒绝服务。</p>
+<p>将网络接口想象成一个桶，正在往其中注水，水龙头的速率为R，水桶容量为B。桶内只能累积固定容量的令牌，即B，以均匀的速度来生产令牌。如果需要发送数据包，就从桶内申请令牌，如果桶内没有令牌，则必须等待更多的令牌到达才能发送数据包，或者直接被丢弃。</p>
+<p>假设某个计算机的突发速率为M，那么令牌桶所允许的突发时间S的计算公式为：<br><strong>B + RS &#x3D; MS</strong></p>
+<h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h3><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/12e07a34bfa11fb0beaeed22d5648fc.jpg" alt="分片"><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/251f17df998dda3a1e210451d01432c.jpg" alt="分片"></p>
+<h2 id="IPv4协议"><a href="#IPv4协议" class="headerlink" title="IPv4协议"></a>IPv4协议</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>IPv4协议，网际协议版本4，一种无连接的协议，是互联网的核心，也是使用最广泛的网际协议版本，其后继版本为IPv6</p>
+<p>internet协议执行<strong>两个基本功能</strong></p>
+<ul>
+<li>寻址(addressing)</li>
+<li>分片(fragmentation)</li>
+</ul>
+<h3 id="IPv4数据报格式"><a href="#IPv4数据报格式" class="headerlink" title="IPv4数据报格式"></a>IPv4数据报格式</h3><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/20210630203723179.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><strong>版本</strong>： 4bit ，表示采用的IP协议版本</li>
+<li><strong>首部长度</strong>： 4bit，表示整个IP数据报首部的长度</li>
+<li><strong>区分服务</strong>： 8bit ，该字段一般情况下不使用</li>
+<li><strong>总长度</strong>： 16bit ，表示整个IP报文的长度,能表示的最大字节为2^16-1&#x3D;65535字节</li>
+<li><strong>标识</strong>： 16bit ， IP软件通过计数器自动产生，每产生1个数据报计数器加1；在ip分片以后，用来标识同一片分片</li>
+<li><strong>标志</strong>： 3bit，目前只有两位有意义。<br>MF，置1表示后面还有分片，置0表示这是数据报片的最后1个；<br>DF，不能分片标志，置0时表示允许分片</li>
+<li><strong>片偏移</strong>： 13bit，表示IP分片后，相应的IP片在总的IP片的相对位置</li>
+<li><strong>生存时间TTL(Time To Live)</strong> ：8bit,表示数据报在网络中的生命周期，用通过路由器的数量来计量，即跳数（每经过一个路由器会减1）</li>
+<li><strong>协议</strong>：8bit，标识上层协议（TCP&#x2F;UDP&#x2F;ICMP…）</li>
+<li><strong>首部校验和</strong>：16bit ，对数据报首部进行校验，不包括数据部分</li>
+<li><strong>源地址</strong>：32bit，标识IP片的发送源IP地址</li>
+<li><strong>目的地址</strong>：32bit，标识IP片的目的地IP地址</li>
+<li><strong>选项</strong>：可扩充部分，具有可变长度，定义了安全性、严格源路由、松散源路由、记录路由、时间戳等选项</li>
+<li><strong>填充</strong>：用全0的填充字段补齐为4字节的整数倍</li>
+</ul>
+<h3 id="数据报分片"><a href="#数据报分片" class="headerlink" title="数据报分片"></a>数据报分片</h3><p><strong>分片原因</strong></p>
+<p>数据报长度大于传输链路的MTU</p>
+<blockquote>
+<p>MTU（Maximum Transmission Unit）, 最大传输单元</p>
+<ul>
+<li>链路MTU</li>
+<li>路径MTU (Path MTU)</li>
+</ul>
+</blockquote>
+<p><strong>分片策略</strong></p>
+<ul>
+<li>允许途中分片：根据下一跳链路的MTU实施分片</li>
+<li>不允许途中分片：发出的数据报长度小于路径MTU（路径MTU发现机制）</li>
+</ul>
+<p><strong>重组策略</strong></p>
+<ul>
+<li>途中重组，实施难度太大</li>
+<li>目的端重组（互联网采用的策略）</li>
+<li>重组所需信息：原始数据报编号、分片偏移量、是否收集所有分片</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/20210630204933942.png" alt="在这里插入图片描述"></p>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/20210630205552106.png" alt="在这里插入图片描述"><br>IPv4分片策略</p>
+<ul>
+<li>IPv4分组在传输途中可以多次分片<ul>
+<li>源端系统，中间路由器（可通过标志位设定是否允许路由器分片，DF标志位）</li>
+</ul>
+</li>
+<li>IPv4分片只在目的IP对应的目的端系统进行重组</li>
+<li>IPv4分片、重组字段在基本IP头部<ul>
+<li>标识、标志、片偏移</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注：分组 (packet) 与 帧(frame)的关系</p>
+</blockquote>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/20210623164836329.png" alt="在这里插入图片描述"></p>
+<h2 id="路由聚合"><a href="#路由聚合" class="headerlink" title="路由聚合"></a>路由聚合</h2><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/a0846ab8c5cb965f3edd3393f1d38db.jpg" alt="路由聚合"></p>
+<h2 id="最长匹配原则"><a href="#最长匹配原则" class="headerlink" title="最长匹配原则"></a>最长匹配原则</h2><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/1daa6bf70d81ef6688723bcd279b422.jpg" alt="最长匹配原则"></p>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/6115df1cec2685215962b7709e6912a.png" alt="ABCD"></p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>NAT（Network Address Translator，网络地址转换）是用于在本地网络中使用私有地址，在连接互联网时转而使用全局 IP 地址的技术。NAT实际上是为解决IPv4地址短缺而开发的技术。</p>
+<h3 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h3><p>如下图所示，以 10.0.0.10 的主机与 163.221.120.9 的主机进行通信为例讲解 NAT 的工作机制。利用 NAT，途中的 NAT 路由器将发送源地址从 10.0.0.10 转换为全局的 IP 地址（202.244.174.37）再发送数据。反之，当响应数据从 163.221.120.9 发送过来时，目标地址（202.244.174.37）先被转换成私有 IP 地址 10.0.0.10 以后再被转发。</p>
+<p><img src="https://pic3.zhimg.com/v2-d95f93bf8b45d764fc3ebf2f1e4e0fc6_r.jpg" alt="NAT工作机制"></p>
+<ul>
+<li>网络被分为私网和公网两个部分，NAT网关设置在私网到公网的路由出口位置，双向流量必须都要经过NAT网关</li>
+<li>网络访问只能先由私网侧发起，公网无法主动访问私网主机</li>
+<li>NAT 路由器在两个访问方向上完成两次地址的转换或翻译，出方向做源信息替换，入方向做目的信息替换；</li>
+<li>NAT 路由器的存在对通信双方是保持透明的；</li>
+<li>NAT 路由器为了实现双向翻译的功能，需要维护一张关联表，把会话的信息保存下来。</li>
+</ul>
+<p><strong>动态NAT表项：</strong><br>在内部本地地址转换的时候，在地址池中选择一个空闲的，没有正在被使用的地址，来进行转换，一般选择的是在地址池定义中排在前面的地址，当数据传输或者访问完成时就会放回地址池中，以供内部本地的其他主机使用。如果这个地址正在被使用的时候，是不能被另外的主机拿来进行地址转换的。<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/22584aa765307caff54a5a4979e7621.jpg" alt="动态NAT表项"></p>
+<p><strong>静态NAT表项：</strong><br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/3ef3e1fcad6bacfe1c16320f12e1e78.jpg" alt="静态NAT表项"></p>
+<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><p><img src="https://pic3.zhimg.com/80/v2-d4acc0fa3a3a1780f50e2b615a92da4a_1440w.webp" alt="IPv6头部"></p>
+<ul>
+<li><strong>版本（Version）</strong>：4 bit，值为 6（二进制值为 0110）表示 IPv6 报文。</li>
+<li><strong>流量类别（Traffic Class）</strong>：8 bit，这相当于 IPv4 协议中的 ToS 字段。但是，考虑到 ToS 字段这些年的发展，现在都用来做区分服务等级（Differentiated Class of Service，DiffServ）了。所以，即使这个字段和旧的 ToS 字段有些相似，它们的名字要比所传送的值更能确切地反映目前的用处。</li>
+<li><strong>流标签（Flow Label）</strong>：20 bit，IPv6 中新增。流标签可用来标记特定流的报文，以便在网络层区分不同的报文。转发路径上的路由器可以根据流标签来区分流并进行处理。由于流标签在 IPv6 报文头中携带，转发路由器可以不必根据报文内容来识别不同的流，目的节点也同样可以根据流标签识别流，同时由于流标签在报文头中，因此使用 IPSec 后仍然可以根据流标签进行 QoS 处理。</li>
+<li><strong>有效载荷长度（Payload Length）</strong>：16 bit，以字节为单位的 IPv6 载荷长度，也就是 IPv6 报文基本头以后部分的长度（包括所有扩展头部分）。IPv4 的总长度字段是 16 位的，但 IPv6 的有效载荷长度字段却是 20 位，这就意味着该字段能够指定更长的有效载荷（1 048 575 字节，相对 IPv4 中只有 65 535 字节）（本句源自《 TCP &#x2F; IP 路由技术 》，有误）。</li>
+<li><strong>下一报头（Next Header）</strong>：8 bit，用来标识当前头（基本头或扩展头）后下一个头的类型。此域内定义的类型与 IPv4 中的协议域值相同。IPv6 定义的扩展头由基本头或扩展头中的扩展头域链接成一条链。这一机制下处理扩展头更高效，转发路由器只处理必须处理的选项头，提高了转发效率。</li>
+<li><strong>跳数限制（Hop Limit）</strong>：8 bit，和 IPv4 中的 TTL 字段类似。每个转发此报文的节点把此域减 1，如果此域值减到 0 则丢弃。注意：IPv4 中的 TTL 设计之初是以秒（s）为单位的，但实际使用时跟 IPv6 中的 Hop Limit 一样，是以跳数为单位。</li>
+<li><strong>源地址（Source Address）</strong>：128 bit，报文的源地址。</li>
+<li><strong>目的地址（Destination Address）</strong>：128 bit，报文的目的地址。</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/28813e96858275acb6811071beebcb8.jpg"></p>
+<h2 id="ICMP-Internet-Control-Message-Protocol"><a href="#ICMP-Internet-Control-Message-Protocol" class="headerlink" title="ICMP (Internet Control Message Protocol)"></a>ICMP (Internet Control Message Protocol)</h2><p>ICMP协议是一个网络层协议。<br>一个新搭建好的网络，往往需要先进行一个简单的测试，来验证网络是否畅通；但是IP协议并不提供可靠传输。如果丢包了，IP协议并不能通知传输层是否丢包以及丢包的原因。<br>所以我们就需要一种协议来完成这样的功能–ICMP协议。  </p>
+<h3 id="ICMP的功能"><a href="#ICMP的功能" class="headerlink" title="ICMP的功能"></a>ICMP的功能</h3><ol>
+<li>确认IP包是否成功到达目标地址</li>
+<li>通知在发送过程中IP包被丢弃的原因</li>
+</ol>
+<p>如下图所示：<br><img src="https://pic3.zhimg.com/80/v2-eb93dde037798b7854c6f22273ad6f86_1440w.webp"></p>
+<h3 id="ICMP的报文格式"><a href="#ICMP的报文格式" class="headerlink" title="ICMP的报文格式"></a>ICMP的报文格式</h3><p>ICMP报文分两类，即ICMP差错报告报文和ICMP询问报文<br><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/d83d8b045e2006883b6c7dfb820afe6.png"></p>
+<h2 id="ARP-Address-Resolution-Protocol"><a href="#ARP-Address-Resolution-Protocol" class="headerlink" title="ARP (Address Resolution Protocol)"></a>ARP (Address Resolution Protocol)</h2><h3 id="ARP的功能和操作原理"><a href="#ARP的功能和操作原理" class="headerlink" title="ARP的功能和操作原理"></a>ARP的功能和操作原理</h3><p>ARP是用来将<strong>IP地址解析为MAC地址的协议</strong>。主机或三层网络设备上会维护一张ARP表，用于存储IP地址和MAC地址的映射关系，一般ARP表项包括动态ARP表项和静态ARP表项。</p>
+<ol>
+<li>主机A首先查看自己的ARP缓存表，确定其中是否包含有主机B对应的ARP表项。如果找到了对应的MAC地址，则主机A直接利用ARP表中的MAC地址，对IP数据包进行帧封装，并将数据包发送给主机B。</li>
+<li>如果主机A在ARP表中找不到对应的MAC地址，则将缓存该数据报文，然后以广播方式发送一个ARP请求报文。ARP请求报文中的发送端IP地址和发送端MAC地址为主机A的IP地址和MAC地址，目标IP地址和目标MAC地址为主机B的IP地址和全0的MAC地址。由于ARP请求报文以广播方式发送，该网段上的所有主机都可以接收到该请求，但只有被请求的主机（即主机B）会对该请求进行处理。</li>
+<li>主机B比较自己的IP地址和ARP请求报文中的目标IP地址，当两者相同时进行如下处理：将ARP请求报文中的发送端（即主机A）的IP地址和MAC地址存入自己的ARP表中。之后以单播方式发送ARP响应报文给主机A，其中包含了自己的MAC地址。</li>
+<li>主机A收到ARP响应报文后，将主机B的MAC地址加入到自己的ARP表中以用于后续报文的转发，同时将IP数据包进行封装后发送出去。</li>
+</ol>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/9a67212f6b89fe8626563e3904753b2.jpg" alt="ARP"></p>
+<blockquote>
+<p>补充：将MAC地址解析为IP地址的协议为RARP</p>
+</blockquote>
+<h3 id="ARP的报文格式"><a href="#ARP的报文格式" class="headerlink" title="ARP的报文格式"></a>ARP的报文格式</h3><p><img src="https://www.qinqianshan.com/img/web/web_basic/arp-format-1.gif" alt="ARP的报文格式"></p>
+<h3 id="代理ARP"><a href="#代理ARP" class="headerlink" title="代理ARP"></a>代理ARP</h3><p>代理ARP的原理就是当出现跨网段的ARP请求时，路由器将自己的MAC返回给发送ARP广播请求发送者，实现MAC地址代理（善意的欺骗），最终使得主机能够通信。<br><img src="https://img2018.cnblogs.com/blog/677113/201903/677113-20190307142825761-480595002.png" alt="代理ARP"></p>
+<h2 id="DHCP-Dynamic-Host-Configuration-Protocol"><a href="#DHCP-Dynamic-Host-Configuration-Protocol" class="headerlink" title="DHCP (Dynamic Host Configuration Protocol)"></a>DHCP (Dynamic Host Configuration Protocol)</h2><p>在DHCP的帮助下，可以动态地给网络上的任何设备或节点分配一个互联网协议IP地址，使它们可以使用这个IP进行通信。网络管理员的任务是将大量的IP地址手动分配给网络中的所有设备。然而，在DHCP中，这个任务是自动化的，是集中管理，而不是手工管理。无论是小型本地网络还是大型企业网络都实现了DHCP。DHCP的基本目标是为主机分配一个唯一的IP地址。</p>
+<ul>
+<li>DHCP Discover：由客户端发出，用来发现DHCP服务器。</li>
+<li>DHCP Offer：由DHCP服务器发出，告诉客户端，我可以提供IP地址。</li>
+<li>DHCP Request：由客户端发出，告诉对应的DHCP服务器，我需要IP地址。</li>
+<li>DHCP ACK：由DHCP服务器发出，提供客户端响应的IP地址。</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/c76f780ce35ae2b38f2acc596556cd7.jpg" alt="DHCP"></p>
+<h2 id="DHCP-Relay"><a href="#DHCP-Relay" class="headerlink" title="DHCP Relay"></a>DHCP Relay</h2><p>DHCP Relay：DHCP中继（也叫做DHCP中继代理），其可以实现在不同子网和物理网段之间处理和转发DHCP信息的功能<br>如果DHCP客户端与DHCP服务器在同一个物理网段，则客户机可以正确地获得动态分配的IP地址。<br>如果不在同一个物理网段，则需要DHCP Relay（DHCP中继代理）</p>
+<h3 id="DHCP-Relay原理"><a href="#DHCP-Relay原理" class="headerlink" title="DHCP Relay原理"></a>DHCP Relay原理</h3><p>当DHCP Client启动并进行DHCP初始化时，它会在本地网络广播配置请求报文<br>如果本地网络存在DHCP Server，则可以直接进行DHCP配置，不需要DHCP Relay<br>如果本地网络没有DHCP Server，则与本地网络相连的具有DHCP Relay功能的网络设备收到该广播报文后，将进行适当处理并转发给指定的其它网络上的DHCP Server<br>DHCP Server根据DHCP Client提供的信息进行相应的配置，并通过DHCP Relay将配置信息发送给DHCP Client，完成对DHCP Client的动态配置</p>
+<ul>
+<li>事实上，从开始到最终完成配置，需要多个这样的交互过程：  <ul>
+<li>DHCP Relay设备修改DHCP消息中响应字段，把DHCP的广播包改成单播包，并负责在服务器与客户机直接转换  </li>
+<li>三层交换机可以作为DHCP Relay代理</li>
+</ul>
+</li>
+</ul>
+<h2 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h2><p>内部网关协议<br>特点：拓扑结构发生变化后，可以<strong>快速</strong>地<strong>自动</strong>绕开有故障的路由器和线路，选择一个迂回路由</p>
+<ul>
+<li>每个AS（自治系统）划分为若干个区域，每个区域都有一个4字节编号</li>
+<li>因此每个AS都有一个唯一的骨干网，骨干网的编号为0，其他所有的区域都与之相连</li>
+<li>在一个区域内部，每一个路由器都有完全相同的链路状态数据库，并使用相同的最短路由算法</li>
+<li>连接两个区域的路由器必须有两套链路状态数据库</li>
+</ul>
+<p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%9B%BE%E7%89%87/cb05a579591fa77fcc807e373856c21.jpg"></p>
+<h2 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h2><p>外部网关协议</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/387bccf4aba0/">https://jayerine.top/2024/02/06/387bccf4aba0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/a6b483964d38/" title="计算机网络 第三章 数据链路层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">计算机网络 第三章 数据链路层</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">计算机网络 第六章 传输层</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/812f344402b9/" title="计算机网络 第一章 引言"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%80%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第一章 引言</div></div></a></div><div><a href="/2024/02/06/c1da0ecf4a63/" title="计算机网络 第二章 物理层"><img class="cover" src="https://s1.ax1x.com/2023/03/04/ppA2gZF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第二章 物理层</div></div></a></div><div><a href="/2024/02/06/a6b483964d38/" title="计算机网络 第三章 数据链路层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第三章 数据链路层</div></div></a></div><div><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第六章 传输层</div></div></a></div><div><a href="/2024/02/06/a43c44b79301/" title="计算机网络 第四章 介质访问控制子层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第四章 介质访问控制子层</div></div></a></div><div><a href="/2024/02/06/a2d25aae016a/" title="计算机网络冷知识名词"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E5%90%8D%E8%AF%8D%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络冷知识名词</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.</span> <span class="toc-text">第五章 网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">网络层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%90%91%E4%BC%A0%E8%BE%93%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text">网络层向传输层提供的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%EF%BC%88%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">数据报（无连接服务）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E7%94%B5%E8%B7%AF%EF%BC%88%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">虚电路（面向连接服务）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5VS%E8%99%9A%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.3.</span> <span class="toc-text">数据报VS虚电路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.1.</span> <span class="toc-text">路由算法的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96%E5%8E%9F%E5%88%99%E2%80%94%E2%80%94%E6%97%A0%E7%8E%AF"><span class="toc-number">1.3.2.</span> <span class="toc-text">最优化原则——无环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E9%9B%86%E6%A0%91"><span class="toc-number">1.3.3.</span> <span class="toc-text">汇集树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.4.</span> <span class="toc-text">最短路径算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E6%B4%AA%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">泛洪算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%88%E8%87%AA%E9%80%82%E5%BA%94%EF%BC%89"><span class="toc-number">1.3.6.</span> <span class="toc-text">距离矢量算法（自适应）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E5%88%B0%E6%97%A0%E7%A9%B7%E5%A4%A7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">计数到无穷大的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.3.7.</span> <span class="toc-text">链路状态路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="toc-number">1.3.8.</span> <span class="toc-text">层次路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">拥塞控制算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%95%8F%E6%84%9F%E8%B7%AF%E7%94%B1"><span class="toc-number">1.4.1.</span> <span class="toc-text">流量敏感路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B8%E5%8F%AF%E8%AF%81%E6%8E%A7%E5%88%B6"><span class="toc-number">1.4.2.</span> <span class="toc-text">许可证控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E8%84%B1%E8%90%BD"><span class="toc-number">1.4.3.</span> <span class="toc-text">负载脱落</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qos"><span class="toc-number">1.5.</span> <span class="toc-text">Qos</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%95%B4%E5%BD%A2"><span class="toc-number">1.5.1.</span> <span class="toc-text">流量整形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">漏桶算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">令牌桶算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%89%87"><span class="toc-number">1.5.2.</span> <span class="toc-text">分片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.6.</span> <span class="toc-text">IPv4协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.6.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">IPv4数据报格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87"><span class="toc-number">1.6.3.</span> <span class="toc-text">数据报分片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%81%9A%E5%90%88"><span class="toc-number">1.7.</span> <span class="toc-text">路由聚合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-number">1.8.</span> <span class="toc-text">最长匹配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.9.</span> <span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT"><span class="toc-number">1.10.</span> <span class="toc-text">NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="toc-number">1.10.1.</span> <span class="toc-text">工作机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6"><span class="toc-number">1.11.</span> <span class="toc-text">IPv6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-Internet-Control-Message-Protocol"><span class="toc-number">1.12.</span> <span class="toc-text">ICMP (Internet Control Message Protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.12.1.</span> <span class="toc-text">ICMP的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E7%9A%84%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.12.2.</span> <span class="toc-text">ICMP的报文格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP-Address-Resolution-Protocol"><span class="toc-number">1.13.</span> <span class="toc-text">ARP (Address Resolution Protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.13.1.</span> <span class="toc-text">ARP的功能和操作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP%E7%9A%84%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.13.2.</span> <span class="toc-text">ARP的报文格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86ARP"><span class="toc-number">1.13.3.</span> <span class="toc-text">代理ARP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol"><span class="toc-number">1.14.</span> <span class="toc-text">DHCP (Dynamic Host Configuration Protocol)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP-Relay"><span class="toc-number">1.15.</span> <span class="toc-text">DHCP Relay</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DHCP-Relay%E5%8E%9F%E7%90%86"><span class="toc-number">1.15.1.</span> <span class="toc-text">DHCP Relay原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF"><span class="toc-number">1.16.</span> <span class="toc-text">OSPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BGP"><span class="toc-number">1.17.</span> <span class="toc-text">BGP</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://gcore.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script id="canvas_nest" defer="defer" color="255,240,245" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
