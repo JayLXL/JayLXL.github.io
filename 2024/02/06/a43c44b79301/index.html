@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络 第四章 介质访问控制子层 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="第四章 介质访问控制子层要解决：各个站点如何在不起冲突的情况下把通信完成 信道分配问题M&#x2F;M&#x2F;1系统：多用户在同一个线路上发数据  第一个M：有多个数据包，每个数据包按照泊松分布的概率来发送    第二个M：每一个数据包在线路上的时间也按概率分布    1：只有一个线路    在周期T中有K个数据到达的概率满足泊松分布    $T$：平均等待时间（排队时间+服务时间）  $\l">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络 第四章 介质访问控制子层 | Jay and Erine's Blog</title><meta name="author" content="Jay and Erine"><meta name="copyright" content="Jay and Erine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="FFF6E2"><meta name="description" content="第四章 介质访问控制子层要解决：各个站点如何在不起冲突的情况下把通信完成 信道分配问题M&#x2F;M&#x2F;1系统：多用户在同一个线路上发数据  第一个M：有多个数据包，每个数据包按照泊松分布的概率来发送    第二个M：每一个数据包在线路上的时间也按概率分布    1：只有一个线路      在周期T中有K个数据到达的概率满足泊松分布    $T$：平均等待时间（排队时间+服务时间）  $\lambda$：平">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络 第四章 介质访问控制子层">
 <meta property="og:url" content="https://jayerine.top/2024/02/06/a43c44b79301/index.html">
 <meta property="og:site_name" content="Jay and Erine&#39;s Blog">
-<meta property="og:description" content="第四章 介质访问控制子层要解决：各个站点如何在不起冲突的情况下把通信完成 信道分配问题M&#x2F;M&#x2F;1系统：多用户在同一个线路上发数据  第一个M：有多个数据包，每个数据包按照泊松分布的概率来发送    第二个M：每一个数据包在线路上的时间也按概率分布    1：只有一个线路    在周期T中有K个数据到达的概率满足泊松分布    $T$：平均等待时间（排队时间+服务时间）  $\l">
+<meta property="og:description" content="第四章 介质访问控制子层要解决：各个站点如何在不起冲突的情况下把通信完成 信道分配问题M&#x2F;M&#x2F;1系统：多用户在同一个线路上发数据  第一个M：有多个数据包，每个数据包按照泊松分布的概率来发送    第二个M：每一个数据包在线路上的时间也按概率分布    1：只有一个线路      在周期T中有K个数据到达的概率满足泊松分布    $T$：平均等待时间（排队时间+服务时间）  $\lambda$：平">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg">
 <meta property="article:published_time" content="2024-02-06T04:00:21.561Z">
@@ -138,22 +138,22 @@
       detectApple()
     })(window)</script><link rel="stylesheet" href="/css/fish.css"><script src="/js/sakura.js"></script><link rel="stylesheet" href="/css/footer_trans.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/mathjax_display.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jay and Erine's Blog" type="application/atom+xml">
 </head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Jay and Erine's Blog"><span class="site-name">Jay and Erine's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">计算机网络 第四章 介质访问控制子层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-06T04:00:21.561Z" title="Created 2024-02-06 12:00:21">2024-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-06T04:00:21.561Z" title="Updated 2024-02-06 12:00:21">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">专业课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络 第四章 介质访问控制子层"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="第四章-介质访问控制子层"><a href="#第四章-介质访问控制子层" class="headerlink" title="第四章 介质访问控制子层"></a>第四章 介质访问控制子层</h1><p>要解决：各个站点如何在不起冲突的情况下把通信完成</p>
-<h2 id="信道分配问题"><a href="#信道分配问题" class="headerlink" title="信道分配问题"></a>信道分配问题</h2><p><strong>M&#x2F;M&#x2F;1系统</strong>：多用户在同一个线路上发数据</p>
+<h2 id="信道分配问题"><a href="#信道分配问题" class="headerlink" title="信道分配问题"></a>信道分配问题</h2><p><strong>M/M/1系统</strong>：多用户在同一个线路上发数据</p>
 <ul>
 <li><p><strong>第一个M</strong>：有多个数据包，每个数据包按照泊松分布的概率来发送  </p>
 </li>
 <li><p><strong>第二个M</strong>：每一个数据包在线路上的时间也按概率分布  </p>
 </li>
-<li><p><strong>1</strong>：只有一个线路</p>
+<li><p><strong>1</strong>：只有一个线路  </p>
 </li>
 </ul>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/1.png" alt="M/M/1系统"></p>
 <p>在周期T中有K个数据到达的概率满足泊松分布</p>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/2.png" alt="平均等待时间">  </p>
 <p>$T$：平均等待时间（排队时间+服务时间） </p>
-<p>$\lambda$：平均到达率(frames&#x2F;sec)  </p>
-<p>$1&#x2F;\mu$：平均帧长(bits&#x2F;frame)    </p>
-<p>$C$：数据传输速率，信道容量(bps)，服务速率为µC(frames&#x2F;sec)</p>
+<p>$\lambda$：平均到达率(frames/sec)  </p>
+<p>$1/\mu$：平均帧长(bits/frame)    </p>
+<p>$C$：数据传输速率，信道容量(bps)，服务速率为µC(frames/sec)</p>
 <p><strong><font color=#fea401>静态信道分配：</font></strong></p>
 <p>把单个信道拆分成N个独立的子信道（时分复用或频分复用），<strong>每个信道的容量</strong>为${\frac{C}{N}}$  </p>
 <p><strong>平均到达率</strong>：${\frac{\lambda}{N}}$  </p>
@@ -168,29 +168,33 @@
 </li>
 </ul>
 <p><strong><font color=#ff8b61>随机多路访问：</font></strong> 想发就发  </p>
-<p><strong><font color=#ff8aaf>协议：</font></strong> ALOHA,CSMA（载波侦听多路访问）,CSMA&#x2F;CD（载波侦听多路访问，带冲突检测）,CSMA&#x2F;CA（载波侦听多路访问，带冲突避免）</p>
+<p><strong><font color=#ff8aaf>协议：</font></strong> ALOHA,CSMA（载波侦听多路访问）,CSMA/CD（载波侦听多路访问，带冲突检测）,CSMA/CA（载波侦听多路访问，带冲突避免）</p>
 <p><strong><font color=#ff8aaf>动态信道分配的五个关键假设：</font></strong></p>
 <ul>
-<li><p><font color=#b59bfd>站点：</font>  </p>
+<li><font color=#b59bfd>站点：</font>  
+
 <p>N个独立的站点，每个程序都要产生一些帧用于传输  </p>
 <p>在长度为t的区间内生成一帧的概率为λt，其中λ为常数（新帧的到达率）  </p>
 <p>一旦生成了一个帧，在这一帧被成功发送出去之前（不管是否接收，全部发送出去就行），站就会进入阻塞状态</p>
 </li>
-<li><p><font color=#b59bfd>单信道假设：</font>  </p>
+<li><font color=#b59bfd>单信道假设：</font>  
+
 <p>所有通信的站点是分布式的  </p>
 <p>可以用于通信的信道只有一个   </p>
 <p>所有的站都可以发送也可以接收，接收是广播式的  </p>
 <p>所有的站都是平等的，尽管协议软件可以为它们分配优先级  </p>
 </li>
-<li><p><font color=#b59bfd>连续时间和分槽时间：</font></p>
+<li><font color=#b59bfd>连续时间和分槽时间：</font>
+
 <ul>
 <li><p><font color=#DA70D6>连续时间：</font><br>帧传输可以在任何时刻开始  </p>
 </li>
-<li><p><font color=#DA70D6>分槽时间：</font><br>把时间分成很多个时间片<br>每个站点只能在时间片的起始点发送<br>一个时间槽可以包含0个帧（空闲插槽，谁都不发数据，带宽被浪费掉了）、1个帧（成功传输）或更多帧（产生冲突，也浪费掉了）</p>
+<li><p><font color=#DA70D6>分槽时间：</font><br>把时间分成很多个时间片<br>每个站点只能在时间片的起始点发送<br>一个时间槽可以包含0个帧（空闲插槽，谁都不发数据，带宽被浪费掉了）、1个帧（成功传输）或更多帧（产生冲突，也浪费掉了）  </p>
 </li>
 </ul>
 </li>
-<li><p><font color=#b59bfd>载波侦听：</font></p>
+<li><font color=#b59bfd>载波侦听：</font>
+
 <ul>
 <li><p>在尝试使用该信道之前，站点可以分辨清楚该信道是否正在使用（有没有载波）。如果处于繁忙状态，就不会发送数据，直到它闲置</p>
 </li>
@@ -229,20 +233,20 @@
 <ul>
 <li><p><font color=#b59bfd>吞吐量S：</font> <strong>每一个帧时</strong>可以平均成功传输的帧数，吞吐量越高越好<br>$0\leq S\leq 1$</p>
 </li>
-<li><p><font color=#b59bfd>网络负载G：</font> <strong>每一个帧时</strong>向网络注入了多少帧的数据<br><font color=#FF6347>$G&#x3D;\lambda（平均到达率）×T（平均等待时间）$</font><br>$S\leq G$</p>
+<li><p><font color=#b59bfd>网络负载G：</font> <strong>每一个帧时</strong>向网络注入了多少帧的数据<br><font color=#FF6347>$G=\lambda（平均到达率）×T（平均等待时间）$</font><br>$S\leq G$</p>
 </li>
 </ul>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/6.jpg" alt="纯ALOHA协议"></p>
 <p>在T时间内有K个数据到达的概率满足泊松分布</p>
-<p>$P_0&#x3D;P[在整个易受冲突时期内没有其他数据发送（到达时间间隔&gt;2T）]&#x3D;e^{-\lambda(2T)}&#x3D;e^{-2G}$</p>
-<p>吞吐量：$S &#x3D; G×P_0 &#x3D; Ge^{-2G}$</p>
-<p>通过求导求出，当$G&#x3D;0.5$，最大值为$S&#x3D;{\frac{1}{2e}}≈0.184$</p>
+<p>$P_0=P[在整个易受冲突时期内没有其他数据发送（到达时间间隔&gt;2T）]=e^{-\lambda(2T)}=e^{-2G}$</p>
+<p>吞吐量：$S = G×P_0 = Ge^{-2G}$</p>
+<p>通过求导求出，当$G=0.5$，最大值为$S={\frac{1}{2e}}≈0.184$</p>
 <p><strong><font color=#ff8b61>分槽ALOHA：</font></strong></p>
 <p>将时间划分为离散的间隔，每个间隔对应一个帧，因此每个用户必须在时间槽的起始点发送数据</p>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/7.png" alt="分槽ALOHA"></p>
-<p>$P_0&#x3D;P[到达时间间隔&gt;T]&#x3D;e^{-\lambda T}&#x3D;e^{-G}$</p>
-<p>当$G&#x3D;1$，最大值为$S&#x3D;{\frac{1}{e}}≈0.368$</p>
-<p>G&#x3D;1时：<br>时间槽为空：37%（生成零帧的概率为$e^{-G}$）<br>成功发送：37%<br>产生冲突：26%</p>
+<p>$P_0=P[到达时间间隔&gt;T]=e^{-\lambda T}=e^{-G}$</p>
+<p>当$G=1$，最大值为$S={\frac{1}{e}}≈0.368$</p>
+<p>G=1时：<br>时间槽为空：37%（生成零帧的概率为$e^{-G}$）<br>成功发送：37%<br>产生冲突：26%</p>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/8.jpg" alt="ALOHA"></p>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/9.png" alt="ALOHA"></p>
 <p><strong><font color=#fea401>CSMA协议：</font></strong></p>
@@ -253,21 +257,23 @@
 </li>
 <li><p>如果产生冲突，等待一段随机的时间，然后重新发送</p>
 </li>
-<li><p><font color=#FF6347>低负载时有低延迟，高负载时有低吞吐量</font></p>
+<li><font color=#FF6347>低负载时有低延迟，高负载时有低吞吐量</font>
+
 </li>
 </ul>
 <p><strong><font color=#ff8b61>非坚持CSMA：</font></strong></p>
 <ul>
 <li><p>如果信道繁忙，则等待随机的一段时间，然后再次检测信道（不是立即）</p>
 </li>
-<li><p><font color=#FF6347>高负载时有高吞吐量</font></p>
+<li><font color=#FF6347>高负载时有高吞吐量</font>
+
 </li>
 </ul>
 <p><strong><font color=#ff8b61>p-坚持CSMA：</font></strong></p>
 <ul>
 <li><p>如果信道繁忙，则等待下一个时间槽</p>
 </li>
-<li><p>如果空闲，则以p为概率发送帧，当概率为q&#x3D;1-p时，它将延迟到下一个时间槽</p>
+<li><p>如果空闲，则以p为概率发送帧，当概率为q=1-p时，它将延迟到下一个时间槽</p>
 </li>
 <li><p>重复此过程直到帧已发送或另一个站已开始发送为止</p>
 </li>
@@ -275,51 +281,73 @@
 </li>
 </ul>
 <p><strong>产生冲突的原因：</strong><br><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/10.png" alt="产生冲突的原因"></p>
-<p><strong><font color=#ff8b61>CDMA&#x2F;CD：</font></strong></p>
+<p><strong><font color=#ff8b61>CDMA/CD：</font></strong></p>
 <p>当每个站点检测到冲突的时候，为了节约时间和带宽，应立即放弃当前传输；当通过危险期之后，则不可能产生冲突</p>
 <p><strong><font color=#fea401>带冲突检测的CSMA：</font></strong></p>
-<p><strong><font color=#ff8aaf>1-坚持CDMA&#x2F;CD：</font></strong>  </p>
+<p><strong><font color=#ff8aaf>1-坚持CDMA/CD：</font></strong>  </p>
 <p>当某个站点检测到信道空闲时，一边立即发送数据，一边继续检测，如果检测到产生冲突，立即中止传输</p>
-<p><font color=#b59bfd>信道的三种状态：</font> 传输、竞争、空闲</p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/11.png" alt="信道的三种状态"></p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/12.png" alt="竞争时间"></p>
-<p>单通道的CSMA&#x2F;CD本质上是一个<font color=#FF6347>半双工</font>系统</p>
-<p><strong><font color=#fea401>无线局域网协议</font></strong></p>
-<ul>
-<li><p>无法检测到冲突（接收到的信号的强度是发送的百万分之一，无法检测到信号是否叠加），要使用ACK发现冲突</p>
-</li>
-<li><p>无线电发送器都有固定的覆盖范围</p>
-</li>
-<li><p>在一些无线局域网中，不是所有的站点都在其中某一个站点的覆盖范围里</p>
-</li>
-<li><p>干扰产生在接收方，而非发送方</p>
-</li>
-<li><p>CSMA&#x2F;CD不适用于无线局域网</p>
-</li>
-</ul>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/25.jpg" alt="无线局域网协议"><br>(a)隐藏站问题<br>(b)暴露站问题</p>
-<p>解决方法：</p>
-<p><strong><font color=#ff8b61>MACA冲突避免多路访问：</font></strong></p>
-<ol>
-<li>A发送RTS帧(request to send)给B（30字节，包含数据长度）  </li>
-<li>B回答CTS帧(clear to send)给A（包含从RTS中的数据长度）  </li>
-<li>A接收到CTS帧后，开始数据传输</li>
-</ol>
-<p>A发送RTS后，或B发送CTS后，其他站点要计算出从此刻开始到A发送完数据要用的时间，并在这段时间内保持沉默</p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/26.png" alt="MACA"></p>
-<h2 id="以太网-IEEE-802-3"><a href="#以太网-IEEE-802-3" class="headerlink" title="以太网(IEEE 802.3)"></a>以太网(IEEE 802.3)</h2><p><strong><font color=#fea401>以太网电缆：</font></strong></p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/27.jpg" alt="以太网电缆"></p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/29.jpg" alt="以太网电缆"></p>
-<p><strong>10BaseT：</strong></p>
-<ul>
-<li><p>HUB<br>每个站点有专用的电缆连接到HUB继线器上<br>物理上星状结构，逻辑上总线结构；任意站发送，所有站接收</p>
-</li>
-<li><p>RJ-45, 5 UTP<br><font color=#FF6347>两对线</font>，分别用于收和发<br>差分传输：减少电磁干扰<br>同一线对的绞合：减少近端串扰</p>
-</li>
-</ul>
-<p>以太网的拓扑结构：<br><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/28.png" alt="以太网的拓扑结构"></p>
-<p><strong>以太网编码：</strong></p>
-<p><font color=#FF6347>Manchester编码：波特率是比特率的两倍</font></p>
+<font color=#b59bfd>信道的三种状态：</font> 传输、竞争、空闲
+
+![信道的三种状态](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/11.png)
+
+![竞争时间](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/12.png)
+
+单通道的CSMA/CD本质上是一个<font color=#FF6347>半双工</font>系统
+
+**<font color=#fea401>无线局域网协议</font>**
+
+* 无法检测到冲突（接收到的信号的强度是发送的百万分之一，无法检测到信号是否叠加），要使用ACK发现冲突
+
+* 无线电发送器都有固定的覆盖范围
+
+* 在一些无线局域网中，不是所有的站点都在其中某一个站点的覆盖范围里
+
+* 干扰产生在接收方，而非发送方
+
+* CSMA/CD不适用于无线局域网
+
+![无线局域网协议](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/25.jpg)
+(a)隐藏站问题  
+(b)暴露站问题
+
+解决方法：
+
+**<font color=#ff8b61>MACA冲突避免多路访问：</font>**
+
+1. A发送RTS帧(request to send)给B（30字节，包含数据长度）  
+2. B回答CTS帧(clear to send)给A（包含从RTS中的数据长度）  
+3. A接收到CTS帧后，开始数据传输
+
+A发送RTS后，或B发送CTS后，其他站点要计算出从此刻开始到A发送完数据要用的时间，并在这段时间内保持沉默
+
+![MACA](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/26.png)
+
+## 以太网(IEEE 802.3)
+
+**<font color=#fea401>以太网电缆：</font>**
+
+![以太网电缆](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/27.jpg)
+
+![以太网电缆](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/29.jpg)
+
+**10BaseT：**
+
+* HUB   
+  每个站点有专用的电缆连接到HUB继线器上  
+  物理上星状结构，逻辑上总线结构；任意站发送，所有站接收
+
+* RJ-45, 5 UTP  
+  <font color=#FF6347>两对线</font>，分别用于收和发  
+  差分传输：减少电磁干扰  
+  同一线对的绞合：减少近端串扰
+
+以太网的拓扑结构：
+![以太网的拓扑结构](https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/28.png)
+
+**以太网编码：**
+
+<font color=#FF6347>Manchester编码：波特率是比特率的两倍</font>
+
 <p><strong><font color=#fea401>以太网MAC子层协议：</font></strong></p>
 <p><strong><font color=#ff8b61>帧格式：</font></strong></p>
 <p><img src="https://s1.ax1x.com/2023/04/07/ppTVSJK.png" alt="帧格式"></p>
@@ -328,13 +356,13 @@
 <p><img src="https://s1.ax1x.com/2023/04/07/ppTrBGt.png" alt="IEEE 802地址实例"></p>
 <p><strong><font color=#ff8b61>帧的长度：</font></strong></p>
 <p><img src="https://s1.ax1x.com/2023/04/07/ppTcVY9.png" alt="帧的长度"></p>
-<p><strong><font color=#ff8b61>二进制指数退避算法(CSMA&#x2F;CA)：</font></strong></p>
+<p><strong><font color=#ff8b61>二进制指数退避算法(CSMA/CA)：</font></strong></p>
 <p>时隙长度：51.2µsec</p>
 <p>产生冲突后，每个产生冲突的站都要随机生成一个数n，接着退避n个周期，即在n个周期内不允许发送数据</p>
-<p>第1次碰撞，随机数0<del>1<br>第2次碰撞，随机数0</del>3<br>……<br>第9次碰撞，随机数0<del>511<br>第10次碰撞，随机数0</del>1023<br>第11次碰撞，随机数0<del>1023<br>……<br>第16次碰撞，随机数0</del>1023</p>
+<p>第1次碰撞，随机数0~1<br>第2次碰撞，随机数0~3<br>……<br>第9次碰撞，随机数0~511<br>第10次碰撞，随机数0~1023<br>第11次碰撞，随机数0~1023<br>……<br>第16次碰撞，随机数0~1023</p>
 <p>16次碰撞后，则向高层报告失败<br>当有较少的站发生冲突时，可以保证低延迟<br>当有很多的站发生冲突时，可以保证冲突在一个合理的时间间隔内解决<br>在1023内截断回退可以防止边界变得太大</p>
 <p><strong><font color=#fea401>以太网性能：</font></strong></p>
-<p><strong><font color=#ff8b61>IEEE 802.3性能：</font></strong><br>Frame length: F<br>Bandwith: B<br>Cable length: L<br>Speed of signal propagation: c<br>channel efficency &#x3D; ${\frac{1}{1+2eBL&#x2F;cF}}$ </p>
+<p><strong><font color=#ff8b61>IEEE 802.3性能：</font></strong><br>Frame length: F<br>Bandwith: B<br>Cable length: L<br>Speed of signal propagation: c<br>channel efficency = ${\frac{1}{1+2eBL/cF}}$ </p>
 <p>512位时间槽下，10Mbps的以太网的效率</p>
 <p><img src="https://s1.ax1x.com/2023/04/08/pp7tGOs.png" alt="以太网的效率"></p>
 <p><strong><font color=#fea401>交换式以太网：</font></strong>  </p>
@@ -351,12 +379,12 @@
 </li>
 </ul>
 <p><strong><font color=#ff8b61>冲突域：</font></strong>  </p>
-<p><strong>HUB</strong>：<br>所有站都在同一冲突域中(按照CSMA&#x2F;CD进行通信)  </p>
-<p><strong>Switch</strong>：<br>每个端口都是自己独立的冲突域<br>如果电缆是全双工，站和端口都可以在同一时间发送一个帧，不可能发生冲突，不需要CSMA&#x2F;CD<br>如果电缆是半双工，站和端口必须与CSMA&#x2F;CD竞争传输</p>
+<p><strong>HUB</strong>：<br>所有站都在同一冲突域中(按照CSMA/CD进行通信)  </p>
+<p><strong>Switch</strong>：<br>每个端口都是自己独立的冲突域<br>如果电缆是全双工，站和端口都可以在同一时间发送一个帧，不可能发生冲突，不需要CSMA/CD<br>如果电缆是半双工，站和端口必须与CSMA/CD竞争传输</p>
 <p><strong><font color=#fea401>快速以太网</font></strong>  </p>
 <p><strong><font color=#ff8b61>802.3u（提升了十倍的以太网）：</font></strong> </p>
 <p>保留所有旧的帧格式、接口和过程规则，向后兼容现有的以太网局域网</p>
-<p>将比特时间从100ns减少到10ns，使用<font color=#FF6347>4B&#x2F;5B</font>编码方案</p>
+<p>将比特时间从100ns减少到10ns，使用<font color=#FF6347>4B/5B</font>编码方案</p>
 <p>将最大电缆长度<font color=#FF6347>减少10倍</font></p>
 <p>所有快速以太网系统都使用继线器和交换机</p>
 <p><strong><font color=#ff8b61>快速以太网电缆：</font></strong>  </p>
@@ -364,10 +392,10 @@
 <p><strong><font color=#ff8aaf>100Base-TX：</font></strong>  </p>
 <p>需要<font color=#FF6347>2对双绞线</font>(5类UTP，带宽125MHz)</p>
 <ul>
-<li>一对是从计算机到继线器&#x2F;交换机</li>
-<li>另一对从继线器&#x2F;交换机到计算机</li>
+<li>一对是从计算机到继线器/交换机</li>
+<li>另一对从继线器/交换机到计算机</li>
 </ul>
-<p>4B&#x2F;5B编码方式：125 * 4&#x2F;5 &#x3D; 100Mbps</p>
+<p>4B/5B编码方式：125 * 4/5 = 100Mbps</p>
 <p><strong><font color=#ff8b61>互联设备：</font></strong></p>
 <p><strong><font color=#ff8aaf>继线器(半双工通信)</font></strong>  </p>
 <ul>
@@ -378,7 +406,7 @@
 <p><strong><font color=#ff8aaf>交换机(全双工通信)</font></strong><br>传入帧被缓冲并传递到目的地<br>100Base-FX电缆太长，不符合碰撞算法，必须连接到交换机</p>
 <p><strong><font color=#ff8b61>10Mbps &amp; 100Mbps自动配置：</font></strong></p>
 <ul>
-<li>802.3u提供了一种方法让两站之间<strong>协商速度(10mbps或100mbps)</strong> 和 <strong>双工性(半双工(CSMA&#x2F;CD)或全双工(无冲突))</strong></li>
+<li>802.3u提供了一种方法让两站之间<strong>协商速度(10mbps或100mbps)</strong> 和 <strong>双工性(半双工(CSMA/CD)或全双工(无冲突))</strong></li>
 <li>大多数快速以太网产品都使用这个特性来自动配置自己，优先100M全双工</li>
 </ul>
 <p><strong><font color=#fea401>千兆以太网</font></strong>  </p>
@@ -394,7 +422,7 @@
 <p><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/15.jpg" alt="千兆以太网电缆"></p>
 <p><strong>交换机(全双工模式)</strong></p>
 <ul>
-<li>由于不存在竞争，因此不使用CSMA&#x2F;CD协议</li>
+<li>由于不存在竞争，因此不使用CSMA/CD协议</li>
 <li>电缆的最大长度由信号强度问题决定</li>
 <li>交换机支持自动配置</li>
 </ul>
@@ -402,13 +430,13 @@
 <ul>
 <li>模拟经典以太网<ul>
 <li>电气上连接内部所有线路形成一个总线</li>
-<li>产生冲突是可能的，所以需要CSMA&#x2F;CD协议</li>
+<li>产生冲突是可能的，所以需要CSMA/CD协议</li>
 </ul>
 </li>
 <li>问题:半径25米，变得更短了</li>
 <li>解决方案：<ul>
 <li><font color=#ff8aaf>载波扩充</font><br>在正常帧后添加padding，将帧扩展到<font color=#FF6347>512</font>字节(padding由发送硬件添加，由接收硬件移除)</li>
-<li><font color=#ff8aaf>帧突发</font><br>允许发送方在一次传输中传输多个帧的连接序列，接收方再将每个帧取出来，如果级联起来的整个突发仍然小于<font color=#FF6347>512</font>个字节，则硬件会再次对它进行填充<br>使得网络半径保持在200米</li>
+<li><font color=#ff8aaf>帧突发</font><br>允许发送方在一次传输中传输多个帧的连接序列，接收方再将每个帧取出来，如果级联起来的整个突发仍然小于<font color=#FF6347>512</font>个字节，则硬件会再次对它进行填充<br>使得网络半径保持在200米  </li>
 </ul>
 </li>
 </ul>
@@ -420,21 +448,21 @@
 <li>使用PAUSE帧，512ns~33.6ms</li>
 </ul>
 <h2 id="无线局域网"><a href="#无线局域网" class="headerlink" title="无线局域网"></a>无线局域网</h2><p><strong><font color=#fea401>802.11体系结构</font></strong>  </p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/16.jpg"></p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/17.png"></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/16.jpg" alt=""></p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/17.png" alt=""></p>
 <p><strong><font color=#fea401>802.11协议栈</font></strong>  </p>
-<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/18.jpg"></p>
-<p><strong><font color=#fea401>CSMA&#x2F;CA</font></strong>  </p>
+<p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/18.jpg" alt=""></p>
+<p><strong><font color=#fea401>CSMA/CA</font></strong>  </p>
 <p>802.11 MAC层与以太网不同</p>
 <ul>
 <li>无线电永远是半双工的</li>
 <li>接收信号比发射信号弱$10^6$倍，冲突检测机制不起作用</li>
 </ul>
-<p>使用CSMA&#x2F;CA协议避免冲突</p>
+<p>使用CSMA/CA协议避免冲突</p>
 <ul>
 <li>当一个站有帧要发送时:<ul>
 <li>监听并等待直到通道空闲，然后再<strong>等待一个短的时间DIFS</strong>  </li>
-<li>**随机回退(0~15个时间槽)**：从回退时间开始倒数，当有其他帧在发送时则暂停倒数，当计数器达到0时再发送这一帧  </li>
+<li><strong>随机回退(0~15个时间槽)</strong>：从回退时间开始倒数，当有其他帧在发送时则暂停倒数，当计数器达到0时再发送这一帧  </li>
 <li>如果帧通过，目的地发送一个短的ACK</li>
 <li>缺少ACK则会被推断为冲突或其他错误，将回退时间加倍（范围0~31）后并再次尝试（如以太网中的指数回退）直到成功发送帧或达到重传的最大次数</li>
 </ul>
@@ -453,7 +481,7 @@
 </ul>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/20.jpg" alt="虚拟侦听"></p>
 <ul>
-<li>由于NAV，802.11的RTS&#x2F;CTS不能解决暴露站的问题。C收到B发送的RTS，根据NAV，它将在B的数据帧传输的整个过程中（包括传输ACK）退避，而不能发送给D  </li>
+<li>由于NAV，802.11的RTS/CTS不能解决暴露站的问题。C收到B发送的RTS，根据NAV，它将在B的数据帧传输的整个过程中（包括传输ACK）退避，而不能发送给D  </li>
 <li>而MACA协议将允许同一覆盖范围内两对主机同时通信</li>
 </ul>
 <p><strong><font color=#fea401>提高成功传输的概率（可靠性）</font></strong>  </p>
@@ -526,7 +554,7 @@
 <li>安全性：无线网络在数据链路层支持加密，以太网不支持</li>
 <li>QoS(服务质量:802.11,802.16)</li>
 </ul>
-<p><strong><font color=#ff8b61>透明&#x2F;自学习网桥</font></strong>  </p>
+<p><strong><font color=#ff8b61>透明/自学习网桥</font></strong>  </p>
 <p>工作在混杂模式</p>
 <ul>
 <li>接受它所连接的所有局域网上传输的每一帧</li>
@@ -539,7 +567,7 @@
 <ul>
 <li>如果目的局域网和源局域网相同，则丢弃该帧<br><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/27.jpg" alt="目的局域网和源局域网相同"></li>
 <li>如果目的局域网和源局域网已知且不一致，则转发该帧</li>
-<li>如果目的局域网未知或是组播&#x2F;广播地址，则采用泛洪算法<ul>
+<li>如果目的局域网未知或是组播/广播地址，则采用泛洪算法<ul>
 <li>泛洪算法：对于每个发向未知目标地址的入境帧，网桥将它输出到所有的端口，但它来的那个输入端口除外</li>
 </ul>
 </li>
@@ -552,8 +580,7 @@
 </ul>
 <p>添加</p>
 <ul>
-<li><p>网桥以混杂模式运行，因此它们可以看到在它们的任何局域网上发送的每一帧</p>
-</li>
+<li>网桥以混杂模式运行，因此它们可以看到在它们的任何局域网上发送的每一帧</li>
 <li><p>通过查看源地址，它们可以知道哪台机器在哪个局域网上可访问</p>
 </li>
 <li><p><font color=#b59bfd>动态拓扑：</font><br>站表的每个表项增设一个arrive time域，每当创建一个哈希表条目时，帧的到达时间就会记录在条目中<br>当源地址已经在表中的帧到达时，它的条目将被更新为当前时间<br>定期扫描哈希表并清除所有超过几分钟的条目</p>
@@ -561,8 +588,7 @@
 <li>如果将一台计算机从局域网中拔下，在大楼里四处移动，然后在其他地方重新插上电源，不需要任何人工干预，几分钟内它就会恢复正常工作</li>
 </ul>
 </li>
-<li><p>这种算法还意味着，如果一台机器安静了几分钟，发送给它的任何流量都必须被淹没，直到它下次自己发送一帧，网桥会修改哈希表中的值，或等到被清除</p>
-</li>
+<li>这种算法还意味着，如果一台机器安静了几分钟，发送给它的任何流量都必须被淹没，直到它下次自己发送一帧，网桥会修改哈希表中的值，或等到被清除</li>
 </ul>
 <p><img src="https://blog-pics.obs.myhuaweicloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9B%BE%E7%89%87/28.png" alt="举例"></p>
 <p><strong><font color=#ff8b61>生成树网桥</font></strong>  </p>
@@ -606,7 +632,7 @@
 <ul>
 <li><p><strong><font color=#ff8aaf>中继器：</font></strong><br>中继器是模拟设备，主要用来处理自己所连的线缆上的信号。在一个线缆上出现的信号被清理、放大，然后再被放到另一个线缆上。中继器并不理解帧、数据包或帧头，它们只知道把比特编码成电压的符号</p>
 </li>
-<li><p><strong><font color=#ff8aaf>集线器：</font></strong><br>集线器有许多条输入线路，它将这些输入线路连接在一起。从任何一条线路上到达的帧都被发送到所有其他的线路上。如果两帧同时到达，它们将会冲突，则要遵循CSMA&#x2F;CD<br>集线器与中继器不同，它们（通常）不会放大入境信号，并且可以有多个输入线路，但是，两者之间的差别并不大。与中继器一样，集线器也是<font color=#FF6347>物理层设备</font>，因而它不会检查链路层地址，也不以任何方式使用该地址</p>
+<li><p><strong><font color=#ff8aaf>集线器：</font></strong><br>集线器有许多条输入线路，它将这些输入线路连接在一起。从任何一条线路上到达的帧都被发送到所有其他的线路上。如果两帧同时到达，它们将会冲突，则要遵循CSMA/CD<br>集线器与中继器不同，它们（通常）不会放大入境信号，并且可以有多个输入线路，但是，两者之间的差别并不大。与中继器一样，集线器也是<font color=#FF6347>物理层设备</font>，因而它不会检查链路层地址，也不以任何方式使用该地址</p>
 </li>
 <li><p><strong><font color=#ff8aaf>网桥：</font></strong><br>网桥连接两个或多个局域网，一个现代网桥有多个端口。网桥要能够理解什么是帧，接收帧后检查校验和是否正确，不正确则丢弃，正确则根据帧头的源地址和目的地址，按照洪泛算法等进行工作</p>
 </li>
@@ -628,7 +654,7 @@
 <p><strong><font color=#ff8b61>虚拟局域网</font></strong>  </p>
 <p>使用虚拟局域网的原因：</p>
 <ul>
-<li>广播风暴：广播帧&#x2F;组播帧会在全网进行发送，或单播帧发往一个不存在或暂不知的地址时要用洪泛算法<ul>
+<li>广播风暴：广播帧/组播帧会在全网进行发送，或单播帧发往一个不存在或暂不知的地址时要用洪泛算法<ul>
 <li>局域网容量被这些帧占用</li>
 <li>机器在处理和丢弃所有正在广播的帧时都瘫痪了</li>
 </ul>
@@ -654,10 +680,10 @@
 <li>Pri (3 bits)：表示优先级</li>
 <li>CFI (1 bit)</li>
 <li>VLAN Identifier (12 Bits)：表示颜色</li>
-<li>802.1Q Max frame length: 1522 bytes</li>
+<li>802.1Q Max frame length: 1522 bytes </li>
 </ul>
 <p>……未完待续♬</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/a43c44b79301/">https://jayerine.top/2024/02/06/a43c44b79301/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">计算机网络 第六章 传输层</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/a2d25aae016a/" title="计算机网络冷知识名词"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E5%90%8D%E8%AF%8D%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">计算机网络冷知识名词</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/812f344402b9/" title="计算机网络 第一章 引言"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%80%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第一章 引言</div></div></a></div><div><a href="/2024/02/06/c1da0ecf4a63/" title="计算机网络 第二章 物理层"><img class="cover" src="https://s1.ax1x.com/2023/03/04/ppA2gZF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第二章 物理层</div></div></a></div><div><a href="/2024/02/06/a6b483964d38/" title="计算机网络 第三章 数据链路层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第三章 数据链路层</div></div></a></div><div><a href="/2024/02/06/387bccf4aba0/" title="计算机网络 第五章 网络层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第五章 网络层</div></div></a></div><div><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第六章 传输层</div></div></a></div><div><a href="/2024/02/06/a2d25aae016a/" title="计算机网络冷知识名词"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E5%90%8D%E8%AF%8D%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络冷知识名词</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%AD%90%E5%B1%82"><span class="toc-number">1.</span> <span class="toc-text">第四章 介质访问控制子层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">信道分配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">多路访问协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91-IEEE-802-3"><span class="toc-number">1.3.</span> <span class="toc-text">以太网(IEEE 802.3)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.4.</span> <span class="toc-text">无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">数据链路层交换</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://jayerine.top">Jay and Erine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://jayerine.top/2024/02/06/a43c44b79301/">https://jayerine.top/2024/02/06/a43c44b79301/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">计算机网络 第六章 传输层</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/06/b7e90535f5c5/" title="计算机组成原理 第二章"><img class="cover" src="https://s1.ax1x.com/2023/03/05/ppEhuD0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">计算机组成原理 第二章</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/06/812f344402b9/" title="计算机网络 第一章 引言"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%80%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第一章 引言</div></div></a></div><div><a href="/2024/02/06/a6b483964d38/" title="计算机网络 第三章 数据链路层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E4%B8%89%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第三章 数据链路层</div></div></a></div><div><a href="/2024/02/06/c1da0ecf4a63/" title="计算机网络 第二章 物理层"><img class="cover" src="https://s1.ax1x.com/2023/03/04/ppA2gZF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第二章 物理层</div></div></a></div><div><a href="/2024/02/06/387bccf4aba0/" title="计算机网络 第五章 网络层"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第五章 网络层</div></div></a></div><div><a href="/2024/02/06/7d8e97e1ce2f/" title="计算机网络 第六章 传输层"><img class="cover" src="https://blog-pics.obs.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络 第六章 传输层</div></div></a></div><div><a href="/2024/02/06/a2d25aae016a/" title="计算机网络冷知识名词"><img class="cover" src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E8%AE%A1%E7%BD%91%E5%90%8D%E8%AF%8D%E5%B0%81%E9%9D%A2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-06</div><div class="title">计算机网络冷知识名词</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/02/27/ppCAPEQ.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jay and Erine</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JayLXL/BlogDevelopment"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Jay and Erine are best friend.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%AD%90%E5%B1%82"><span class="toc-number">1.</span> <span class="toc-text">第四章 介质访问控制子层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">信道分配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">多路访问协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.3.</span> <span class="toc-text">无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.4.</span> <span class="toc-text">数据链路层交换</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/137184bfb43a/" title="面试记录"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/Jay%E7%AE%80%E5%8E%86%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试记录"/></a><div class="content"><a class="title" href="/2024/02/06/137184bfb43a/" title="面试记录">面试记录</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/bb4263303c4c/" title="git使用"><img src="https://s1.ax1x.com/2023/03/10/ppnbMQ0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git使用"/></a><div class="content"><a class="title" href="/2024/02/06/bb4263303c4c/" title="git使用">git使用</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"><img src="https://s1.ax1x.com/2023/03/02/ppFFjVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试"/></a><div class="content"><a class="title" href="/2024/02/06/f554b43ffd79/" title="vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试">vscode配置opencv C++ 环境与人脸检测（不是人脸识别）算法的尝试</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）"><img src="https://s1.ax1x.com/2023/03/02/ppFFvaF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两棵树（可持久线段树+Hash+高精度数）"/></a><div class="content"><a class="title" href="/2024/02/06/0e751f91670a/" title="两棵树（可持久线段树+Hash+高精度数）">两棵树（可持久线段树+Hash+高精度数）</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/06/19d418e9f6fa/" title="创新课程"><img src="https://blog-pics.obs.cn-north-4.myhuaweicloud.com/%E5%B0%81%E9%9D%A2/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B0%81%E9%9D%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创新课程"/></a><div class="content"><a class="title" href="/2024/02/06/19d418e9f6fa/" title="创新课程">创新课程</a><time datetime="2024-02-06T04:00:21.577Z" title="Created 2024-02-06 12:00:21">2024-02-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Jay and Erine</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
